@@ -1,27 +1,26 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import {ValidationService} from './services/validation.service';
-import {AuthenticationService} from './services/authentication.service';
-import {AuthGuard} from './services/authGuard';
-import { HeaderComponent } from './components/header/header.component';
-import {LotteryService} from './services/lottery.service';
-import { CountDownComponent } from './components/count-down/count-down.component';
-import {BrowserModule} from '@angular/platform-browser';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {components} from '@components/index';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {OwlDateTimeModule, OwlNativeDateTimeModule} from 'ng-pick-datetime';
 
 @NgModule({
-  exports: [HeaderComponent, CountDownComponent],
-  declarations: [HeaderComponent, CountDownComponent],
+  declarations: [
+    ...components,
+  ],
   imports: [
     CommonModule,
-    BrowserModule,
-    BrowserAnimationsModule
+    FormsModule,
+    ReactiveFormsModule,
+    OwlDateTimeModule,
+    OwlNativeDateTimeModule,
+  ],
+  exports: [
+    ...components,
+    CommonModule,
   ],
   providers: [
-    ValidationService,
-    AuthenticationService,
-    LotteryService,
-    AuthGuard
-  ]
+  ],
 })
-export class SharedModule { }
+export class SharedModule {
+}

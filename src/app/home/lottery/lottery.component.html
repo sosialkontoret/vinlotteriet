@@ -1,9 +1,0 @@
-<div class="standard-background">
-  <app-header [title]="lottery?.name"></app-header>
-
-  <div class="lottery">
-   <app-waiting-to-start *ngIf="lottery && !hasStarted" [winners]="winners" [lottery]="lottery"></app-waiting-to-start>
-    <app-draw (drawFinished)="drawFinished()" *ngIf="lottery && hasStarted" [currentDrawIndex]="currentDrawIndex" [lottery]="lottery" [draw]="currentDraw"></app-draw>
-  </div>
-
-</div>

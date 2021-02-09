@@ -3,12 +3,11 @@ import {interval} from 'rxjs';
 import {map} from 'rxjs/operators';
 
 @Component({
-  selector: 'app-count-down',
+  selector: 'sk-count-down',
   templateUrl: './count-down.component.html',
-  styleUrls: ['./count-down.component.scss']
+  styleUrls: ['./count-down.component.scss'],
 })
 export class CountDownComponent implements OnInit, OnDestroy {
-
 
 // Hardcoded date
   @Input() eventDate: Date;

@@ -1,11 +1,11 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {AuthenticationService} from '../../services/authentication.service';
+import {AuthenticationService} from '@services/authentication';
 
 @Component({
-  selector: 'app-header',
+  selector: 'sk-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
 

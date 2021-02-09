@@ -1,16 +1,16 @@
 import { Component } from '@angular/core';
-import {environment} from '../environments/environment';
+import {environment} from '@env';
 
 @Component({
-  selector: 'app-root',
+  selector: 'sk-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
   title = 'wine-lottery';
   version: string;
 
-  constructor(){
+  constructor() {
     this.version = environment.version;
   }
 }

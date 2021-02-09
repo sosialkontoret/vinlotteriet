@@ -1,0 +1,62 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "src",
+    "paths": {
+      "@env": [
+        "environments/environment"
+      ],
+      "@shared/*": [
+        "app/shared/*"
+      ],
+      "@enums": [
+        "app/shared/enums/*"
+      ],
+      "@models/*": [
+        "app/shared/models/*"
+      ],
+      "@services/*": [
+        "app/core/services/*"
+      ],
+      "@guards": [
+        "app/core/guards/index.ts"
+      ],
+      "@utils/*": [
+        "app/core/utils/*"
+      ],
+      "@pages": [
+        "app/pages/index.ts"
+      ],
+      "@components/*": [
+        "app/shared/components/*"
+      ],
+      "@core/*": [
+        "app/core/*"
+      ],
+      "*": [
+        "app/*"
+      ]
+    },
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "module": "es2020",
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "es5",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2020",
+      "dom"
+    ],
+    "allowSyntheticDefaultImports": true
+  },
+  "angularCompilerOptions": {
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true
+  }
+}

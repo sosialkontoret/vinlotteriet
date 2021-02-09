@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
 import { CountDownComponent } from './count-down.component';
 
@@ -6,9 +6,9 @@ describe('CountDownComponent', () => {
   let component: CountDownComponent;
   let fixture: ComponentFixture<CountDownComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ CountDownComponent ]
+      declarations: [ CountDownComponent ],
     })
     .compileComponents();
   }));

@@ -1,6 +1,6 @@
 import {Timestamp} from '@firebase/firestore-types';
 import {ParticipantModel} from './participant.model';
-import {DrawModel} from './draw.model';
+
 export class LotteryModel {
   id?: string;
   name: string;
