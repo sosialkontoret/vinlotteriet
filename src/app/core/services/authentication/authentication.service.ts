@@ -4,18 +4,19 @@
 import {Injectable} from '@angular/core';
 import {AngularFireAuth} from '@angular/fire/auth';
 import {Observable} from 'rxjs';
-import * as firebase from 'firebase';
 import {Router} from '@angular/router';
 import {AngularFirestore} from '@angular/fire/firestore';
 import {fromPromise} from 'rxjs/internal-compatibility';
+import firebase from 'firebase';
+import User = firebase.User;
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthenticationService {
 
-  private user: Observable<firebase.User>;
-  private userDetails: firebase.User = null;
+  private user: Observable<User>;
+  private userDetails: User = null;
 
   constructor(
     private fb: AngularFireAuth,
