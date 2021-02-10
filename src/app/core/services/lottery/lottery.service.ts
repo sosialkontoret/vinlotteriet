@@ -2,8 +2,9 @@ import {Injectable} from '@angular/core';
 import {AngularFirestore, AngularFirestoreCollection} from '@angular/fire/firestore';
 import {LotteryModel} from '@models/lottery.model';
 import {Observable} from 'rxjs';
-import * as firebase from 'firebase';
 import {DrawModel} from '@models/draw.model';
+import firebase from 'firebase';
+import Timestamp = firebase.firestore.Timestamp;
 
 @Injectable({
   providedIn: 'root',
@@ -23,8 +24,8 @@ export class LotteryService {
   public createLottery(lottery: LotteryModel): Promise<string> {
     const generatedId = this.afs.createId();
     lottery.id = generatedId;
-    lottery.createdDate = firebase.firestore.Timestamp.now();
-    lottery.draws = this.addDraws(lottery).map(obj => {
+    lottery.createdDate = Timestamp.now();
+    lottery.draws = this.addDraws(lottery).map((obj) => {
       return {...obj};
     });
     console.log(lottery);
