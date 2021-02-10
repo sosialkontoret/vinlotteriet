@@ -1,6 +1,6 @@
 export type Environment = {
-  production: boolean,
-  version: string,
+  production: boolean;
+  version: string;
   firebase: {
     apiKey: string;
     authDomain: string;
@@ -9,5 +9,5 @@ export type Environment = {
     storageBucket: string;
     messagingSenderId: string;
     appId: string;
-  },
+  };
 };

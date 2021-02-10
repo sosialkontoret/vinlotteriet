@@ -1,27 +1,22 @@
 /**
  * Created by AleksanderVatleWaage on 07.02.2017.
  */
-import {Injectable} from '@angular/core';
-import {AngularFireAuth} from '@angular/fire/auth';
-import {Observable} from 'rxjs';
+import { Injectable } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { Observable } from 'rxjs';
 import * as firebase from 'firebase';
-import {Router} from '@angular/router';
-import {AngularFirestore} from '@angular/fire/firestore';
-import {fromPromise} from 'rxjs/internal-compatibility';
+import { Router } from '@angular/router';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { fromPromise } from 'rxjs/internal-compatibility';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthenticationService {
-
   private user: Observable<firebase.User>;
   private userDetails: firebase.User = null;
 
-  constructor(
-    private fb: AngularFireAuth,
-    private afs: AngularFirestore,
-    private router: Router,
-    ) {
+  constructor(private fb: AngularFireAuth, private afs: AngularFirestore, private router: Router) {
     this.user = fb.authState;
   }
 
@@ -46,17 +41,14 @@ export class AuthenticationService {
   }
 
   isAuthenticated(): Promise<boolean> {
-    return new Promise(
-      resolve => {
-        this.fb.authState.subscribe(result => {
-          if (result && result.uid) {
-            resolve(true);
-          } else {
-            resolve(false);
-          }
-        });
-      },
-    );
+    return new Promise(resolve => {
+      this.fb.authState.subscribe(result => {
+        if (result && result.uid) {
+          resolve(true);
+        } else {
+          resolve(false);
+        }
+      });
+    });
   }
-
 }

@@ -1,10 +1,10 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {DrawModel} from '@models/draw.model';
-import {of, Subject, timer} from 'rxjs';
-import {catchError, takeUntil} from 'rxjs/operators';
-import {slide} from '@shared/animations/slide.animations';
-import {fadeInOut} from '@shared/animations/fade-in-out.animation';
-import {LotteryModel} from '@models/lottery.model';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { DrawModel } from '@models/draw.model';
+import { of, Subject, timer } from 'rxjs';
+import { catchError, takeUntil } from 'rxjs/operators';
+import { slide } from '@shared/animations/slide.animations';
+import { fadeInOut } from '@shared/animations/fade-in-out.animation';
+import { LotteryModel } from '@models/lottery.model';
 
 @Component({
   selector: 'sk-draw',
@@ -13,7 +13,6 @@ import {LotteryModel} from '@models/lottery.model';
   styleUrls: ['./draw.component.scss'],
 })
 export class DrawComponent implements OnInit {
-
   @Input() draw: DrawModel;
   @Input() lottery: LotteryModel;
   @Input() currentDrawIndex: number;
@@ -56,7 +55,7 @@ export class DrawComponent implements OnInit {
   private generateParticipantList(previousWinners: any[]) {
     const drawList = [];
     this.lottery.participants.forEach(participant => {
-      let numberOfTickets = participant.numberOfTickets;
+      let { numberOfTickets } = participant;
       // remove a ticket if already won.
       const numberOfWinsBefore = previousWinners.filter(name => name === participant.name).length;
       if (numberOfWinsBefore > -1) {
@@ -73,18 +72,17 @@ export class DrawComponent implements OnInit {
 
   private start() {
     const killTrigger: Subject<void> = new Subject();
-    const refreshInterval$ = timer(0, 1000)
-      .pipe(
-        takeUntil(killTrigger),
-        catchError(() => of('Error')),
-      );
+    const refreshInterval$ = timer(0, 1000).pipe(
+      takeUntil(killTrigger),
+      catchError(() => of('Error')),
+    );
 
     refreshInterval$.subscribe(() => {
       if (!this.nameToShow || this.nameToShow === 'winner2') {
-        this.winner1 = this.participants[Math.floor((Math.random() * this.participants.length))];
+        this.winner1 = this.participants[Math.floor(Math.random() * this.participants.length)];
         this.nameToShow = 'winner1';
       } else {
-        this.winner2 = this.participants[Math.floor((Math.random() * this.participants.length))];
+        this.winner2 = this.participants[Math.floor(Math.random() * this.participants.length)];
         this.nameToShow = 'winner2';
       }
     });
@@ -94,11 +92,10 @@ export class DrawComponent implements OnInit {
       this.finished = true;
       this.winner1 = this.draw.winner;
       this.nameToShow = 'winner1';
-    },         20000);
+    }, 20000);
 
     setTimeout(() => {
       this.drawFinished.emit(true);
-    },         30000);
+    }, 30000);
   }
-
 }

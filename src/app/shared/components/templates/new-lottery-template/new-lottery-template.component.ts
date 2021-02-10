@@ -1,9 +1,9 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {Router} from '@angular/router';
-import {ValidationService} from '@services/validation';
-import {LotteryModel} from '@models/lottery.model';
-import {State} from '@models/enums/state.enum';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ValidationService } from '@services/validation';
+import { LotteryModel } from '@models/lottery.model';
+import { State } from '@models/enums/state.enum';
 
 @Component({
   selector: 'sk-new-lottery-template',
@@ -20,14 +20,11 @@ export class NewLotteryTemplateComponent implements OnInit {
   minDate: Date;
   errorMessage: string;
 
-  get isLoading (): boolean {
+  get isLoading(): boolean {
     return this.state === State.IsLoading;
   }
 
-  constructor(
-    private fb: FormBuilder,
-    private router: Router,
-    private validationService: ValidationService) {
+  constructor(private fb: FormBuilder, private router: Router, private validationService: ValidationService) {
     this.minDate = new Date();
   }
 

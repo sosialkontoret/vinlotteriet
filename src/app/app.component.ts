@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {environment} from '@env';
+import { environment } from '@env';
 
 @Component({
   selector: 'sk-root',

@@ -1,8 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
-import {LotteryService} from '@services/lottery/lottery.service';
-import {Observable} from 'rxjs';
-import {LotteryModel} from '@models/lottery.model';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { LotteryService } from '@services/lottery/lottery.service';
+import { Observable } from 'rxjs';
+import { LotteryModel } from '@models/lottery.model';
 
 @Component({
   selector: 'sk-my-lotteries',
@@ -10,15 +10,10 @@ import {LotteryModel} from '@models/lottery.model';
   styleUrls: ['./my-lotteries.component.scss'],
 })
 export class MyLotteriesComponent implements OnInit {
-
   lotteries$: Observable<LotteryModel[]>;
   @Input() userId: string;
 
-  constructor(
-    private router: Router,
-    private lotteryService: LotteryService,
-  ) {
-  }
+  constructor(private router: Router, private lotteryService: LotteryService) {}
 
   ngOnInit() {
     this.getMyLotteries();
@@ -35,5 +30,4 @@ export class MyLotteriesComponent implements OnInit {
   private getMyLotteries() {
     this.lotteries$ = this.lotteryService.getMyLotteries(this.userId);
   }
-
 }

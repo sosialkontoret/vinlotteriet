@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {Router} from '@angular/router';
-import {ValidationService} from '@services/validation/validation.service';
-import {AuthenticationService} from '@services/authentication/authentication.service';
-import {LoginModel} from '@models/login.model';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ValidationService } from '@services/validation/validation.service';
+import { AuthenticationService } from '@services/authentication/authentication.service';
+import { LoginModel } from '@models/login.model';
 
 @Component({
   selector: 'sk-register',
@@ -11,11 +11,15 @@ import {LoginModel} from '@models/login.model';
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit {
-
   registerForm: FormGroup;
   errorMessage: string;
 
-  constructor(private fb: FormBuilder, private router: Router, private validationService: ValidationService, private auth: AuthenticationService) { }
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private validationService: ValidationService,
+    private auth: AuthenticationService,
+  ) {}
 
   ngOnInit() {
     this.setupForm();
@@ -30,13 +34,16 @@ export class RegisterComponent implements OnInit {
 
   register(registerForm: LoginModel) {
     this.errorMessage = null;
-    this.auth.register(registerForm.email, registerForm.password).subscribe(() => {
-      this.router.navigate(['profile']);
-    },                                                                      error => {
-      if (error.message) {
-        this.errorMessage = error.message;
-      }
-    });
+    this.auth.register(registerForm.email, registerForm.password).subscribe(
+      () => {
+        this.router.navigate(['profile']);
+      },
+      error => {
+        if (error.message) {
+          this.errorMessage = error.message;
+        }
+      },
+    );
   }
 
   cancel() {
@@ -51,5 +58,4 @@ export class RegisterComponent implements OnInit {
   get password() {
     return this.registerForm.get('password');
   }
-
 }
