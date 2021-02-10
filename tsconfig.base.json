@@ -27,9 +27,6 @@
       "@pages": [
         "app/pages/index.ts"
       ],
-      "@components/*": [
-        "app/shared/components/*"
-      ],
       "@core/*": [
         "app/core/*"
       ],

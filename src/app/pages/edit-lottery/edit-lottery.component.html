@@ -1,4 +1,4 @@
-<div class="large-background">
+<div class="large-background-deprecated">
   <sk-header [showLogout]="true"></sk-header>
 
 
@@ -47,19 +47,19 @@
         <div class="form-element col-md-4">
           <label>Navn:</label>
           <input type="text" placeholder="Navn" formControlName="name">
-          <div class="error"><span *ngIf="name.invalid && (name.dirty || name.touched)" translate>Navn påkrevd</span></div>
+          <div class="error-deprecated"><span *ngIf="name.invalid && (name.dirty || name.touched)" translate>Navn påkrevd</span></div>
         </div>
         <div class="form-element col-md-4">
           <label>Antall lodd:</label>
           <input type="number" placeholder="Antall" formControlName="numberOfTickets">
-          <div class="error"><span *ngIf="numberOfTickets.invalid && (numberOfTickets.dirty || numberOfTickets.touched)" translate>Antall lodd må være mellom 0-100</span></div>
+          <div class="error-deprecated"><span *ngIf="numberOfTickets.invalid && (numberOfTickets.dirty || numberOfTickets.touched)" translate>Antall lodd må være mellom 0-100</span></div>
         </div>
         <div class="form-element col-md-4">
           <button class="small-button green-background" type="submit">
             <span *ngIf="isLoading"><i class="fa fa-cog fa-spin"></i></span>
             <span *ngIf="!isLoading">Legg til</span>
           </button>
-          <span class="error" *ngIf="addParticipantError">{{addParticipantError}}</span>
+          <span class="error-deprecated" *ngIf="addParticipantError">{{addParticipantError}}</span>
         </div>
       </form>
 

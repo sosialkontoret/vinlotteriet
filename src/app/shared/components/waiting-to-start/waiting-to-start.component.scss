@@ -4,7 +4,7 @@
   position: absolute;
   color: black;
   font-size: 18px;
-  animation: float 6s ease-in-out infinite;
+  animation: float-deprecated 6s ease-in-out infinite;
   opacity: 0.6;
   z-index: -1;
 }
@@ -27,7 +27,7 @@
     -webkit-animation: color-swap 60s infinite; /* Safari 4+ */
     -moz-animation: color-swap 60s infinite; /* Fx 5+ */
     -o-animation: color-swap 60s infinite; /* Opera 12+ */
-    animation: color-swap 60s infinite;
+    animation: color-swap-deprecated 60s infinite;
 
     h3 {
       font-size: 18px;

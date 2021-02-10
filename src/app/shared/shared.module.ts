@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { components } from '@components/index';
+import { components } from './components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 

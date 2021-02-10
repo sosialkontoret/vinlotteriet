@@ -1,8 +1,8 @@
-import {Injectable} from '@angular/core';
-import {AngularFirestore, AngularFirestoreCollection} from '@angular/fire/firestore';
-import {LotteryModel} from '@models/lottery.model';
-import {Observable} from 'rxjs';
-import {DrawModel} from '@models/draw.model';
+import { Injectable } from '@angular/core';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { LotteryModel } from '@models/lottery.model';
+import { Observable } from 'rxjs';
+import { DrawModel } from '@models/draw.model';
 import firebase from 'firebase';
 import Timestamp = firebase.firestore.Timestamp;
 
@@ -12,8 +12,7 @@ import Timestamp = firebase.firestore.Timestamp;
 export class LotteryService {
   private lotteryCollection: AngularFirestoreCollection<LotteryModel>;
 
-  constructor(private afs: AngularFirestore) {
-  }
+  constructor(private afs: AngularFirestore) {}
 
   /**
    * Create a lottery.
@@ -25,8 +24,8 @@ export class LotteryService {
     const generatedId = this.afs.createId();
     lottery.id = generatedId;
     lottery.createdDate = Timestamp.now();
-    lottery.draws = this.addDraws(lottery).map((obj) => {
-      return {...obj};
+    lottery.draws = this.addDraws(lottery).map(obj => {
+      return { ...obj };
     });
     console.log(lottery);
     return new Promise<string>(resolve => {
@@ -34,7 +33,8 @@ export class LotteryService {
         .collection<LotteryModel>('lotteries')
         .doc(generatedId)
         .set(lottery)
-        .then(() => {
+        .then(
+          () => {
             resolve(lottery.id);
           },
           error => {
@@ -98,5 +98,4 @@ export class LotteryService {
     }
     throw new Error('Cant create order without any draws');
   }
-
 }

@@ -6,7 +6,7 @@
       <div class="lottery-input-large">
         <label for="pin">Finn ditt lotteri</label>
         <input autocomplete="off" class="animated" [ngClass]="{'shake': showError}" id="pin" placeholder="Lotteri pin" [(ngModel)]="pin">
-        <span *ngIf="showError" class="error">Fant ikke lotteri</span>
+        <span *ngIf="showError" class="error-deprecated">Fant ikke lotteri</span>
       </div>
 
       <button [disabled]="isLoading" (click)="goToLottery()" class="large-button positive">

@@ -14,7 +14,6 @@ import User = firebase.User;
   providedIn: 'root',
 })
 export class AuthenticationService {
-
   private user: Observable<User>;
   private userDetails: User = null;
 

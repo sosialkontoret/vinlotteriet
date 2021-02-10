@@ -1,4 +1,4 @@
-@keyframes float {
+@keyframes float-deprecated {
   0% {
     transform: translatey(0px);
   }
@@ -10,7 +10,7 @@
   }
 }
 
-@keyframes color-swap {
+@keyframes color-swap-deprecated {
   0%   {background-color: rgba(255, 255, 255, 0.8); color: black;}
   25%  {background-color:rgba(77, 208, 225, 0.8);  color: black;}
   50%  {background-color:rgba(149, 243, 169, 0.8);  color: black;}

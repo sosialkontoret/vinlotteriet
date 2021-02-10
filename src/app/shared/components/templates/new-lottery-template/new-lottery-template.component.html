@@ -1,5 +1,5 @@
 <sk-header [showLogout]="true"></sk-header>
-<div class="standard-background">
+<div class="standard-background-deprecated">
   <div class="new-lottery">
     <div class="container">
 
@@ -12,7 +12,7 @@
           <div class="form-element col-md-6">
             <label>Navn:</label>
             <input type="text" placeholder="Navn" formControlName="name">
-            <div class="error"><span *ngIf="name.invalid && (name.dirty || name.touched)" translate>Navn påkrevd</span></div>
+            <div class="error-deprecated"><span *ngIf="name.invalid && (name.dirty || name.touched)" translate>Navn påkrevd</span></div>
           </div>
         </div>
 
@@ -22,7 +22,7 @@
             <input id="dateTime" [min]="minDate" [placeholder]="'Dato og tid'" [owlDateTimeTrigger]="dt" [owlDateTime]="dt"
                    formControlName="dateTime">
             <owl-date-time #dt></owl-date-time>
-            <div class="error"><span *ngIf="dateTime.invalid && (dateTime.dirty || dateTime.touched)" translate>Ugyldig tid</span></div>
+            <div class="error-deprecated"><span *ngIf="dateTime.invalid && (dateTime.dirty || dateTime.touched)" translate>Ugyldig tid</span></div>
           </div>
         </div>
 
@@ -30,7 +30,7 @@
           <div class="form-element col-md-6">
             <label>Beskrivelse av lotteri:</label>
             <input type="text" placeholder="Description" formControlName="description">
-            <div class="error"><span *ngIf="description.invalid && (description.dirty || description.touched)" translate>Beskrivelse påkrevd</span></div>
+            <div class="error-deprecated"><span *ngIf="description.invalid && (description.dirty || description.touched)" translate>Beskrivelse påkrevd</span></div>
           </div>
         </div>
 
@@ -38,7 +38,7 @@
           <div class="form-element col-md-6">
             <label>Antall trekninger:</label>
             <input type="number" placeholder="Antall" formControlName="numberOfDraws">
-            <div class="error"><span *ngIf="numberOfDraws.invalid && (numberOfDraws.dirty || numberOfDraws.touched)" translate>Tallet må være mellom 0 og 100</span></div>
+            <div class="error-deprecated"><span *ngIf="numberOfDraws.invalid && (numberOfDraws.dirty || numberOfDraws.touched)" translate>Tallet må være mellom 0 og 100</span></div>
           </div>
         </div>
 
@@ -49,10 +49,10 @@
           <div class="col-md-3">
             <button type="button" (click)="cancel()" class="abort-button">Avbryt</button>
           </div>
-          <span class="error" *ngIf="errorMessage">{{errorMessage}}</span>
+          <span class="error-deprecated" *ngIf="errorMessage">{{errorMessage}}</span>
         </div>
 
-        <div *ngIf="isLoading" class="loading">
+        <div *ngIf="isLoading" class="loading-deprecated">
           <i class="fa fa-2x fa-cog fa-spin"></i>
         </div>
 
