@@ -7,14 +7,14 @@
 }
 
 .logout-button{
-  @include no-button-styling();
+  @include no-button-styling-deprecated();
   float: right;
   margin-top: 25px;
   height: 100px;
-  @include standard-transition();
+  @include standard-transition-deprecated();
   &:hover{
-    @include standard-transition();
-    color: $main-pink;
+    @include standard-transition-deprecated();
+    color: $main-pink-deprecated;
   }
 }
 

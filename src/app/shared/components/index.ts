@@ -1,13 +1,12 @@
-import {CountDownComponent} from '@components/count-down';
-import {DrawComponent} from '@components/draw';
-import {HeaderComponent} from '@components/header';
-import {WaitingToStartComponent} from '@components/waiting-to-start';
-import {NewLotteryTemplateComponent} from '@components/templates/new-lottery-template';
+import { CountDownComponent } from './count-down';
+import { DrawComponent } from './draw';
+import { HeaderComponent } from './header';
+import { WaitingToStartComponent } from './waiting-to-start';
+import { components as atoms } from './atoms';
+import { components as molecules } from './molecules';
+import { components as organisms } from './organisms';
+import { components as templates } from './templates';
 
-export const components: any[] = [
-  CountDownComponent,
-  DrawComponent,
-  HeaderComponent,
-  WaitingToStartComponent,
-  NewLotteryTemplateComponent,
-];
+export const deprecated: any[] = [CountDownComponent, DrawComponent, HeaderComponent, WaitingToStartComponent];
+
+export const components: any[] = [...atoms, ...molecules, ...organisms, ...templates, ...deprecated];

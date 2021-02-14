@@ -1,6 +1,6 @@
-import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
-import {interval} from 'rxjs';
-import {map} from 'rxjs/operators';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { interval } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'sk-count-down',
@@ -8,8 +8,7 @@ import {map} from 'rxjs/operators';
   styleUrls: ['./count-down.component.scss'],
 })
 export class CountDownComponent implements OnInit, OnDestroy {
-
-// Hardcoded date
+  // Hardcoded date
   @Input() eventDate: Date;
   @Output() countDownFinished: EventEmitter<boolean>;
   diff: number;
@@ -31,22 +30,26 @@ export class CountDownComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.isLoading = true;
-    this.interval = interval(1000).pipe(map((x) => {
-      this.diff = Math.floor((this.eventDate.getTime() - new Date().getTime()) / 1000);
-      if (this.diff < 0) {
-        this.days = 0;
-        this.hours = 0;
-        this.minutes = 0;
-        this.seconds = 0;
-        this.countDownFinished.emit(true);
-      }
-    })).subscribe((x) => {
-      this.days = this.getDays(this.diff);
-      this.hours = this.getHours(this.diff);
-      this.minutes = this.getMinutes(this.diff);
-      this.seconds = this.getSeconds(this.diff);
-      this.isLoading = false;
-    });
+    this.interval = interval(1000)
+      .pipe(
+        map(x => {
+          this.diff = Math.floor((this.eventDate.getTime() - new Date().getTime()) / 1000);
+          if (this.diff < 0) {
+            this.days = 0;
+            this.hours = 0;
+            this.minutes = 0;
+            this.seconds = 0;
+            this.countDownFinished.emit(true);
+          }
+        }),
+      )
+      .subscribe(x => {
+        this.days = this.getDays(this.diff);
+        this.hours = this.getHours(this.diff);
+        this.minutes = this.getMinutes(this.diff);
+        this.seconds = this.getSeconds(this.diff);
+        this.isLoading = false;
+      });
   }
 
   getDays(t) {
@@ -57,7 +60,8 @@ export class CountDownComponent implements OnInit, OnDestroy {
   }
 
   getHours(t) {
-    let days, hours;
+    let days;
+    let hours;
     days = Math.floor(t / 86400);
     t -= days * 86400;
     hours = Math.floor(t / 3600) % 24;
@@ -66,7 +70,9 @@ export class CountDownComponent implements OnInit, OnDestroy {
   }
 
   getMinutes(t) {
-    let days, hours, minutes;
+    let days;
+    let hours;
+    let minutes;
     days = Math.floor(t / 86400);
     t -= days * 86400;
     hours = Math.floor(t / 3600) % 24;
@@ -77,7 +83,10 @@ export class CountDownComponent implements OnInit, OnDestroy {
   }
 
   getSeconds(t) {
-    let days, hours, minutes, seconds;
+    let days;
+    let hours;
+    let minutes;
+    let seconds;
     days = Math.floor(t / 86400);
     t -= days * 86400;
     hours = Math.floor(t / 3600) % 24;
@@ -88,5 +97,4 @@ export class CountDownComponent implements OnInit, OnDestroy {
 
     return seconds;
   }
-
 }

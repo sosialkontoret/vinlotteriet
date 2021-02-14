@@ -1,9 +1,9 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
-import {LotteryModel} from '@models/lottery.model';
-import {LotteryService} from '@services/lottery/lottery.service';
-import {DrawModel} from '@models/draw.model';
-import {fadeInOut} from 'shared/animations/fade-in-out.animation';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { LotteryModel } from '@models/lottery.model';
+import { LotteryService } from '@services/lottery/lottery.service';
+import { DrawModel } from '@models/draw.model';
+import { fadeInOut } from 'shared/animations/fade-in-out.animation';
 
 @Component({
   selector: 'sk-lottery',
@@ -12,7 +12,6 @@ import {fadeInOut} from 'shared/animations/fade-in-out.animation';
   styleUrls: ['./lottery.component.scss'],
 })
 export class LotteryComponent implements OnInit {
-
   lotteryId: string;
   lottery: LotteryModel;
   numberOfDraws: number;
@@ -21,11 +20,7 @@ export class LotteryComponent implements OnInit {
   hasStarted: boolean;
   winners: string[];
 
-  constructor(
-    private router: Router,
-    private ar: ActivatedRoute,
-    private lotteryService: LotteryService,
-  ) {
+  constructor(private router: Router, private ar: ActivatedRoute, private lotteryService: LotteryService) {
     this.numberOfDraws = 0;
     this.currentDrawIndex = 0;
     this.winners = [];
@@ -44,21 +39,24 @@ export class LotteryComponent implements OnInit {
     // wait a bit before starting a new draw;
     setTimeout(() => {
       this.checkForDraw();
-    },         5000);
+    }, 5000);
   }
 
   private getLottery(lotteryId: string) {
-    this.lotteryService.getLottery(lotteryId).subscribe(lottery => {
-      this.lottery = lottery;
-      this.numberOfDraws = this.lottery.draws.length;
-      this.checkForDraw();
+    this.lotteryService.getLottery(lotteryId).subscribe(
+      lottery => {
+        this.lottery = lottery;
+        this.numberOfDraws = this.lottery.draws.length;
+        this.checkForDraw();
 
-      if (!this.lottery) {
-        this.router.navigate(['home', 'errorId']);
-      }
-    },                                                  () => {
-      console.error('something went wrong grabbing lottery by id');
-    });
+        if (!this.lottery) {
+          this.router.navigate(['home', 'errorId']);
+        }
+      },
+      () => {
+        console.error('something went wrong grabbing lottery by id');
+      },
+    );
   }
 
   private checkForDraw() {

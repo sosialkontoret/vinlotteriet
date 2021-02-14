@@ -1,10 +1,10 @@
-import {Component, OnInit} from '@angular/core';
-import {LotteryService} from '@services/lottery/lottery.service';
-import {ActivatedRoute} from '@angular/router';
-import {LotteryModel} from '@models/lottery.model';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {ValidationService} from '@services/validation/validation.service';
-import {ParticipantModel} from '@models/participant.model';
+import { Component, OnInit } from '@angular/core';
+import { LotteryService } from '@services/lottery/lottery.service';
+import { ActivatedRoute } from '@angular/router';
+import { LotteryModel } from '@models/lottery.model';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ValidationService } from '@services/validation/validation.service';
+import { ParticipantModel } from '@models/participant.model';
 
 @Component({
   selector: 'sk-edit-lottery',
@@ -12,7 +12,6 @@ import {ParticipantModel} from '@models/participant.model';
   styleUrls: ['./edit-lottery.component.scss'],
 })
 export class EditLotteryComponent implements OnInit {
-
   lotteryOngoing: boolean;
   lotteryId: string;
   lottery: LotteryModel;
@@ -59,7 +58,7 @@ export class EditLotteryComponent implements OnInit {
         this.startLotteryTimer();
         const participants = this.generateParticipantList(previousWinners);
         if (participants.length > 0) {
-          const winnerIndex = Math.floor((Math.random() * participants.length - 1) + 1);
+          const winnerIndex = Math.floor(Math.random() * participants.length - 1 + 1);
           const winner = participants[winnerIndex];
           this.lotteryService.setWinnerAndStart(this.lottery, winner, i);
           break;
@@ -72,13 +71,13 @@ export class EditLotteryComponent implements OnInit {
     this.lotteryOngoing = true;
     setTimeout(() => {
       this.lotteryOngoing = false;
-    },         30000);
+    }, 30000);
   }
 
   private generateParticipantList(previousWinners: any[]) {
     const drawList = [];
     this.lottery.participants.forEach(participant => {
-      let numberOfTickets = participant.numberOfTickets;
+      let { numberOfTickets } = participant;
       // remove a ticket if already won.
       const numberOfWinsBefore = previousWinners.filter(name => name === participant.name).length;
       if (numberOfWinsBefore > -1) {
@@ -138,17 +137,19 @@ export class EditLotteryComponent implements OnInit {
   }
 
   private getLottery(lotteryId: string) {
-    this.lotteryService.getLottery(lotteryId).subscribe(lottery => {
-      this.lottery = lottery;
-      this.lottery.draws.forEach(draw => {
-        if (draw.started) {
-          this.numberOfDrawsDone += 1;
-        }
-      });
-
-    },                                                  () => {
-      console.error('something went wrong grabbing lottery by id');
-    });
+    this.lotteryService.getLottery(lotteryId).subscribe(
+      lottery => {
+        this.lottery = lottery;
+        this.lottery.draws.forEach(draw => {
+          if (draw.started) {
+            this.numberOfDrawsDone += 1;
+          }
+        });
+      },
+      () => {
+        console.error('something went wrong grabbing lottery by id');
+      },
+    );
   }
 
   private setupForm() {
@@ -165,5 +166,4 @@ export class EditLotteryComponent implements OnInit {
   get numberOfTickets() {
     return this.newParticipantForm.get('numberOfTickets');
   }
-
 }

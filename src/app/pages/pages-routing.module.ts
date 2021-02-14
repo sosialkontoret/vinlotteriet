@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {HomeComponent} from './home/home.component';
-import {LotteryComponent} from './lottery/lottery.component';
-import {LoginComponent} from './login/login.component';
-import {RegisterComponent} from './register/register.component';
-import {ProfileComponent} from './profile/profile.component';
-import {AuthenticationGuard} from '../core/guards/authentication/authentication.guard';
-import {NewLotteryComponent} from './new-lottery/new-lottery.component';
-import {EditLotteryComponent} from './edit-lottery/edit-lottery.component';
+import { HomeComponent } from './home/home.component';
+import { LotteryComponent } from './lottery/lottery.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { ProfileComponent } from './profile/profile.component';
+import { AuthenticationGuard } from '../core/guards/authentication/authentication.guard';
+import { NewLotteryComponent } from './new-lottery/new-lottery.component';
+import { EditLotteryComponent } from './edit-lottery/edit-lottery.component';
 
 const routes: Routes = [
   {
@@ -52,5 +52,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class PagesRoutingModule {
-}
+export class PagesRoutingModule {}

@@ -34,14 +34,14 @@
     }
     .row{
       padding-top: 10px;
-      padding-bottom: 5px,;
-      border-bottom: 1px solid $main-gray;
+      padding-bottom: 5px;
+      border-bottom: 1px solid $main-gray-deprecated;
     }
     .header{
       font-weight: 600;
     }
     .delete{
-      @include no-button-styling();
+      @include no-button-styling-deprecated();
       font-size: 22px;
     }
     .additonal-padding{
@@ -70,17 +70,17 @@
     .start-lottery-button{
       width: 250px;
       height: 250px;
-      background-color: $green-opacity;
-      border-color: $green;
+      background-color: $green-opacity-deprecated;
+      border-color: $green-deprecated;
       -webkit-border-radius: 50%;
       -moz-border-radius: 50%;
       border-radius: 50%;
-      @include standard-transition();
+      @include standard-transition-deprecated();
       &:hover{
         transform: scale(1.4);
-        background-color: $pink-opacity;
-        border-color: $main-pink;
-        @include standard-transition();
+        background-color: $pink-opacity-deprecated;
+        border-color: $main-pink-deprecated;
+        @include standard-transition-deprecated();
       }
     }
     .start-lottery-button.disabled{

@@ -1,0 +1,46 @@
+@import "variables";
+
+@mixin visually-hidden {
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute !important;
+  white-space: nowrap; /* added line */
+  width: 1px;
+}
+
+/**
+ * {1}  Use $_height to set the row's height.
+ *      This defaults to `1.5em` because that's the default line height.
+ *      Using relative units (e. g. `em`) is recommended.
+ */
+@mixin skeleton-row($_height: 1.5em, $_animation-duration: 0.75s) {
+  animation: pulse $_animation-duration infinite alternate;
+  background-color: rgba($grey-300, 0.5);
+  border-radius: 5px;
+  height: $_height; // {1}
+
+  @keyframes pulse {
+    0% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0.5;
+    }
+  }
+}
+
+@mixin spinning($_animation-duration: 1.5s) {
+  animation: spin $_animation-duration infinite linear;
+
+  @keyframes spin {
+    0% {
+      transform: rotate(-0deg);
+    }
+
+    100% {
+      transform: rotate(-360deg);
+    }
+  }
+}

@@ -1,9 +1,9 @@
-import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {ValidationService} from '@services/validation/validation.service';
-import {LoginModel} from '@models/login.model';
-import {AuthenticationService} from '@services/authentication/authentication.service';
-import {Router} from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ValidationService } from '@services/validation/validation.service';
+import { LoginModel } from '@models/login.model';
+import { AuthenticationService } from '@services/authentication/authentication.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'sk-login',
@@ -11,13 +11,16 @@ import {Router} from '@angular/router';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-
   loginForm: FormGroup;
   isLoading: boolean;
   errorMessage: string;
 
-  constructor(private fb: FormBuilder, private router: Router, private validationService: ValidationService, private auth: AuthenticationService) {
-  }
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private validationService: ValidationService,
+    private auth: AuthenticationService,
+  ) {}
 
   ngOnInit() {
     this.setupForm();
@@ -39,13 +42,16 @@ export class LoginComponent implements OnInit {
 
   login(loginForm: LoginModel) {
     this.errorMessage = null;
-    this.auth.login(loginForm.email, loginForm.password).subscribe(result => {
-      this.router.navigate(['profile']);
-    },                                                             error => {
-      if (error.message) {
-        this.errorMessage = error.message;
-      }
-    });
+    this.auth.login(loginForm.email, loginForm.password).subscribe(
+      result => {
+        this.router.navigate(['profile']);
+      },
+      error => {
+        if (error.message) {
+          this.errorMessage = error.message;
+        }
+      },
+    );
   }
 
   registerUser() {
@@ -60,5 +66,4 @@ export class LoginComponent implements OnInit {
   get password() {
     return this.loginForm.get('password');
   }
-
 }

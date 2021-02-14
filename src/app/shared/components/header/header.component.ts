@@ -1,6 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
-import {AuthenticationService} from '@services/authentication';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthenticationService } from '@services/authentication';
 
 @Component({
   selector: 'sk-header',
@@ -8,14 +8,12 @@ import {AuthenticationService} from '@services/authentication';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-
   @Input() showLogout: boolean;
   @Input() title: string;
 
-  constructor(private auth: AuthenticationService, private router: Router) { }
+  constructor(private auth: AuthenticationService, private router: Router) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   home() {
     this.router.navigate(['']);
@@ -25,5 +23,4 @@ export class HeaderComponent implements OnInit {
     this.auth.logout();
     this.router.navigate(['login']);
   }
-
 }
