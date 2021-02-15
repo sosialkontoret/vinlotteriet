@@ -6,6 +6,7 @@ import { MyLotteriesComponent } from './my-lotteries';
 import { NewLotteryComponent } from './new-lottery';
 import { ProfileComponent } from './profile';
 import { RegisterComponent } from './register';
+import { PagesComponent } from './pages.component';
 
 export const components: any[] = [
   EditLotteryComponent,
@@ -16,4 +17,5 @@ export const components: any[] = [
   NewLotteryComponent,
   ProfileComponent,
   RegisterComponent,
+  PagesComponent,
 ];

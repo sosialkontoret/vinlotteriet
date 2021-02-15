@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ValidationService } from '@services/validation/validation.service';
-import { LoginModel } from '@models/login.model';
 import { AuthenticationService } from '@services/authentication/authentication.service';
 import { Router } from '@angular/router';
+import { LoginForm } from '@models/forms/login.form';
+import { Observable } from 'rxjs';
+import { State } from '@models/enums/state.enum';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'sk-login',
@@ -11,59 +12,35 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  loginForm: FormGroup;
-  isLoading: boolean;
-  errorMessage: string;
+  state: State;
+  isAuthenticated$: Observable<boolean>;
 
-  constructor(
-    private fb: FormBuilder,
-    private router: Router,
-    private validationService: ValidationService,
-    private auth: AuthenticationService,
-  ) {}
+  constructor(private router: Router, private auth: AuthenticationService) {}
 
   ngOnInit() {
-    this.setupForm();
-    this.isLoading = true;
-    this.auth.isLoggedIn().subscribe(result => {
-      this.isLoading = false;
-      if (result) {
-        this.router.navigate(['profile']);
-      }
-    });
+    this.initIsLoggedIn();
   }
 
-  private setupForm() {
-    this.loginForm = this.fb.group({
-      email: ['', Validators.compose([Validators.required, this.validationService.emailValidator])],
-      password: ['', Validators.required],
-    });
-  }
-
-  login(loginForm: LoginModel) {
-    this.errorMessage = null;
-    this.auth.login(loginForm.email, loginForm.password).subscribe(
-      result => {
-        this.router.navigate(['profile']);
-      },
-      error => {
-        if (error.message) {
-          this.errorMessage = error.message;
+  initIsLoggedIn(): void {
+    this.state = State.IsLoading;
+    this.isAuthenticated$ = this.auth.isAuthenticated().pipe(
+      tap(isAuthenticated => {
+        if (isAuthenticated) {
+          return this.router.navigate(['profile']);
         }
-      },
+        this.state = State.NoData;
+      }),
     );
   }
 
-  registerUser() {
-    this.errorMessage = null;
-    this.router.navigate(['register']);
-  }
-
-  get email() {
-    return this.loginForm.get('email');
-  }
-
-  get password() {
-    return this.loginForm.get('password');
+  onLogin(loginForm: LoginForm) {
+    this.auth.login(loginForm.email, loginForm.password).subscribe(
+      () => {
+        this.router.navigate(['profile']);
+      },
+      error => {
+        console.error('Failed to login', error);
+      },
+    );
   }
 }

@@ -18,11 +18,11 @@ const Template = (args: any): StoryFnAngularReturnType => ({
 
 export const empty = Template.bind({});
 empty.args = {
-  placeholder: 'Password'
+  placeholder: 'Password',
 };
 
 export const filled = Template.bind({});
 filled.args = {
   placeholder: 'Password',
-  value: 'ThereIsNoSpoon'
+  value: 'ThereIsNoSpoon',
 };

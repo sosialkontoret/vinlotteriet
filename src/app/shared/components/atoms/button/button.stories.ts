@@ -1,7 +1,7 @@
 import { Meta } from '@storybook/angular';
-import { ButtonComponent } from './button.component';
 import { StoryFnAngularReturnType } from '@storybook/angular/dist/client/preview/types';
-import {action} from '@storybook/addon-actions';
+import { action } from '@storybook/addon-actions';
+import { ButtonComponent } from './button.component';
 
 export default {
   title: 'Atoms/Button',
@@ -18,6 +18,5 @@ const Template = (args: any): StoryFnAngularReturnType => ({
 
 export const primary = Template.bind({});
 primary.args = {
-  child: '<span>My Button</span>'
-
+  child: '<span>My Button</span>',
 };
