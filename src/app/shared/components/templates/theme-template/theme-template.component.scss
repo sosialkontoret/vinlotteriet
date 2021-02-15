@@ -1,0 +1,15 @@
+@import "main";
+
+.theme-template-container {
+  background-color: $primary-color;
+  height: 100%;
+  padding: 4em 5em;
+  width: 100%
+}
+
+.content-container {
+  border: 1px solid #fff;
+  height: 100%;
+  padding: 1em;
+  width: 100%
+}
