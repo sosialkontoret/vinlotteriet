@@ -7,7 +7,7 @@ import { ClassNames } from '@models/class-names';
   styleUrls: ['./button.component.scss'],
 })
 export class ButtonComponent implements OnInit {
-  @Input() variant: 'primary' = 'primary';
+  @Input() variant: 'primary' | 'secondary' = 'primary';
 
   @Output() onClick = new EventEmitter<void>();
 

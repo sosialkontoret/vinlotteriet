@@ -1,0 +1,45 @@
+@import "main";
+
+.home-template-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.inner-container {
+  margin-left: 50%;
+}
+
+.title {
+  font-size: 4em;
+  color: $quaternary-color;
+}
+
+.join-lottery-container {
+  width: 14em;
+  margin-top: 0.5em;
+}
+
+.lottery-code-input, .join-lottery-button {
+  display: inline-block;
+  width: 100%;
+  margin: 0.125em 0;
+}
+
+.arrange-information-container {
+  margin-top: 2em;
+  display: flex;
+  flex-direction: column;
+  color: $tertiary-color;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.link {
+  color: $tertiary-color;
+  text-decoration: underline;
+}

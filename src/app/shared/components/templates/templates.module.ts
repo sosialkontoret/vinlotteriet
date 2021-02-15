@@ -7,11 +7,12 @@ import { ThemeTemplateComponent } from './theme-template/theme-template.componen
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HomeTemplateComponent } from './home-template/home-template.component';
 
 @NgModule({
-  declarations: [LoginTemplateComponent, NewLotteryTemplateComponent, ThemeTemplateComponent],
+  declarations: [LoginTemplateComponent, NewLotteryTemplateComponent, ThemeTemplateComponent, HomeTemplateComponent],
   imports: [OrganismsModule, CommonModule, RouterModule, OwlDateTimeModule, OwlNativeDateTimeModule, FormsModule, ReactiveFormsModule],
-  exports: [OrganismsModule, LoginTemplateComponent, NewLotteryTemplateComponent, ThemeTemplateComponent],
+  exports: [OrganismsModule, LoginTemplateComponent, NewLotteryTemplateComponent, ThemeTemplateComponent, HomeTemplateComponent],
 })
 export class TemplatesModule {}
