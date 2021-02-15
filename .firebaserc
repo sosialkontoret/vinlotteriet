@@ -1,5 +1,17 @@
 {
   "projects": {
     "default": "wine-lottery-dev"
+  },
+  "hosting": {
+    "rewrites": [
+      {
+        "source": "/someFunction",
+        "function": "someFunction"
+      },
+      {
+        "source": "/anotherFunction",
+        "function": "anotherFunction"
+      }
+    ]
   }
 }
