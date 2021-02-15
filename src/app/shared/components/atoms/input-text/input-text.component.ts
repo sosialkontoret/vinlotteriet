@@ -1,10 +1,10 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {ClassNames} from '@models/class-names';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ClassNames } from '@models/class-names';
 
 @Component({
   selector: 'sk-input-text',
   templateUrl: './input-text.component.html',
-  styleUrls: ['./input-text.component.scss']
+  styleUrls: ['./input-text.component.scss'],
 })
 export class InputTextComponent implements OnInit {
   @Input() placeholder: string;
@@ -18,7 +18,7 @@ export class InputTextComponent implements OnInit {
   }
 
   get value(): string {
-    return this.mValue;
+    return this.mValue ?? '';
   }
 
   private mValue: string;
@@ -27,11 +27,9 @@ export class InputTextComponent implements OnInit {
     return new ClassNames('label-text').setNoDefault('visually-hidden', !this.showLabel);
   }
 
-  constructor() {
-  }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   change(value: string): void {
     this.onChange.emit(value);

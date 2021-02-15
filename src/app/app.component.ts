@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { environment } from '@env';
 
 @Component({
   selector: 'sk-root',
@@ -7,10 +6,5 @@ import { environment } from '@env';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'wine-lottery';
-  version: string;
-
-  constructor() {
-    this.version = environment.version;
-  }
+  constructor() {}
 }

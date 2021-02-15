@@ -1,1 +1,10 @@
-<p>login-template works!</p>
+<div class="login-template-container">
+  <h1 class="title">Logg inn</h1>
+  <sk-input-email [placeholder]="'Epost'" (onChange)="onEmailChanged($event)"></sk-input-email>
+  <sk-input-password [placeholder]="'Passord'" (onChange)="onPasswordChanged($event)"></sk-input-password>
+  <sk-button [variant]="'primary'" (onClick)="onLogin()">Logg inn</sk-button>
+  <div class="register__container">
+    <span class="register-text">Har du ikke bruker?</span>
+    <a class="register-link" [routerLink]="['register']">Registrer deg her</a>
+  </div>
+</div>

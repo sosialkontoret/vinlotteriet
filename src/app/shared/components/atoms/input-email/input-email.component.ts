@@ -1,12 +1,12 @@
-import { Component, Input, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ClassNames } from '@models/class-names';
 
 @Component({
-  selector: 'sk-input-password',
-  templateUrl: './input-password.component.html',
-  styleUrls: ['./input-password.component.scss'],
+  selector: 'sk-input-email',
+  templateUrl: './input-email.component.html',
+  styleUrls: ['./input-email.component.scss'],
 })
-export class InputPasswordComponent implements OnInit {
+export class InputEmailComponent implements OnInit {
   @Input() placeholder: string;
   @Input() label: string;
   @Input() showLabel: boolean;

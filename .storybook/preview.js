@@ -1,6 +1,7 @@
 import {setCompodocJson} from "@storybook/addon-docs/angular";
 import docJson from "../documentation.json";
 import {SharedModule} from "../src/app/shared/shared.module";
+import {RouterTestingModule} from "@angular/router/testing";
 
 setCompodocJson(docJson);
 
@@ -18,6 +19,7 @@ export const decorators = [
       moduleMetadata: {
         imports: [
           SharedModule,
+          RouterTestingModule,
         ],
       },
     }

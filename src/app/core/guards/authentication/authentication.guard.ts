@@ -10,7 +10,7 @@ export class AuthenticationGuard implements CanActivate {
 
   canActivate(): Promise<boolean> {
     return new Promise(resolve => {
-      this.auth.isAuthenticated().then(result => {
+      this.auth.isAuthenticatedDeprecated().then(result => {
         if (result) {
           resolve(true);
         } else {

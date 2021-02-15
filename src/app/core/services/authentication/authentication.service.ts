@@ -1,13 +1,9 @@
-/**
- * Created by AleksanderVatleWaage on 07.02.2017.
- */
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Observable } from 'rxjs';
-import { Router } from '@angular/router';
-import { AngularFirestore } from '@angular/fire/firestore';
 import { fromPromise } from 'rxjs/internal-compatibility';
 import firebase from 'firebase';
+import { map } from 'rxjs/operators';
 import User = firebase.User;
 
 @Injectable({
@@ -15,10 +11,17 @@ import User = firebase.User;
 })
 export class AuthenticationService {
   private user: Observable<User>;
-  private userDetails: User = null;
 
-  constructor(private fb: AngularFireAuth, private afs: AngularFirestore, private router: Router) {
+  constructor(private fb: AngularFireAuth) {
     this.user = fb.authState;
+  }
+
+  getUser(): Observable<firebase.User> {
+    return this.fb.authState;
+  }
+
+  isAuthenticated(): Observable<boolean> {
+    return this.getUser().pipe(map(user => user?.uid !== undefined ?? false));
   }
 
   login(email: string, password: string): Observable<any> {
@@ -41,7 +44,7 @@ export class AuthenticationService {
     return this.user;
   }
 
-  isAuthenticated(): Promise<boolean> {
+  isAuthenticatedDeprecated(): Promise<boolean> {
     return new Promise(resolve => {
       this.fb.authState.subscribe(result => {
         if (result && result.uid) {
