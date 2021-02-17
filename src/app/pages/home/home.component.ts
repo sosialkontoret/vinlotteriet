@@ -12,17 +12,12 @@ export class HomeComponent implements OnInit {
   showError: boolean;
   isLoading: boolean;
 
-  constructor(private ar: ActivatedRoute, private router: Router, private lotteryService: LotteryService) {}
+  constructor(private router: Router, private lotteryService: LotteryService) {}
 
   ngOnInit() {
-    this.showError = false;
-    const message = this.ar.snapshot.paramMap.get('message');
-    if (message === 'errorId') {
-      this.showError = true;
-    }
   }
 
-  goToLottery() {
+  onJoinLottery($event: string) {
     this.showError = false;
     if (this.pin) {
       this.isLoading = true;
@@ -43,5 +38,6 @@ export class HomeComponent implements OnInit {
     } else {
       this.showError = true;
     }
+
   }
 }

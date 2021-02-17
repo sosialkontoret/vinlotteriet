@@ -16,13 +16,24 @@
 }
 
 // Variants
-
+// Primary
 .button-container--primary {
   background-color: $primary-color;
 }
 
 .button--primary {
   background: none;
-  border: 1px solid $secondary-color;
-  color: $secondary-color;
+  border: 1px solid $quaternary-color;
+  color: $quaternary-color;
+}
+
+// Secondary
+.button-container--secondary {
+  background-color: $quaternary-color;
+}
+
+.button--secondary {
+  background: none;
+  border: 1px solid $primary-color;
+  color: $primary-color;
 }
