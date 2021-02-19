@@ -1,0 +1,35 @@
+@import "main";
+
+.register-template-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title, .login-text, .login-link {
+  color: $primary-color;
+}
+
+.email, .password {
+  width: 100%;
+  margin: 0.5em 0;
+}
+
+.register-button {
+  width: 100%;
+  margin: 0.75em 0;
+}
+
+.login-info-container {
+  margin-top: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-link {
+  text-decoration: underline;
+}

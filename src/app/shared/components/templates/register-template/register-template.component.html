@@ -1,4 +1,4 @@
-<div class="login-template-container">
+<div class="register-template-container">
   <sk-card>
     <h1 class="title">Logg inn</h1>
     <sk-input-email
@@ -12,14 +12,14 @@
       (onChange)="onPasswordChanged($event)"
     ></sk-input-password>
     <sk-button
-      class="login-button"
+      class="register-button"
       [variant]="'primary'"
-      (onClick)="onLogin()">
-      Logg inn
+      (onClick)="onRegister()">
+      Registrer
     </sk-button>
-    <div class="register-info-container">
-      <span class="register-text">Har du ikke bruker?</span>
-      <a class="register-link" [routerLink]="['/register']">Registrer deg her</a>
+    <div class="login-info-container">
+      <span class="login-text">Har du bruker?</span>
+      <a class="login-link" [routerLink]="['/login']">Logg inn her</a>
     </div>
   </sk-card>
 </div>
