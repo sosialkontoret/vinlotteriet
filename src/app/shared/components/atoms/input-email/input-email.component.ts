@@ -31,7 +31,8 @@ export class InputEmailComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  change(value: string): void {
+  change(event: Event): void {
+    const value = (event.target as any)?.value;
     this.onChange.emit(value);
   }
 }

@@ -1,5 +1,4 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {LoginForm} from '@models/forms/login.form';
 import {State} from '@models/enums/state.enum';
 import {RegisterForm} from '@models/forms/register.form';
 
