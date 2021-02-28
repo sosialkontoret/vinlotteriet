@@ -1,0 +1,18 @@
+<table class="lottery-list">
+  <thead>
+  <tr>
+    <th class="table-header-cell name">Navn</th>
+    <th class="table-header-cell tickets">Antall Lodd</th>
+    <th class="table-header-cell prizes">Antall premier</th>
+    <th class="table-header-cell draw-time">Trekningstidspunkt</th>
+  </tr>
+  </thead>
+  <tbody class="table-body">
+  <sk-lottery-list-item
+    *ngFor="let lottery of lotteries; trackBy: trackLottery"
+    class="list-item"
+    role="row"
+    [lottery]="lottery"
+  ></sk-lottery-list-item>
+  </tbody>
+</table>

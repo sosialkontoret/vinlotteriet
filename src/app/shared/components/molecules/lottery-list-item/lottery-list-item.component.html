@@ -1,0 +1,12 @@
+<td class="table-cell">
+  <a [routerLink]="url" class="name">{{lottery?.name}}</a>
+</td>
+<td class="table-cell">
+  <span>{{numberOfTickets}}</span>
+</td>
+<td class="table-cell">
+  <span>{{lottery?.numberOfDraws}}</span>
+</td>
+<td class="table-cell">
+  {{lottery?.dateTime | firestoreDate: 'dd.mm.yy - HH:mm' }}
+</td>
