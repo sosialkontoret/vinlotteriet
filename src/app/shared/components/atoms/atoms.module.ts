@@ -4,12 +4,13 @@ import { CardComponent } from './card/card.component';
 import { InputEmailComponent } from './input-email/input-email.component';
 import { InputPasswordComponent } from './input-password/input-password.component';
 import { InputTextComponent } from './input-text/input-text.component';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { SharedComponentsModule } from '../shared-components.module';
+
+const components = [ButtonComponent, CardComponent, InputEmailComponent, InputPasswordComponent, InputTextComponent];
 
 @NgModule({
-  declarations: [ButtonComponent, CardComponent, InputEmailComponent, InputPasswordComponent, InputTextComponent],
-  imports: [CommonModule, RouterModule],
-  exports: [ButtonComponent, CardComponent, InputEmailComponent, InputPasswordComponent, InputTextComponent],
+  declarations: [...components],
+  imports: [SharedComponentsModule],
+  exports: [...components],
 })
 export class AtomsModule {}

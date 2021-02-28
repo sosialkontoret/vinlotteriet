@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
-import { LotteryModel } from '@models/lottery.model';
+import { Lottery } from '@models/lottery.model';
 import { Observable } from 'rxjs';
 import { DrawModel } from '@models/draw.model';
 import firebase from 'firebase';
@@ -10,7 +10,7 @@ import Timestamp = firebase.firestore.Timestamp;
   providedIn: 'root',
 })
 export class LotteryService {
-  private lotteryCollection: AngularFirestoreCollection<LotteryModel>;
+  private lotteryCollection: AngularFirestoreCollection<Lottery>;
 
   constructor(private afs: AngularFirestore) {}
 
@@ -20,17 +20,16 @@ export class LotteryService {
    * @param lottery model to save
    * @return id of the lottery object.
    */
-  public createLottery(lottery: LotteryModel): Promise<string> {
+  public createLottery(lottery: Lottery): Promise<string> {
     const generatedId = this.afs.createId();
     lottery.id = generatedId;
     lottery.createdDate = Timestamp.now();
     lottery.draws = this.addDraws(lottery).map(obj => {
       return { ...obj };
     });
-    console.log(lottery);
     return new Promise<string>(resolve => {
       this.afs
-        .collection<LotteryModel>('lotteries')
+        .collection<Lottery>('lotteries')
         .doc(generatedId)
         .set(lottery)
         .then(
@@ -45,11 +44,11 @@ export class LotteryService {
     });
   }
 
-  public setWinnerAndStart(lottery: LotteryModel, winner: string, drawIndex: number) {
+  public setWinnerAndStart(lottery: Lottery, winner: string, drawIndex: number) {
     const draw = lottery.draws[drawIndex];
     draw.winner = winner;
     draw.started = true;
-    this.afs.doc<LotteryModel>(`lotteries/${lottery.id}`).update(lottery);
+    this.afs.doc<Lottery>(`lotteries/${lottery.id}`).update(lottery);
   }
 
   /**
@@ -58,7 +57,7 @@ export class LotteryService {
    * @param lotteryId
    */
   public getLottery(lotteryId: string) {
-    return this.afs.doc<LotteryModel>(`lotteries/${lotteryId}`).valueChanges();
+    return this.afs.doc<Lottery>(`lotteries/${lotteryId}`).valueChanges();
   }
 
   /**
@@ -66,18 +65,18 @@ export class LotteryService {
    *
    * @param updatedLotteryModel
    */
-  public updateLottery(updatedLotteryModel: LotteryModel) {
-    this.afs.doc<LotteryModel>(`lotteries/${updatedLotteryModel.id}`).update(updatedLotteryModel);
+  public updateLottery(updatedLotteryModel: Lottery) {
+    this.afs.doc<Lottery>(`lotteries/${updatedLotteryModel.id}`).update(updatedLotteryModel);
   }
 
   /**
    * Get all ids by user ID.
    *
-   * @param uid
+   * @param userId
    */
-  public getMyLotteries(uid: string): Observable<LotteryModel[]> {
+  public getUserLotteries(userId: string): Observable<Lottery[]> {
     return this.afs
-      .collection<LotteryModel>('lotteries', ref => ref.where('userId', '==', uid))
+      .collection<Lottery>('lotteries', ref => ref.where('userId', '==', userId))
       .valueChanges();
   }
 
@@ -86,7 +85,7 @@ export class LotteryService {
    *
    * @param lottery
    */
-  private addDraws(lottery: LotteryModel): DrawModel[] {
+  private addDraws(lottery: Lottery): DrawModel[] {
     const draws: DrawModel[] = [];
     if (lottery.numberOfDraws > 0) {
       for (let i = 0; i < lottery.numberOfDraws; i += 1) {

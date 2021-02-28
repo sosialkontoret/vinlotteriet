@@ -4,7 +4,7 @@ import { of, Subject, timer } from 'rxjs';
 import { catchError, takeUntil } from 'rxjs/operators';
 import { slide } from '@shared/animations/slide.animations';
 import { fadeInOut } from '@shared/animations/fade-in-out.animation';
-import { LotteryModel } from '@models/lottery.model';
+import { Lottery } from '@models/lottery.model';
 
 @Component({
   selector: 'sk-draw',
@@ -14,7 +14,7 @@ import { LotteryModel } from '@models/lottery.model';
 })
 export class DrawComponent implements OnInit {
   @Input() draw: DrawModel;
-  @Input() lottery: LotteryModel;
+  @Input() lottery: Lottery;
   @Input() currentDrawIndex: number;
   participants: string[];
   @Output() drawFinished: EventEmitter<boolean>;
@@ -40,7 +40,7 @@ export class DrawComponent implements OnInit {
     this.start();
   }
 
-  private createListOfParticipantsThisRound(lottery: LotteryModel) {
+  private createListOfParticipantsThisRound(lottery: Lottery) {
     const previousWinners = [];
     let index = 0;
     lottery.draws.forEach(result => {

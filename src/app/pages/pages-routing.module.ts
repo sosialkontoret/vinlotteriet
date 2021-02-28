@@ -4,11 +4,11 @@ import { HomeComponent } from './home';
 import { LotteryComponent } from './lottery';
 import { LoginComponent } from './login';
 import { RegisterComponent } from './register';
-import { ProfileComponent } from './profile';
+import { UserComponent } from './user';
 import { AuthenticationGuard } from '../core/guards/authentication/authentication.guard';
-import { NewLotteryComponent } from './new-lottery';
 import { EditLotteryComponent } from './edit-lottery';
 import { PagesComponent } from './pages.component';
+import { MyLotteriesComponent } from './my-lotteries';
 
 const routes: Routes = [
   {
@@ -21,11 +21,7 @@ const routes: Routes = [
         pathMatch: 'full',
       },
       {
-        path: 'home/:message',
-        component: HomeComponent,
-      },
-      {
-        path: 'lottery/:id',
+        path: 'lotteries/:id',
         component: LotteryComponent,
       },
       {
@@ -37,19 +33,22 @@ const routes: Routes = [
         component: RegisterComponent,
       },
       {
-        path: 'profile',
-        component: ProfileComponent,
+        path: 'user',
         canActivate: [AuthenticationGuard],
-      },
-      {
-        path: 'new-lottery',
-        component: NewLotteryComponent,
-        canActivate: [AuthenticationGuard],
-      },
-      {
-        path: 'edit-lottery/:id',
-        component: EditLotteryComponent,
-        canActivate: [AuthenticationGuard],
+        children: [
+          {
+            path: '',
+            component: UserComponent,
+          },
+          {
+            path: 'my-lotteries',
+            component: MyLotteriesComponent,
+          },
+          {
+            path: 'my-lotteries/:id',
+            component: EditLotteryComponent,
+          },
+        ]
       },
     ],
   },

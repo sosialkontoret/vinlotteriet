@@ -1,7 +1,10 @@
 import {setCompodocJson} from "@storybook/addon-docs/angular";
 import docJson from "../documentation.json";
-import {SharedModule} from "../src/app/shared/shared.module";
 import {RouterTestingModule} from "@angular/router/testing";
+import {AtomsModule} from "../src/app/shared/components/atoms/atoms.module";
+import {MoleculesModule} from "../src/app/shared/components/molecules/molecules.module";
+import {OrganismsModule} from "../src/app/shared/components/organisms/organisms.module";
+import {TemplatesModule} from "../src/app/shared/components/templates/templates.module";
 
 setCompodocJson(docJson);
 
@@ -18,7 +21,10 @@ export const decorators = [
       ...story,
       moduleMetadata: {
         imports: [
-          SharedModule,
+          AtomsModule,
+          MoleculesModule,
+          OrganismsModule,
+          TemplatesModule,
           RouterTestingModule,
         ],
       },

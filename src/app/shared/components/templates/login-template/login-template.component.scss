@@ -8,6 +8,11 @@
   align-items: center;
 }
 
+.card {
+  width: 100%;
+  max-width: 20em;
+}
+
 .title, .register-text, .register-link {
   color: $primary-color;
 }

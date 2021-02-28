@@ -17,7 +17,7 @@ export class RegisterComponent implements OnInit {
   onRegister(registerForm: RegisterForm) {
     this.auth.register(registerForm.email, registerForm.password).subscribe(
       () => {
-        this.router.navigate(['profile']);
+        this.router.navigate(['my-lotteries']);
       },
       error => {
         console.error('Failed to register', error);

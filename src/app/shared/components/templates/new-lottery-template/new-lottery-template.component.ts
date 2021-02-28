@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ValidationService } from '@services/validation';
-import { LotteryModel } from '@models/lottery.model';
+import { Lottery } from '@models/lottery.model';
 import { State } from '@models/enums/state.enum';
 
 @Component({
@@ -14,7 +14,7 @@ export class NewLotteryTemplateComponent implements OnInit {
   @Input() state: State;
   @Input() userId: string;
 
-  @Output() createLottery = new EventEmitter<LotteryModel>();
+  @Output() createLottery = new EventEmitter<Lottery>();
 
   newLotteryForm: FormGroup;
   minDate: Date;
@@ -41,7 +41,7 @@ export class NewLotteryTemplateComponent implements OnInit {
     });
   }
 
-  onCreateLottery(lotteryForm: LotteryModel, valid: boolean) {
+  onCreateLottery(lotteryForm: Lottery, valid: boolean) {
     this.errorMessage = null;
     if (this.userId && valid) {
       lotteryForm.userId = this.userId;

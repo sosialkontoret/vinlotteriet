@@ -1,8 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { LotteryService } from '@services/lottery/lottery.service';
 import { Observable } from 'rxjs';
-import { LotteryModel } from '@models/lottery.model';
+import { Lottery } from '@models/lottery.model';
+import { State } from '@models/enums/state.enum';
+import { AuthenticationService } from '@services/authentication';
+import { switchMap, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'sk-my-lotteries',
@@ -10,24 +12,20 @@ import { LotteryModel } from '@models/lottery.model';
   styleUrls: ['./my-lotteries.component.scss'],
 })
 export class MyLotteriesComponent implements OnInit {
-  lotteries$: Observable<LotteryModel[]>;
-  @Input() userId: string;
+  state: State = State.Before;
+  lotteries$: Observable<Lottery[]>;
 
-  constructor(private router: Router, private lotteryService: LotteryService) {}
+  constructor(private authService: AuthenticationService, private lotteryService: LotteryService) {}
 
   ngOnInit() {
-    this.getMyLotteries();
+    this.initLotteries();
   }
 
-  newLottery() {
-    this.router.navigate(['new-lottery']);
-  }
-
-  selectLottery(lotteryId: string) {
-    this.router.navigate(['edit-lottery', lotteryId]);
-  }
-
-  private getMyLotteries() {
-    this.lotteries$ = this.lotteryService.getMyLotteries(this.userId);
+  private initLotteries() {
+    this.state = State.IsLoading;
+    this.lotteries$ = this.authService.getUser().pipe(
+      switchMap(user => this.lotteryService.getUserLotteries(user.uid)),
+      tap(() => (this.state = State.GotData)),
+    );
   }
 }

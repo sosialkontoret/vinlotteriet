@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { LotteryService } from '@services/lottery/lottery.service';
 import { ActivatedRoute } from '@angular/router';
-import { LotteryModel } from '@models/lottery.model';
+import { Lottery } from '@models/lottery.model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ValidationService } from '@services/validation/validation.service';
-import { ParticipantModel } from '@models/participant.model';
+import { Participant } from '@models/participant.model';
 
 @Component({
   selector: 'sk-edit-lottery',
@@ -14,7 +14,7 @@ import { ParticipantModel } from '@models/participant.model';
 export class EditLotteryComponent implements OnInit {
   lotteryOngoing: boolean;
   lotteryId: string;
-  lottery: LotteryModel;
+  lottery: Lottery;
   newParticipantForm: FormGroup;
   numberOfDrawsDone: number;
   addParticipantError: string;
@@ -36,7 +36,7 @@ export class EditLotteryComponent implements OnInit {
     this.setupForm();
   }
 
-  addParticipant(participant: ParticipantModel, valid: boolean) {
+  addParticipant(participant: Participant, valid: boolean) {
     this.addParticipantError = null;
     if (valid) {
       this.updateForm(participant);
@@ -104,7 +104,7 @@ export class EditLotteryComponent implements OnInit {
     this.countdownFinished = value;
   }
 
-  private updateForm(participant: ParticipantModel) {
+  private updateForm(participant: Participant) {
     this.isLoading = true;
     if (!this.lottery.participants) {
       this.lottery.participants = [];
@@ -116,7 +116,7 @@ export class EditLotteryComponent implements OnInit {
     this.isLoading = false;
   }
 
-  private setParticipantFloatingPosition(participant: ParticipantModel) {
+  private setParticipantFloatingPosition(participant: Participant) {
     participant.cssTop = this.getRandomInt(25, 98);
     participant.cssLeft = this.getRandomInt(0, 98);
     return participant;
@@ -128,7 +128,7 @@ export class EditLotteryComponent implements OnInit {
     return Math.floor(Math.random() * (max - min)) + min;
   }
 
-  private updateLotteryModel(lottery: LotteryModel) {
+  private updateLotteryModel(lottery: Lottery) {
     this.lotteryService.updateLottery(lottery);
   }
 

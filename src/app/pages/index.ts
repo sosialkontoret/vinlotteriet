@@ -4,7 +4,7 @@ import { LoginComponent } from './login';
 import { LotteryComponent } from './lottery';
 import { MyLotteriesComponent } from './my-lotteries';
 import { NewLotteryComponent } from './new-lottery';
-import { ProfileComponent } from './profile';
+import { UserComponent } from './user';
 import { RegisterComponent } from './register';
 import { PagesComponent } from './pages.component';
 
@@ -15,7 +15,7 @@ export const components: any[] = [
   LotteryComponent,
   MyLotteriesComponent,
   NewLotteryComponent,
-  ProfileComponent,
+  UserComponent,
   RegisterComponent,
   PagesComponent,
 ];

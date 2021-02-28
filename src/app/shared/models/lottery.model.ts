@@ -1,7 +1,7 @@
 import { Timestamp } from '@firebase/firestore-types';
-import { ParticipantModel } from './participant.model';
+import { Participant } from './participant.model';
 
-export class LotteryModel {
+export type Lottery = {
   id?: string;
   name: string;
   dateTime: Timestamp;
@@ -11,5 +11,5 @@ export class LotteryModel {
   numberOfDraws: number;
   draws?: any[];
   userId?: string;
-  participants?: ParticipantModel[];
+  participants?: Participant[];
 }

@@ -3,7 +3,7 @@ import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ValidationService } from '@services/validation/validation.service';
 import { AuthenticationService } from '@services/authentication/authentication.service';
-import { LotteryModel } from '@models/lottery.model';
+import { Lottery } from '@models/lottery.model';
 import { LotteryService } from '@services/lottery/lottery.service';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -34,7 +34,7 @@ export class NewLotteryComponent implements OnInit {
     this.userId$ = this.auth.isLoggedIn().pipe(map(user => user.uid));
   }
 
-  onCreateLottery(lotteryForm: LotteryModel) {
+  onCreateLottery(lotteryForm: Lottery) {
     this.state = State.IsLoading;
     this.lotteryService.createLottery(lotteryForm).then(
       id => {

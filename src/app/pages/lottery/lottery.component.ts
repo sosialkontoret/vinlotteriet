@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { LotteryModel } from '@models/lottery.model';
+import { Lottery } from '@models/lottery.model';
 import { LotteryService } from '@services/lottery/lottery.service';
 import { DrawModel } from '@models/draw.model';
 import { fadeInOut } from 'shared/animations/fade-in-out.animation';
@@ -13,7 +13,7 @@ import { fadeInOut } from 'shared/animations/fade-in-out.animation';
 })
 export class LotteryComponent implements OnInit {
   lotteryId: string;
-  lottery: LotteryModel;
+  lottery: Lottery;
   numberOfDraws: number;
   currentDraw: DrawModel;
   currentDrawIndex: number;

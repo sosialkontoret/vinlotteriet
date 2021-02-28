@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { MoleculesModule } from '../molecules/molecules.module';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { LotteryListComponent } from './lottery-list/lottery-list.component';
+import { SharedComponentsModule } from '../shared-components.module';
+
+const components = [LotteryListComponent];
 
 @NgModule({
-  declarations: [],
-  imports: [MoleculesModule, CommonModule, RouterModule],
-  exports: [MoleculesModule],
+  declarations: [...components],
+  imports: [MoleculesModule, SharedComponentsModule],
+  exports: [...components, MoleculesModule],
 })
 export class OrganismsModule {}

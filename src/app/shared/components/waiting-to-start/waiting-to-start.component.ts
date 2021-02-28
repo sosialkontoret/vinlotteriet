@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges } from '@angular/core';
-import { LotteryModel } from '@models/lottery.model';
+import { Lottery } from '@models/lottery.model';
 
 @Component({
   selector: 'sk-waiting-to-start',
@@ -7,7 +7,7 @@ import { LotteryModel } from '@models/lottery.model';
   styleUrls: ['./waiting-to-start.component.scss'],
 })
 export class WaitingToStartComponent implements OnChanges {
-  @Input() lottery: LotteryModel;
+  @Input() lottery: Lottery;
   @Input() winners: string[];
   countdownFinished: boolean;
   tickets: number;

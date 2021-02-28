@@ -1,23 +1,4 @@
-<div class="my-lotteries container">
-  <div class="new-lottery">
-    <div class="row">
-      <div class="offset-8 col-4">
-        <button (click)="newLottery()" class="large-button green-background">Nytt lotteri</button>
-      </div>
-    </div>
-  </div>
-  <div class="history-lotteries">
-    <div *ngIf="(lotteries$ | async)?.length > 0"  class="row">
-      <div class="col-md-4 row-header">Navn</div>
-      <div class="col-md-4 row-header">Trekningsdato</div>
-      <div class="col-md-4 row-header">Opprettet</div>
-    </div>
-    <div (click)="selectLottery(lottery.id)" class="row" *ngFor="let lottery of lotteries$ | async">
-      <div class="col-4">{{lottery.name}}</div>
-      <div class="col-4">{{lottery?.dateTime.toDate() | date: 'dd-MM-yyyy HH:mm'}}</div>
-      <div class="col-4">{{lottery?.createdDate.toDate() | date: 'dd-MM-yyyy HH:mm'}}</div>
-    </div>
-  </div>
-
-
-</div>
+<sk-my-lotteries-template
+  [state]="state"
+  [lotteries]="lotteries$ | async"
+></sk-my-lotteries-template>
