@@ -17,7 +17,6 @@ import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform
     AppRoutingModule,
     NoopAnimationsModule,
   ],
-  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
