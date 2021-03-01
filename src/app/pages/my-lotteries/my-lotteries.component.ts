@@ -5,6 +5,7 @@ import { Lottery } from '@models/lottery.model';
 import { State } from '@models/enums/state.enum';
 import { AuthenticationService } from '@services/authentication';
 import { switchMap, tap } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'sk-my-lotteries',
@@ -15,7 +16,7 @@ export class MyLotteriesComponent implements OnInit {
   state: State = State.Before;
   lotteries$: Observable<Lottery[]>;
 
-  constructor(private authService: AuthenticationService, private lotteryService: LotteryService) {}
+  constructor(private router: Router, private authService: AuthenticationService, private lotteryService: LotteryService) {}
 
   ngOnInit() {
     this.initLotteries();

@@ -18,7 +18,7 @@ describe('NewLotteryTemplateComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should onCreate', () => {
     expect(component).toBeTruthy();
   });
 });

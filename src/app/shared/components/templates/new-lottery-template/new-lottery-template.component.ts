@@ -1,9 +1,9 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ValidationService } from '@services/validation';
 import { Lottery } from '@models/lottery.model';
 import { State } from '@models/enums/state.enum';
+import { ValidationUtils } from '@utils/validation';
 
 @Component({
   selector: 'sk-new-lottery-template',
@@ -24,7 +24,7 @@ export class NewLotteryTemplateComponent implements OnInit {
     return this.state === State.IsLoading;
   }
 
-  constructor(private fb: FormBuilder, private router: Router, private validationService: ValidationService) {
+  constructor(private fb: FormBuilder, private router: Router) {
     this.minDate = new Date();
   }
 
@@ -35,9 +35,9 @@ export class NewLotteryTemplateComponent implements OnInit {
   private setupForm() {
     this.newLotteryForm = this.fb.group({
       name: ['', Validators.required],
-      dateTime: ['', Validators.compose([Validators.required, this.validationService.dateTimeValidation])],
+      dateTime: ['', Validators.compose([Validators.required, ValidationUtils.dateTimeValidation])],
       description: ['', Validators.required],
-      numberOfDraws: ['', Validators.compose([Validators.required, this.validationService.validDrawNumber])],
+      numberOfDraws: ['', Validators.compose([Validators.required, ValidationUtils.validDrawNumber])],
     });
   }
 

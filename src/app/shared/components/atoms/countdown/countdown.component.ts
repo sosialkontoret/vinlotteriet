@@ -3,14 +3,13 @@ import { interval } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Component({
-  selector: 'sk-count-down',
-  templateUrl: './count-down.component.html',
-  styleUrls: ['./count-down.component.scss'],
+  selector: 'sk-countdown',
+  templateUrl: './countdown.component.html',
+  styleUrls: ['./countdown.component.scss'],
 })
-export class CountDownComponent implements OnInit, OnDestroy {
-  // Hardcoded date
+export class CountdownComponent implements OnInit, OnDestroy {
   @Input() eventDate: Date;
-  @Output() countDownFinished: EventEmitter<boolean>;
+  @Output() countDownFinished = new EventEmitter<boolean>();
   diff: number;
   countDownResult: number;
   interval: any;
@@ -19,10 +18,6 @@ export class CountDownComponent implements OnInit, OnDestroy {
   hours: number;
   minutes: number;
   seconds: number;
-
-  constructor() {
-    this.countDownFinished = new EventEmitter<boolean>();
-  }
 
   ngOnDestroy() {
     clearInterval(this.interval);

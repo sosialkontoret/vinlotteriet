@@ -9,8 +9,13 @@ import { RegisterTemplateComponent } from './register-template/register-template
 import { SharedComponentsModule } from '../shared-components.module';
 import { MyLotteriesTemplateComponent } from './my-lotteries-template/my-lotteries-template.component';
 import { UserTemplateComponent } from './user-template/user-template.component';
+import { EditLotteryTemplateComponent } from './edit-lottery-template/edit-lottery-template.component';
+import { LotteryTemplateComponent } from './lottery-template/lottery-template.component';
+import {DrawComponent} from '../deprecated/draw';
+import {WaitingToStartComponent} from '../deprecated/waiting-to-start';
 
 const components = [
+  EditLotteryTemplateComponent,
   LoginTemplateComponent,
   HomeTemplateComponent,
   MyLotteriesTemplateComponent,
@@ -18,10 +23,15 @@ const components = [
   RegisterTemplateComponent,
   ThemeTemplateComponent,
   UserTemplateComponent,
+  LotteryTemplateComponent,
 ];
 
+
+const deprecatedComponents = [DrawComponent, WaitingToStartComponent];
+
+
 @NgModule({
-  declarations: [...components],
+  declarations: [...components, ...deprecatedComponents],
   imports: [OrganismsModule, SharedComponentsModule, OwlDateTimeModule, OwlNativeDateTimeModule],
   exports: [...components],
 })

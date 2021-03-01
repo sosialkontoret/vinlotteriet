@@ -9,6 +9,7 @@ import { AuthenticationGuard } from '../core/guards/authentication/authenticatio
 import { EditLotteryComponent } from './edit-lottery';
 import { PagesComponent } from './pages.component';
 import { MyLotteriesComponent } from './my-lotteries';
+import { NewLotteryComponent } from './new-lottery';
 
 const routes: Routes = [
   {
@@ -45,10 +46,14 @@ const routes: Routes = [
             component: MyLotteriesComponent,
           },
           {
+            path: 'my-lotteries/new',
+            component: NewLotteryComponent,
+          },
+          {
             path: 'my-lotteries/:id',
             component: EditLotteryComponent,
           },
-        ]
+        ],
       },
     ],
   },

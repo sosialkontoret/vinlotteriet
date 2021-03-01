@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Lottery } from '@models/lottery.model';
 import { LotteryService } from '@services/lottery/lottery.service';
-import { DrawModel } from '@models/draw.model';
 import { fadeInOut } from 'shared/animations/fade-in-out.animation';
+import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'sk-lottery',
@@ -12,59 +13,22 @@ import { fadeInOut } from 'shared/animations/fade-in-out.animation';
   styleUrls: ['./lottery.component.scss'],
 })
 export class LotteryComponent implements OnInit {
-  lotteryId: string;
-  lottery: Lottery;
-  numberOfDraws: number;
-  currentDraw: DrawModel;
-  currentDrawIndex: number;
-  hasStarted: boolean;
-  winners: string[];
+  lottery$: Observable<Lottery>;
 
-  constructor(private router: Router, private ar: ActivatedRoute, private lotteryService: LotteryService) {
-    this.numberOfDraws = 0;
-    this.currentDrawIndex = 0;
-    this.winners = [];
-  }
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, private lotteryService: LotteryService) {}
 
   ngOnInit() {
-    this.lotteryId = this.ar.snapshot.paramMap.get('id');
-    this.getLottery(this.lotteryId);
+    const lotteryId = this.activatedRoute.snapshot.paramMap.get('id');
+    this.initLottery(lotteryId);
   }
 
-  drawFinished() {
-    this.hasStarted = false;
-    this.winners.push(this.currentDraw.winner);
-    this.currentDrawIndex += 1;
-
-    // wait a bit before starting a new draw;
-    setTimeout(() => {
-      this.checkForDraw();
-    }, 5000);
-  }
-
-  private getLottery(lotteryId: string) {
-    this.lotteryService.getLottery(lotteryId).subscribe(
-      lottery => {
-        this.lottery = lottery;
-        this.numberOfDraws = this.lottery.draws.length;
-        this.checkForDraw();
-
-        if (!this.lottery) {
-          this.router.navigate(['home', 'errorId']);
+  private initLottery(lotteryId: string) {
+    this.lottery$ = this.lotteryService.getLottery(lotteryId).pipe(
+      tap(lottery => {
+        if (!lottery) {
+          this.router.navigate(['home']);
         }
-      },
-      () => {
-        console.error('something went wrong grabbing lottery by id');
-      },
+      }),
     );
-  }
-
-  private checkForDraw() {
-    if (!this.hasStarted) {
-      this.currentDraw = this.lottery.draws[this.currentDrawIndex];
-      if (this.currentDraw.started && this.currentDraw.winner) {
-        this.hasStarted = true;
-      }
-    }
   }
 }

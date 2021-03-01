@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Lottery } from '@models/lottery.model';
 import { State } from '@models/enums/state.enum';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'sk-my-lotteries-template',
@@ -11,9 +12,11 @@ export class MyLotteriesTemplateComponent implements OnInit {
   @Input() state: State;
   @Input() lotteries: Lottery[];
 
+  constructor(private router: Router) {}
+
   ngOnInit(): void {}
 
-  create() {
-
+  onCreate() {
+    this.router.navigate(['user', 'my-lotteries', 'new']);
   }
 }

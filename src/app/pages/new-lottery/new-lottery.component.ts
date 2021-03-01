@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ValidationService } from '@services/validation/validation.service';
 import { AuthenticationService } from '@services/authentication/authentication.service';
 import { Lottery } from '@models/lottery.model';
 import { LotteryService } from '@services/lottery/lottery.service';
@@ -22,7 +21,6 @@ export class NewLotteryComponent implements OnInit {
     private fb: FormBuilder,
     private router: Router,
     private lotteryService: LotteryService,
-    private validationService: ValidationService,
     private auth: AuthenticationService,
   ) {}
 
@@ -34,9 +32,9 @@ export class NewLotteryComponent implements OnInit {
     this.userId$ = this.auth.isLoggedIn().pipe(map(user => user.uid));
   }
 
-  onCreateLottery(lotteryForm: Lottery) {
+  onCreateLottery(lottery: Lottery) {
     this.state = State.IsLoading;
-    this.lotteryService.createLottery(lotteryForm).then(
+    this.lotteryService.createLottery(lottery).then(
       id => {
         this.state = State.GotData;
         this.router.navigate(['edit-lottery', id]);

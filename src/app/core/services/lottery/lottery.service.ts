@@ -21,16 +21,13 @@ export class LotteryService {
    * @return id of the lottery object.
    */
   public createLottery(lottery: Lottery): Promise<string> {
-    const generatedId = this.afs.createId();
-    lottery.id = generatedId;
+    lottery.id = this.afs.createId();
     lottery.createdDate = Timestamp.now();
-    lottery.draws = this.addDraws(lottery).map(obj => {
-      return { ...obj };
-    });
+    lottery.draws = this.addDraws(lottery.numberOfDraws);
     return new Promise<string>(resolve => {
       this.afs
         .collection<Lottery>('lotteries')
-        .doc(generatedId)
+        .doc(lottery.id)
         .set(lottery)
         .then(
           () => {
@@ -56,7 +53,7 @@ export class LotteryService {
    *
    * @param lotteryId
    */
-  public getLottery(lotteryId: string) {
+  public getLottery(lotteryId: string): Observable<Lottery> {
     return this.afs.doc<Lottery>(`lotteries/${lotteryId}`).valueChanges();
   }
 
@@ -82,19 +79,17 @@ export class LotteryService {
 
   /**
    * Create draw model for each amount of lotteries that should be drawed
-   *
-   * @param lottery
    */
-  private addDraws(lottery: Lottery): DrawModel[] {
+  private addDraws(numberOfDraws: number): DrawModel[] {
     const draws: DrawModel[] = [];
-    if (lottery.numberOfDraws > 0) {
-      for (let i = 0; i < lottery.numberOfDraws; i += 1) {
+    if (numberOfDraws > 0) {
+      for (let i = 0; i < numberOfDraws; i += 1) {
         const draw: DrawModel = new DrawModel();
         draw.started = false;
         draws.push(draw);
       }
       return draws;
     }
-    throw new Error('Cant create order without any draws');
+    throw new Error('Cant onCreate order without any draws');
   }
 }

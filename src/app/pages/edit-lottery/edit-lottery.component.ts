@@ -2,9 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { LotteryService } from '@services/lottery/lottery.service';
 import { ActivatedRoute } from '@angular/router';
 import { Lottery } from '@models/lottery.model';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ValidationService } from '@services/validation/validation.service';
-import { Participant } from '@models/participant.model';
+import {State} from '@models/enums/state.enum';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'sk-edit-lottery',
@@ -12,43 +11,32 @@ import { Participant } from '@models/participant.model';
   styleUrls: ['./edit-lottery.component.scss'],
 })
 export class EditLotteryComponent implements OnInit {
+  state: State = State.Before;
   lotteryOngoing: boolean;
   lotteryId: string;
-  lottery: Lottery;
-  newParticipantForm: FormGroup;
-  numberOfDrawsDone: number;
+  lottery$: Observable<Lottery>;
   addParticipantError: string;
   isLoading: boolean;
-  countdownFinished: boolean;
 
   constructor(
-    private fb: FormBuilder,
-    private validationService: ValidationService,
+    private activatedRoute: ActivatedRoute,
     private lotteryService: LotteryService,
-    private ar: ActivatedRoute,
   ) {
-    this.numberOfDrawsDone = 0;
   }
 
   ngOnInit() {
-    this.lotteryId = this.ar.snapshot.paramMap.get('id');
-    this.getLottery(this.lotteryId);
-    this.setupForm();
+    this.lotteryId = this.activatedRoute.snapshot.paramMap.get('id');
+    this.initLottery(this.lotteryId);
   }
 
-  addParticipant(participant: Participant, valid: boolean) {
-    this.addParticipantError = null;
-    if (valid) {
-      this.updateForm(participant);
-    } else {
-      this.addParticipantError = 'Skjema har mangler';
-    }
+  onUpdated(lottery: Lottery): void {
+    this.lotteryService.updateLottery(lottery);
   }
 
-  startLottery() {
+  startLottery(lottery: Lottery) {
     const previousWinners = [];
-    for (let i = 0; i < this.lottery.draws.length; i++) {
-      const draw = this.lottery.draws[i];
+    for (let i = 0; i < lottery.draws.length; i++) {
+      const draw = lottery.draws[i];
 
       if (draw.started) {
         previousWinners.push(draw.winner);
@@ -56,11 +44,11 @@ export class EditLotteryComponent implements OnInit {
 
       if (!draw.started) {
         this.startLotteryTimer();
-        const participants = this.generateParticipantList(previousWinners);
+        const participants = this.generateParticipantList(lottery, previousWinners);
         if (participants.length > 0) {
           const winnerIndex = Math.floor(Math.random() * participants.length - 1 + 1);
           const winner = participants[winnerIndex];
-          this.lotteryService.setWinnerAndStart(this.lottery, winner, i);
+          this.lotteryService.setWinnerAndStart(lottery, winner, i);
           break;
         }
       }
@@ -74,9 +62,9 @@ export class EditLotteryComponent implements OnInit {
     }, 30000);
   }
 
-  private generateParticipantList(previousWinners: any[]) {
+  private generateParticipantList(lottery: Lottery, previousWinners: any[]) {
     const drawList = [];
-    this.lottery.participants.forEach(participant => {
+    lottery.participants.forEach(participant => {
       let { numberOfTickets } = participant;
       // remove a ticket if already won.
       const numberOfWinsBefore = previousWinners.filter(name => name === participant.name).length;
@@ -91,79 +79,7 @@ export class EditLotteryComponent implements OnInit {
     return drawList;
   }
 
-  deleteParticipant(name: string, index: number) {
-    if (index >= 0 && name) {
-      if (confirm(`Er du sikker på at du vil slette ${name}`)) {
-        this.lottery.participants.splice(index, 1);
-        this.updateLotteryModel(this.lottery);
-      }
-    }
-  }
-
-  setCountdownFinished(value: boolean) {
-    this.countdownFinished = value;
-  }
-
-  private updateForm(participant: Participant) {
-    this.isLoading = true;
-    if (!this.lottery.participants) {
-      this.lottery.participants = [];
-    }
-    participant = this.setParticipantFloatingPosition(participant);
-    this.lottery.participants.push(participant);
-    this.updateLotteryModel(this.lottery);
-    this.resetForm();
-    this.isLoading = false;
-  }
-
-  private setParticipantFloatingPosition(participant: Participant) {
-    participant.cssTop = this.getRandomInt(25, 98);
-    participant.cssLeft = this.getRandomInt(0, 98);
-    return participant;
-  }
-
-  private getRandomInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min)) + min;
-  }
-
-  private updateLotteryModel(lottery: Lottery) {
-    this.lotteryService.updateLottery(lottery);
-  }
-
-  private resetForm() {
-    this.newParticipantForm.reset();
-  }
-
-  private getLottery(lotteryId: string) {
-    this.lotteryService.getLottery(lotteryId).subscribe(
-      lottery => {
-        this.lottery = lottery;
-        this.lottery.draws.forEach(draw => {
-          if (draw.started) {
-            this.numberOfDrawsDone += 1;
-          }
-        });
-      },
-      () => {
-        console.error('something went wrong grabbing lottery by id');
-      },
-    );
-  }
-
-  private setupForm() {
-    this.newParticipantForm = this.fb.group({
-      name: ['', Validators.required],
-      numberOfTickets: ['', Validators.compose([Validators.required, this.validationService.validDrawNumber])],
-    });
-  }
-
-  get name() {
-    return this.newParticipantForm.get('name');
-  }
-
-  get numberOfTickets() {
-    return this.newParticipantForm.get('numberOfTickets');
+  private initLottery(lotteryId: string) {
+    this.lottery$ = this.lotteryService.getLottery(lotteryId);
   }
 }

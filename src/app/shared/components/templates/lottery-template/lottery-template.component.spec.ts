@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RegisterTemplateComponent } from './register-template.component';
+import { LotteryTemplateComponent } from './lottery-template.component';
 
-describe('RegisterTemplateComponent', () => {
-  let component: RegisterTemplateComponent;
-  let fixture: ComponentFixture<RegisterTemplateComponent>;
+describe('LotteryTemplateComponent', () => {
+  let component: LotteryTemplateComponent;
+  let fixture: ComponentFixture<LotteryTemplateComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RegisterTemplateComponent ]
+      declarations: [ LotteryTemplateComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RegisterTemplateComponent);
+    fixture = TestBed.createComponent(LotteryTemplateComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

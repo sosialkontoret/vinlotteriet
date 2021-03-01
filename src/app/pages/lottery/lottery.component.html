@@ -1,9 +1,3 @@
-<div class="standard-background-deprecated">
-  <sk-header [title]="lottery?.name"></sk-header>
-
-  <div class="lottery">
-   <sk-waiting-to-start *ngIf="lottery && !hasStarted" [winners]="winners" [lottery]="lottery"></sk-waiting-to-start>
-    <sk-draw (drawFinished)="drawFinished()" *ngIf="lottery && hasStarted" [currentDrawIndex]="currentDrawIndex" [lottery]="lottery" [draw]="currentDraw"></sk-draw>
-  </div>
-
-</div>
+<sk-lottery-template
+[lottery]="lottery$ | async"
+></sk-lottery-template>
