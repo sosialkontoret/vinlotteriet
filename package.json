@@ -29,7 +29,6 @@
     "@angular/platform-browser": "~11.1.2",
     "@angular/platform-browser-dynamic": "~11.1.2",
     "@angular/router": "~11.1.2",
-    "bootstrap": "^4.6.0",
     "core-js": "^3.6.5",
     "firebase": "^8.2.6",
     "font-awesome": "^4.7.0",
