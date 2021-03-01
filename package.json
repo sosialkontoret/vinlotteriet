@@ -14,7 +14,8 @@
     "stylelint:fix": "npm run stylelint -- --fix",
     "docs:json": "compodoc -t -p ./tsconfig.base.json -e json -d .",
     "storybook": "npm run docs:json && start-storybook -p 6006",
-    "build-storybook": "npm run docs:json && build-storybook"
+    "build-storybook": "npm run docs:json && build-storybook",
+    "ngcc": "ngcc --tsconfig ./tsconfig.app.json"
   },
   "private": true,
   "dependencies": {
@@ -32,7 +33,6 @@
     "core-js": "^3.6.5",
     "firebase": "^8.2.6",
     "font-awesome": "^4.7.0",
-    "ng-pick-datetime": "^7.0.0",
     "rxjs": "~6.6.3",
     "tslib": "^2.0.0",
     "zone.js": "^0.10.3"
