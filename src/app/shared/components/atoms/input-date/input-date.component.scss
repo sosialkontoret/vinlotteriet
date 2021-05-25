@@ -1,0 +1,19 @@
+@import 'main';
+
+.visually-hidden {
+  @include visually-hidden();
+}
+
+.label {
+  width: 100%;
+  color: $primary-color;
+}
+
+.input {
+  border: 1px solid $primary-color;
+  border-radius: 0;
+  color: $primary-color;
+  padding: 0.25em;
+  text-align: center;
+  width: 100%;
+}

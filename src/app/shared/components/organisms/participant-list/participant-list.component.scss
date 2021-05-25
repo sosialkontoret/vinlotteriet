@@ -1,0 +1,50 @@
+@import "main";
+
+.lottery-list {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 0.125em;
+  max-height: 50em;
+}
+
+.table-body > * {
+  display: table-row;
+}
+
+.table-header-cell {
+  color: $primary-color;
+  font-weight: $font-weight-bold;
+  text-align: left;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.name {
+  min-width: 5em;
+}
+
+.tickets {
+  width: 8em;
+}
+
+.win-probability {
+  width: 8em;
+}
+
+/**
+ 1. Using translate3d to keep absolutely positioned elements inside relative to this.
+ */
+.list-item {
+  position: relative;
+  transform: translate3d(0, 0, 0); // {1}
+  border: 1px solid $grey-200;
+  background-color: #fff;
+  box-shadow: 0 0.25em 0.25em rgba(0, 0, 0, 0.25);
+  height: 3em;
+}
+
+.no-participants-warning {
+  padding-left: 1em;
+}
