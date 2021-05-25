@@ -1,32 +1,33 @@
-.new-lottery {
-  .new-lottery-form {
-    margin-top: 35px;
+@import "main";
 
-    .form-header {
-      margin-bottom: 25px;
-    }
+.new-lottery-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
 
-    .form-element {
-      height: 95px;
+.new-lottery-card {
+  display: inline-block;
+  width: 100%;
+  max-width: 400px;
+}
 
-      label {
-        display: block;
-      }
+.title {
+  color: $primary-color;
+}
 
-      input {
-        width: 100%;
-        height: 35px;
-        font-size: 18px;
-        padding: 5px 5px 5px 5px;
-      }
-    }
+.text-input-field {
+  display: inline-block;
+  width: 100%;
+  margin: 0.5em 0;
+}
 
-    .submit-section {
-      margin-top: 35px;
+.increment-input-field {
+  margin: 0.5em 0;
+}
 
-      button {
-        margin-top: 15px;
-      }
-    }
-  }
+.create-btn {
+  margin: 0.5em 0;
 }

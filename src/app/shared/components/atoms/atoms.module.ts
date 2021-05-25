@@ -6,8 +6,19 @@ import { InputPasswordComponent } from './input-password/input-password.componen
 import { InputTextComponent } from './input-text/input-text.component';
 import { SharedComponentsModule } from '../shared-components.module';
 import { CountdownComponent } from './countdown/countdown.component';
+import {InputIncrementComponent} from './input-increment/input-increment.component';
+import {InputDateComponent} from './input-date/input-date.component';
 
-const components = [ButtonComponent, CardComponent, CountdownComponent, InputEmailComponent, InputPasswordComponent, InputTextComponent];
+const components = [
+  ButtonComponent,
+  CardComponent,
+  CountdownComponent,
+  InputEmailComponent,
+  InputPasswordComponent,
+  InputTextComponent,
+  InputIncrementComponent,
+  InputDateComponent,
+];
 
 @NgModule({
   declarations: [...components],

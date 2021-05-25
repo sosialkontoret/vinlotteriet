@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { Lottery } from '@models/lottery.model';
 import { Observable } from 'rxjs';
 import { DrawModel } from '@models/draw.model';
-import firebase from 'firebase';
-import Timestamp = firebase.firestore.Timestamp;
+import { ArrayUtils } from '@utils/array';
+import { fromPromise } from 'rxjs/internal-compatibility';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LotteryService {
-  private lotteryCollection: AngularFirestoreCollection<Lottery>;
+  private readonly collectionName = 'lotteries';
 
   constructor(private afs: AngularFirestore) {}
 
@@ -22,11 +22,11 @@ export class LotteryService {
    */
   public createLottery(lottery: Lottery): Promise<string> {
     lottery.id = this.afs.createId();
-    lottery.createdDate = Timestamp.now();
-    lottery.draws = this.addDraws(lottery.numberOfDraws);
+    lottery.createdDate = new Date();
+    lottery.draws = LotteryService.addDraws(lottery.numberOfDraws);
     return new Promise<string>(resolve => {
       this.afs
-        .collection<Lottery>('lotteries')
+        .collection<Lottery>(this.collectionName)
         .doc(lottery.id)
         .set(lottery)
         .then(
@@ -41,29 +41,31 @@ export class LotteryService {
     });
   }
 
-  public setWinnerAndStart(lottery: Lottery, winner: string, drawIndex: number) {
+  public setWinnerAndStart(lottery: Lottery, winner: string, drawIndex: number): Observable<void> {
     const draw = lottery.draws[drawIndex];
     draw.winner = winner;
     draw.started = true;
-    this.afs.doc<Lottery>(`lotteries/${lottery.id}`).update(lottery);
+    const promise = this.afs.collection<Lottery>(this.collectionName).doc(lottery.id).update(lottery);
+    return fromPromise(promise);
   }
 
   /**
-   * Get a spesific lottery based on its id
+   * Get a specific lottery based on its id
    *
-   * @param lotteryId
+   * @param id
    */
-  public getLottery(lotteryId: string): Observable<Lottery> {
-    return this.afs.doc<Lottery>(`lotteries/${lotteryId}`).valueChanges();
+  public getLottery(id: string): Observable<Lottery> {
+    return this.afs.collection<Lottery>(this.collectionName).doc(id).valueChanges();
   }
 
   /**
-   * Update a lotterymodel
+   * Update a lottery
    *
-   * @param updatedLotteryModel
+   * @param lottery
    */
-  public updateLottery(updatedLotteryModel: Lottery) {
-    this.afs.doc<Lottery>(`lotteries/${updatedLotteryModel.id}`).update(updatedLotteryModel);
+  public updateLottery(lottery: Lottery): Observable<void> {
+    const promise = this.afs.collection<Lottery>(this.collectionName).doc(lottery.id).update(lottery);
+    return fromPromise(promise);
   }
 
   /**
@@ -78,18 +80,12 @@ export class LotteryService {
   }
 
   /**
-   * Create draw model for each amount of lotteries that should be drawed
+   * Create draw model for each amount of lotteries that should be drawn
    */
-  private addDraws(numberOfDraws: number): DrawModel[] {
-    const draws: DrawModel[] = [];
-    if (numberOfDraws > 0) {
-      for (let i = 0; i < numberOfDraws; i += 1) {
-        const draw: DrawModel = new DrawModel();
-        draw.started = false;
-        draws.push(draw);
-      }
-      return draws;
-    }
-    throw new Error('Cant onCreate order without any draws');
+  private static addDraws(numberOfDraws: number): DrawModel[] {
+    const draws = numberOfDraws > 0 ? numberOfDraws : 1;
+    return ArrayUtils.mapN(draws, () => ({
+      started: false,
+    }));
   }
 }

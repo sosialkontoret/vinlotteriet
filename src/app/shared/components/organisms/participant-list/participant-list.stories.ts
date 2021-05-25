@@ -1,16 +1,13 @@
 import {Meta} from '@storybook/angular';
 import {StoryFnAngularReturnType} from '@storybook/angular/dist/client/preview/types';
 import {action} from '@storybook/addon-actions';
-import {LotteryListComponent} from './lottery-list.component';
-import {Lottery} from '../../../models/lottery.model';
 import {ArrayUtils} from '../../../../core/utils/array';
-import firebase from 'firebase';
-import Timestamp = firebase.firestore.Timestamp;
 import {Participant} from '../../../models/participant.model';
+import {ParticipantListComponent} from './participant-list.component';
 
 export default {
-  title: 'Organisms/Lottery List',
-  component: LotteryListComponent,
+  title: 'Organisms/Participant List',
+  component: ParticipantListComponent,
   argTypes: {
     background: {
       control: {
@@ -28,24 +25,12 @@ const createParticipant = (itemNr: number): Participant => ({
 
 const createParticipants = (items: number): Participant[] => ArrayUtils.mapN(items, createParticipant);
 
-const createLottery = (itemNr: number): Lottery => ({
-  id: `${itemNr}`,
-  name: `lottery-${itemNr}`,
-  createdDate: Timestamp.now(),
-  dateTime: Timestamp.now(),
-  description: `description-${itemNr}`,
-  numberOfDraws: itemNr,
-  participants: createParticipants(1 + itemNr),
-});
-
-const createLotteries = (items: number): Lottery[] => ArrayUtils.mapN(items, createLottery);
-
 const Template = (args: any): StoryFnAngularReturnType => ({
-  template: '<sk-card style="width: 100%; display: inline-block;" *ngIf="background"><sk-lottery-list style="width: 100%;" [lotteries]="lotteries"></sk-lottery-list></sk-card>' +
-    '<sk-lottery-list style="width: 100%;" *ngIf="!background" [lotteries]="lotteries"></sk-lottery-list>',
+  template: '<sk-card style="width: 100%; display: inline-block;" *ngIf="background"><sk-participant-list style="width: 100%;" [participants]="participants"></sk-participant-list></sk-card>' +
+    '<sk-participant-list style="width: 100%;" *ngIf="!background" [participants]="participants"></sk-participant-list>',
   props: {
     ...args,
-    lotteries: args.lotteries ?? args.items ? createLotteries(args.items) : undefined,
+    participants: args.participants ?? args.items ? createParticipants(args.items) : undefined,
     onChange: action('onChange'),
   },
 });
@@ -59,5 +44,13 @@ withItems.argTypes = {
   items: {
     control: {type: 'number', min: 0, step: 1},
     defaultValue: 5,
+  },
+};
+
+export const with100Items = Template.bind({});
+with100Items.argTypes = {
+  items: {
+    control: {type: 'number', min: 0, step: 1},
+    defaultValue: 100,
   },
 };
