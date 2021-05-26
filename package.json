@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --hmr",
-    "build": "ng build --prod --progress=false --aot=true --source-map=false --build-optimizer",
+    "build": "ng build --configuration production --progress=false --build-optimizer",
     "test": "ng test",
     "citest": "ng test --watch=false",
     "e2e": "ng e2e",
@@ -15,7 +15,8 @@
     "docs:json": "compodoc -t -p ./tsconfig.base.json -e json -d .",
     "storybook": "npm run docs:json && start-storybook -p 6006",
     "build-storybook": "npm run docs:json && build-storybook",
-    "ngcc": "ngcc --tsconfig ./tsconfig.app.json"
+    "ngcc": "ngcc --tsconfig ./tsconfig.app.json",
+    "bundle-report": "npm run build -- --stats-json && npx -y webpack-bundle-analyzer dist/stats.json"
   },
   "private": true,
   "dependencies": {
