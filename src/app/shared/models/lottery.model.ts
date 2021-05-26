@@ -1,14 +1,14 @@
 import { Participant } from './participant.model';
+import { DrawModel } from '@models/draw.model';
 
 export type Lottery = {
   id?: string;
   userId?: string;
   title?: string;
+  description?: string;
   startDate?: Date;
   createdDate?: Date;
-  description?: string;
-  latestParticipantList?: string[];
   numberOfDraws?: number;
-  draws?: any[];
+  draws?: DrawModel[];
   participants?: Participant[];
-}
+};

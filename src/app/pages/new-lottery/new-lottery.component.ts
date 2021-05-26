@@ -35,7 +35,7 @@ export class NewLotteryComponent implements OnInit {
 
   onCreateLottery(lottery: Lottery) {
     this.state = State.IsLoading;
-    this.lotteryService.createLottery(lottery).then(
+    this.lotteryService.createLottery(lottery).subscribe(
       id => {
         this.state = State.GotData;
         this.router.navigate(['/', 'user', 'my-lotteries', id]);

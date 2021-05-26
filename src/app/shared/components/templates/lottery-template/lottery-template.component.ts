@@ -27,7 +27,7 @@ export class LotteryTemplateComponent implements OnInit {
   }
 
   get isOngoing(): boolean {
-    return this.currentDraw?.started && !!this.currentDraw?.winner;
+    return !!this.currentDraw?.winner;
   }
 
   ngOnInit() {}

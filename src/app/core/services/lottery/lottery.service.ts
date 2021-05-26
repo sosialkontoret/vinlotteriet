@@ -2,9 +2,8 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Lottery } from '@models/lottery.model';
 import { Observable } from 'rxjs';
-import { DrawModel } from '@models/draw.model';
-import { ArrayUtils } from '@utils/array';
 import { fromPromise } from 'rxjs/internal-compatibility';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -20,31 +19,16 @@ export class LotteryService {
    * @param lottery model to save
    * @return id of the lottery object.
    */
-  public createLottery(lottery: Lottery): Promise<string> {
+  public createLottery(lottery: Lottery): Observable<string> {
     lottery.id = this.afs.createId();
     lottery.createdDate = new Date();
-    lottery.draws = LotteryService.addDraws(lottery.numberOfDraws);
-    return new Promise<string>(resolve => {
-      this.afs
-        .collection<Lottery>(this.collectionName)
-        .doc(lottery.id)
-        .set(lottery)
-        .then(
-          () => {
-            resolve(lottery.id);
-          },
-          error => {
-            resolve(error);
-            console.error('something went wrong creating a new lottery');
-          },
-        );
-    });
+    const promise = this.afs.collection<Lottery>(this.collectionName).doc(lottery.id).set(lottery);
+    return fromPromise(promise).pipe(map(() => lottery.id));
   }
 
   public setWinnerAndStart(lottery: Lottery, winner: string, drawIndex: number): Observable<void> {
     const draw = lottery.draws[drawIndex];
     draw.winner = winner;
-    draw.started = true;
     const promise = this.afs.collection<Lottery>(this.collectionName).doc(lottery.id).update(lottery);
     return fromPromise(promise);
   }
@@ -77,15 +61,5 @@ export class LotteryService {
     return this.afs
       .collection<Lottery>('lotteries', ref => ref.where('userId', '==', userId))
       .valueChanges();
-  }
-
-  /**
-   * Create draw model for each amount of lotteries that should be drawn
-   */
-  private static addDraws(numberOfDraws: number): DrawModel[] {
-    const draws = numberOfDraws > 0 ? numberOfDraws : 1;
-    return ArrayUtils.mapN(draws, () => ({
-      started: false,
-    }));
   }
 }
