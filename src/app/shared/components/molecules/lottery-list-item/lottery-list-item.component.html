@@ -1,5 +1,5 @@
 <td class="table-cell">
-  <a [routerLink]="url" class="name">{{lottery?.name}}</a>
+  <a [routerLink]="url" class="name">{{lottery?.title}}</a>
 </td>
 <td class="table-cell">
   <span>{{numberOfTickets}}</span>
@@ -8,5 +8,5 @@
   <span>{{lottery?.numberOfDraws}}</span>
 </td>
 <td class="table-cell">
-  {{lottery?.dateTime | firestoreDate: 'dd.mm.yy - HH:mm' }}
+  {{lottery?.startDate | date: 'dd.mm.yy - HH:mm' }}
 </td>
