@@ -8,8 +8,8 @@ import { Participant } from '@models/participant.model';
 })
 export class AddParticipantComponent implements OnInit {
   @Output() onAdd = new EventEmitter<Participant>();
-  private name: string = '';
-  private tickets: number = 0;
+  name: string = '';
+  numberOfTickets: number = 0;
 
   ngOnInit(): void {}
 
@@ -17,13 +17,17 @@ export class AddParticipantComponent implements OnInit {
     this.name = name;
   }
 
+  numberOfTicketsUpdated(numberOfTickets: number): void {
+    this.numberOfTickets = numberOfTickets;
+  }
+
   add(): void {
     const participant: Participant = {
       name: this.name,
-      numberOfTickets: this.tickets,
+      numberOfTickets: this.numberOfTickets,
     };
     this.onAdd.emit(participant);
     this.name = '';
-    this.tickets = 0;
+    this.numberOfTickets = 0;
   }
 }

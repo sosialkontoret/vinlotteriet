@@ -33,6 +33,10 @@
   align-items: center;
 }
 
+.start-lottery-button {
+  display: inline-block;
+  width: 12.8125em;
+}
 
 .participants-section {
   align-items: center;
@@ -40,10 +44,17 @@
   flex-direction: column;
   flex-grow: 1;
   padding: 2em 0;
+  width: 100%;
 }
 
-.add-participants-section {
-  display: flex;
-  justify-content: space-around;
+.add-participant {
+  display: inline-block;
+  width: 100%;
+  max-width: 700px;
+}
+
+.participant-list {
+  display: inline-block;
+  margin-top: 1em;
   width: 100%;
 }
