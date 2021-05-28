@@ -22,6 +22,7 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
+            "aot": false,
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -34,7 +35,6 @@
                 "src/styles"
               ]
             },
-            "aot": false,
             "vendorChunk": true,
             "extractLicenses": false,
             "buildOptimizer": false,
@@ -113,25 +113,6 @@
               "src/**/*.ts",
               "src/**/*.html"
             ]
-          }
-        }
-      }
-    },
-    "wine-lottery-e2e": {
-      "root": "e2e/",
-      "projectType": "application",
-      "prefix": "",
-      "architect": {
-        "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
-          "options": {
-            "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "wine-lottery:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "wine-lottery:serve:production"
-            }
           }
         }
       }
