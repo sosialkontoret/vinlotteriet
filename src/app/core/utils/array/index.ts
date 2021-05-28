@@ -20,4 +20,12 @@ export class ArrayUtils {
   public static mapN<T>(count: number, mapFunc: (index: number) => T): T[] {
     return this.indexedArray(count).map(mapFunc);
   }
+
+  public static sumSelect<T>(array: T[], select: (T) => number): number {
+    return array?.reduce((sum, val) => sum + select(val), 0) ?? 0;
+  }
+
+  public static sum(array: number[]): number {
+    return array?.reduce((sum, val) => sum + val, 0) ?? 0;
+  }
 }
