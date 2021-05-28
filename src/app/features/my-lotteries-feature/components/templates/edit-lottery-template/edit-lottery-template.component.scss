@@ -33,6 +33,11 @@
   align-items: center;
 }
 
+.number-of-tickets--counter {
+  font-size: 2.25em;
+  font-weight: $font-weight-bold;
+}
+
 .start-lottery-button {
   display: inline-block;
   width: 12.8125em;

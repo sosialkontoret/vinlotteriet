@@ -1,5 +1,5 @@
 <div class="add-lottery-ticket-container">
-  <sk-input-text [label]="'Navn på lodd'" [showLabel]="true" (onChange)="nameUpdated($event)"></sk-input-text>
+  <sk-input-text [label]="'Navn på lodd'" [showLabel]="true" [value]="name" (onChange)="nameUpdated($event)"></sk-input-text>
   <sk-input-increment
     [label]="'Lodd'"
     [showLabel]="true"

@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Participant } from '../../../models/participant.model';
-import { State } from '../../../models/enums/state.enum';
+import { Participant } from '@models/participant.model';
+import { State } from '@models/enums/state.enum';
 
 @Component({
   selector: 'sk-participant-list',
