@@ -38,7 +38,7 @@ export class NewLotteryPageComponent implements OnInit {
     this.lotteryService.createLottery(lottery).subscribe(
       id => {
         this.state = State.GotData;
-        this.router.navigate(['/', 'user', 'my-lotteries', id]);
+        this.router.navigate(['/', 'my-lotteries', id]);
       },
       error => {
         console.log(error);

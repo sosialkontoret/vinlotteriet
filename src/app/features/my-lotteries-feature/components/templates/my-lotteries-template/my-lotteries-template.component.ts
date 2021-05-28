@@ -17,6 +17,6 @@ export class MyLotteriesTemplateComponent implements OnInit {
   ngOnInit(): void {}
 
   onCreate() {
-    this.router.navigate(['user', 'my-lotteries', 'new']);
+    this.router.navigate(['my-lotteries', 'new']);
   }
 }

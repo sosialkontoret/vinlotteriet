@@ -26,7 +26,7 @@ export class LoginPageComponent implements OnInit {
     this.isAuthenticated$ = this.auth.isAuthenticated().pipe(
       tap(isAuthenticated => {
         if (isAuthenticated) {
-          return this.router.navigate(['user', 'my-lotteries']);
+          return this.router.navigate(['my-lotteries']);
         }
         this.state = State.NoData;
       }),
@@ -36,7 +36,7 @@ export class LoginPageComponent implements OnInit {
   onLogin(loginForm: LoginForm) {
     this.auth.login(loginForm.email, loginForm.password).subscribe(
       () => {
-        this.router.navigate(['user', 'my-lotteries']);
+        this.router.navigate(['my-lotteries']);
       },
       error => {
         console.error('Failed to login', error);
