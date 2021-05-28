@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --hmr",
-    "build": "ng build --configuration production --progress=false --build-optimizer",
+    "build": "ng build --configuration production --progress=false",
     "test": "ng test",
     "citest": "ng test --watch=false",
     "e2e": "ng e2e",
