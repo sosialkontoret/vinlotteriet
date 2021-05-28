@@ -1,22 +1,25 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { Lottery } from '@models/lottery.model';
+import { LotteryUtils } from '@utils/lottery/lottery.utils';
 
 @Component({
   selector: 'sk-lottery-list-item',
   templateUrl: './lottery-list-item.component.html',
   styleUrls: ['./lottery-list-item.component.scss'],
 })
-export class LotteryListItemComponent implements OnInit {
+export class LotteryListItemComponent implements OnInit, OnChanges {
   @Input() lottery: Lottery;
 
-  get url(): string {
-    return '#';
+  routerLink: string[];
+  numberOfTickets: number;
+
+  ngOnInit(): void {
+    this.numberOfTickets = LotteryUtils.countNumberOfTickets(this.lottery);
+    this.routerLink = ['/', 'my-lotteries', this.lottery?.id];
   }
 
-  ngOnInit(): void {}
-
-  get numberOfTickets(): number {
-    const tickets = this.lottery?.participants?.flatMap(participant => participant?.numberOfTickets);
-    return tickets?.reduce((a,b) => a + b, 0) ?? 0;
+  ngOnChanges(): void {
+    this.numberOfTickets = LotteryUtils.countNumberOfTickets(this.lottery);
+    this.routerLink = ['/', 'my-lotteries', this.lottery?.id];
   }
 }
