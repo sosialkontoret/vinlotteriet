@@ -7,7 +7,6 @@
     "build": "ng build --configuration production --progress=false",
     "test": "ng test",
     "citest": "ng test --watch=false",
-    "e2e": "ng e2e",
     "lint": "ng lint && npm run stylelint",
     "lint:fix": "ng lint --fix && npm run stylelint",
     "stylelint": "stylelint **/*.scss",
