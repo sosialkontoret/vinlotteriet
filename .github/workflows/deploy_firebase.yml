@@ -10,8 +10,7 @@ jobs:
     name: Deploy To Firebase
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repo
-        uses: actions/checkout@masters
+      - uses: actions/checkout@v1
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
         with:
