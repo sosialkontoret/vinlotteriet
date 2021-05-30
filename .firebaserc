@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "wine-lottery-dev"
+    "default": "wine-lottery-dev",
+    "production": "wine-lottery-cb86f"
   }
 }
