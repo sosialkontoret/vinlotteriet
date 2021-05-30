@@ -20,10 +20,13 @@ export class LotteryService {
    * @return id of the lottery object.
    */
   public createLottery(lottery: Lottery): Observable<string> {
-    lottery.id = this.afs.createId();
-    lottery.createdDate = new Date();
-    const promise = this.afs.collection<Lottery>(this.collectionName).doc(lottery.id).set(lottery);
-    return fromPromise(promise).pipe(map(() => lottery.id));
+    const insert: Lottery = {
+      ...lottery,
+      id: this.afs.createId(),
+      createdDate: new Date(),
+    };
+    const promise = this.afs.collection<Lottery>(this.collectionName).doc(insert.id).set(insert);
+    return fromPromise(promise).pipe(map(() => insert.id));
   }
 
   public setWinnerAndStart(lottery: Lottery, winner: string, drawIndex: number): Observable<void> {

@@ -1,4 +1,4 @@
-@import "src/styles/main";
+@import "main";
 
 .home-template-container {
   display: flex;
@@ -22,7 +22,8 @@
   margin-top: 0.5em;
 }
 
-.lottery-code-input, .join-lottery-button {
+.lottery-code-input,
+.join-lottery-button {
   display: inline-block;
   width: 100%;
   margin: 0.125em 0;

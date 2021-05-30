@@ -5,12 +5,12 @@
       <sk-input-text
         class="lottery-code-input"
         [placeholder]="'Lotteri Kode'"
-        (onChange)="onLotteryCodeChanged($event)"
+        (valueChange)="onLotteryCodeChanged($event)"
       ></sk-input-text>
       <sk-button
         class="join-lottery-button"
         [variant]="'secondary'"
-        (onClick)="onJoinLotteryClicked()">
+        (clicked)="onJoinLotteryClicked()">
         Bli med
       </sk-button>
     </div>

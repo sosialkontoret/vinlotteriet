@@ -9,9 +9,9 @@ import Timestamp = firebase.firestore.Timestamp;
 export class FirestoreDatePipe implements PipeTransform {
   constructor(@Inject(LOCALE_ID) private locale: string) {}
 
-  transform(timestamp: Timestamp, format?: string): string {
+  transform(timestamp: Timestamp, format?: string): string | undefined {
     if (!timestamp?.toDate) {
-      return;
+      return undefined;
     }
     return formatDate(timestamp.toDate(), format || 'medium', this.locale);
   }

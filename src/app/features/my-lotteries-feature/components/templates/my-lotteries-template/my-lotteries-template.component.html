@@ -1,6 +1,6 @@
 <sk-card>
   <h1 class="title">Dine lotterier</h1>
   <p class="description">Her kan du både starte nytt lotteri,<br /> og se hvordan de tidligere lotteriene dine har gått</p>
-  <sk-button class="create-button" (onClick)="onCreate()">Nytt lotteri</sk-button>
+  <sk-button class="create-button" (clicked)="onCreate()">Nytt lotteri</sk-button>
   <sk-lottery-list class="lotteries" [lotteries]="lotteries"></sk-lottery-list>
 </sk-card>

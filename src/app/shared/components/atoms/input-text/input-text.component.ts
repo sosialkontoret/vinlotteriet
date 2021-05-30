@@ -7,12 +7,12 @@ import { ClassNames } from '@models/class-names';
   styleUrls: ['./input-text.component.scss'],
 })
 export class InputTextComponent implements OnInit {
-  @Input() value: string = '';
-  @Input() placeholder: string = '';
-  @Input() label: string = '';
+  @Input() value = '';
+  @Input() placeholder = '';
+  @Input() label = '';
   @Input() showLabel = false;
 
-  @Output() onChange = new EventEmitter<string>();
+  @Output() valueChange = new EventEmitter<string>();
 
   labelClassNames: ClassNames;
 
@@ -26,6 +26,6 @@ export class InputTextComponent implements OnInit {
 
   change(event: Event): void {
     const value = (event.target as any)?.value;
-    this.onChange.emit(value);
+    this.valueChange.emit(value);
   }
 }

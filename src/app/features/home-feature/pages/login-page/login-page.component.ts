@@ -26,7 +26,8 @@ export class LoginPageComponent implements OnInit {
     this.isAuthenticated$ = this.auth.isAuthenticated().pipe(
       tap(isAuthenticated => {
         if (isAuthenticated) {
-          return this.router.navigate(['my-lotteries']);
+          this.router.navigate(['my-lotteries']);
+          return;
         }
         this.state = State.NoData;
       }),

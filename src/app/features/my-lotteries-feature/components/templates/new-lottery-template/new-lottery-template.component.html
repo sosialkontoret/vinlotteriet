@@ -5,27 +5,27 @@
       class="text-input-field"
       [label]="'Tittel'"
       [showLabel]="true"
-      (onChange)="titleUpdated($event)"
+      (valueChange)="titleUpdated($event)"
     ></sk-input-text>
     <sk-input-date
       class="text-input-field"
       [label]="'Tidspunkt for trekning'"
       [showLabel]="true"
-      (onChange)="dateUpdated($event)"
+      (valueChange)="dateUpdated($event)"
     ></sk-input-date>
     <sk-input-text
       class="text-input-field"
       [label]="'Beskrivelse'"
       [showLabel]="true"
-      (onChange)="descriptionUpdated($event)"
+      (valueChange)="descriptionUpdated($event)"
     ></sk-input-text>
     <sk-input-increment
       class="increment-input-field"
       [label]="'Antall trekninger'"
       [showLabel]="true"
-      (onChange)="numberOfDrawsUpdated($event)"
+      (valueChange)="numberOfDrawsUpdated($event)"
     ></sk-input-increment>
-    <sk-button class="create-btn" (onClick)="create()">Lag lotteriet</sk-button>
+    <sk-button class="create-btn" (clicked)="create()">Lag lotteriet</sk-button>
     <a class="cancel" [routerLink]="['/', 'my-lotteries']">Avbryt</a>
   </sk-card>
 </div>

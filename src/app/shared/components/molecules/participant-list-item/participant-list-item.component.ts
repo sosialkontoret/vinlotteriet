@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Participant } from '../../../models/participant.model';
+import { Participant } from '@models/participant.model';
 
 @Component({
   selector: 'sk-participant-list-item',

@@ -9,7 +9,6 @@ import { RegisterForm } from '@models/forms/register.form';
   styleUrls: ['./register-page.component.scss'],
 })
 export class RegisterPageComponent implements OnInit {
-
   constructor(private router: Router, private auth: AuthenticationService) {}
 
   ngOnInit() {}

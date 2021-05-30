@@ -1,5 +1,5 @@
-import {Component, OnInit, Output, EventEmitter} from '@angular/core';
-import {Participant} from '@models/participant.model';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Participant } from '@models/participant.model';
 
 @Component({
   selector: 'sk-add-participant',
@@ -7,12 +7,11 @@ import {Participant} from '@models/participant.model';
   styleUrls: ['./add-participant.component.scss'],
 })
 export class AddParticipantComponent implements OnInit {
-  @Output() onAdd = new EventEmitter<Participant>();
-  name: string = '';
-  numberOfTickets: number = 1;
+  @Output() participantAdded = new EventEmitter<Participant>();
+  name = '';
+  numberOfTickets = 1;
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   nameUpdated(name: string): void {
     this.name = name;
@@ -30,7 +29,7 @@ export class AddParticipantComponent implements OnInit {
       name: this.name,
       numberOfTickets: this.numberOfTickets,
     };
-    this.onAdd.emit(participant);
+    this.participantAdded.emit(participant);
     this.name = '';
     this.numberOfTickets = 1;
   }

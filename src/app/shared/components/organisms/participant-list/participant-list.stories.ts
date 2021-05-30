@@ -1,9 +1,8 @@
-import {Meta} from '@storybook/angular';
-import {StoryFnAngularReturnType} from '@storybook/angular/dist/client/preview/types';
-import {action} from '@storybook/addon-actions';
-import {ArrayUtils} from '../../../../core/utils/array';
-import {Participant} from '../../../models/participant.model';
-import {ParticipantListComponent} from './participant-list.component';
+import { Meta } from '@storybook/angular';
+import { action } from '@storybook/addon-actions';
+import { ArrayUtils } from '@utils/array';
+import { Participant } from '@models/participant.model';
+import { ParticipantListComponent } from './participant-list.component';
 
 export default {
   title: 'Organisms/Participant List',
@@ -14,8 +13,8 @@ export default {
         type: 'boolean',
       },
       defaultValue: true,
-    }
-  }
+    },
+  },
 } as Meta;
 
 const createParticipant = (itemNr: number): Participant => ({
@@ -25,8 +24,11 @@ const createParticipant = (itemNr: number): Participant => ({
 
 const createParticipants = (items: number): Participant[] => ArrayUtils.mapN(items, createParticipant);
 
-const Template = (args: any): StoryFnAngularReturnType => ({
-  template: '<sk-card style="width: 100%; display: inline-block;" *ngIf="background"><sk-participant-list style="width: 100%;" [participants]="participants"></sk-participant-list></sk-card>' +
+const Template = (args: any) => ({
+  template:
+    '<sk-card style="width: 100%; display: inline-block;" *ngIf="background">' +
+    '<sk-participant-list style="width: 100%;" [participants]="participants"></sk-participant-list>' +
+    '</sk-card>' +
     '<sk-participant-list style="width: 100%;" *ngIf="!background" [participants]="participants"></sk-participant-list>',
   props: {
     ...args,
@@ -36,13 +38,12 @@ const Template = (args: any): StoryFnAngularReturnType => ({
 });
 
 export const empty = Template.bind({});
-empty.args = {
-};
+empty.args = {};
 
 export const withItems = Template.bind({});
 withItems.argTypes = {
   items: {
-    control: {type: 'number', min: 0, step: 1},
+    control: { type: 'number', min: 0, step: 1 },
     defaultValue: 5,
   },
 };
@@ -50,7 +51,7 @@ withItems.argTypes = {
 export const with100Items = Template.bind({});
 with100Items.argTypes = {
   items: {
-    control: {type: 'number', min: 0, step: 1},
+    control: { type: 'number', min: 0, step: 1 },
     defaultValue: 100,
   },
 };

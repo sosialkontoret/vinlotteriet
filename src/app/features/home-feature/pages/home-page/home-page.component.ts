@@ -14,10 +14,9 @@ export class HomePageComponent implements OnInit {
 
   constructor(private router: Router, private lotteryService: LotteryService) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
-  onJoinLottery($event: string) {
+  onJoinLottery() {
     this.showError = false;
     if (this.pin) {
       this.isLoading = true;
@@ -38,6 +37,5 @@ export class HomePageComponent implements OnInit {
     } else {
       this.showError = true;
     }
-
   }
 }

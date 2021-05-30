@@ -1,12 +1,9 @@
-import {Meta} from '@storybook/angular';
-import {StoryFnAngularReturnType} from '@storybook/angular/dist/client/preview/types';
-import {action} from '@storybook/addon-actions';
-import {LotteryListComponent} from './lottery-list.component';
-import {Lottery} from '../../../models/lottery.model';
-import {ArrayUtils} from '../../../../core/utils/array';
-import firebase from 'firebase';
-import Timestamp = firebase.firestore.Timestamp;
-import {Participant} from '../../../models/participant.model';
+import { Meta } from '@storybook/angular';
+import { action } from '@storybook/addon-actions';
+import { Lottery } from '@models/lottery.model';
+import { ArrayUtils } from '@utils/array';
+import { Participant } from '@models/participant.model';
+import { LotteryListComponent } from './lottery-list.component';
 
 export default {
   title: 'Organisms/Lottery List',
@@ -17,8 +14,8 @@ export default {
         type: 'boolean',
       },
       defaultValue: true,
-    }
-  }
+    },
+  },
 } as Meta;
 
 const createParticipant = (itemNr: number): Participant => ({
@@ -30,9 +27,9 @@ const createParticipants = (items: number): Participant[] => ArrayUtils.mapN(ite
 
 const createLottery = (itemNr: number): Lottery => ({
   id: `${itemNr}`,
-  name: `lottery-${itemNr}`,
-  createdDate: Timestamp.now(),
-  dateTime: Timestamp.now(),
+  title: `lottery-${itemNr}`,
+  createdDate: new Date(),
+  startDate: new Date(),
   description: `description-${itemNr}`,
   numberOfDraws: itemNr,
   participants: createParticipants(1 + itemNr),
@@ -40,8 +37,11 @@ const createLottery = (itemNr: number): Lottery => ({
 
 const createLotteries = (items: number): Lottery[] => ArrayUtils.mapN(items, createLottery);
 
-const Template = (args: any): StoryFnAngularReturnType => ({
-  template: '<sk-card style="width: 100%; display: inline-block;" *ngIf="background"><sk-lottery-list style="width: 100%;" [lotteries]="lotteries"></sk-lottery-list></sk-card>' +
+const Template = (args: any) => ({
+  template:
+    '<sk-card style="width: 100%; display: inline-block;" *ngIf="background">' +
+    '<sk-lottery-list style="width: 100%;" [lotteries]="lotteries"></sk-lottery-list>' +
+    '</sk-card>' +
     '<sk-lottery-list style="width: 100%;" *ngIf="!background" [lotteries]="lotteries"></sk-lottery-list>',
   props: {
     ...args,
@@ -51,13 +51,12 @@ const Template = (args: any): StoryFnAngularReturnType => ({
 });
 
 export const empty = Template.bind({});
-empty.args = {
-};
+empty.args = {};
 
 export const withItems = Template.bind({});
 withItems.argTypes = {
   items: {
-    control: {type: 'number', min: 0, step: 1},
+    control: { type: 'number', min: 0, step: 1 },
     defaultValue: 5,
   },
 };

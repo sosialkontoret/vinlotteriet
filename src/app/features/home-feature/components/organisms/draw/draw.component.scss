@@ -1,4 +1,4 @@
-.draw{
+.draw {
   position: absolute;
   top: 0;
   left: 0;
@@ -6,24 +6,26 @@
   height: 100%;
   background-color: black;
 
-  .content{
+  .content {
     margin-top: 45vh;
     width: 100%;
     text-align: center;
     color: white;
-    h1{
+
+    h1 {
       position: absolute;
       width: 100%;
       text-align: center;
       font-size: 100px;
     }
-    h2{
+
+    h2 {
       font-size: 85px;
     }
-    .trophy{
+
+    .trophy {
       padding-left: 15px;
       padding-right: 15px;
     }
   }
-
 }

@@ -1,6 +1,6 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Lottery } from '@models/lottery.model';
-import {State} from '@models/enums/state.enum';
+import { State } from '@models/enums/state.enum';
 
 @Component({
   selector: 'sk-new-lottery-template',
@@ -12,18 +12,14 @@ export class NewLotteryTemplateComponent implements OnInit {
   @Input() userId: string;
   @Output() createLottery = new EventEmitter<Lottery>();
 
-  private title: string = '';
-  private description: string = '';
+  private title = '';
+  private description = '';
   private date: Date = new Date();
-  private numberOfDraws: number = 1;
-
-  constructor() {}
+  private numberOfDraws = 1;
 
   ngOnInit() {
     this.setupForm();
   }
-
-  private setupForm() {}
 
   titleUpdated(title: string) {
     this.title = title;
@@ -50,4 +46,6 @@ export class NewLotteryTemplateComponent implements OnInit {
       numberOfDraws: this.numberOfDraws,
     });
   }
+
+  private setupForm() {}
 }

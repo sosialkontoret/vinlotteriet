@@ -8,12 +8,10 @@ import { State } from '@models/enums/state.enum';
   styleUrls: ['./login-template.component.scss'],
 })
 export class LoginTemplateComponent implements OnInit {
-  private loginForm: LoginForm = {};
-
   @Input() state: State;
   @Output() login = new EventEmitter<LoginForm>();
 
-  constructor() {}
+  private loginForm: LoginForm = {};
 
   ngOnInit() {}
 

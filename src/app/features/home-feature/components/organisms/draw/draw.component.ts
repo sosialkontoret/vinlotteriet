@@ -16,19 +16,15 @@ export class DrawComponent implements OnInit {
   @Input() draw: DrawModel;
   @Input() lottery: Lottery;
   @Input() currentDrawIndex: number;
+  @Output() drawFinished = new EventEmitter<boolean>();
+
   participants: string[];
-  @Output() drawFinished: EventEmitter<boolean>;
   finished: boolean;
   winner1: string;
   winner2: string;
-
   nameToShow: string;
   victory = new Audio();
   tick = new Audio();
-
-  constructor() {
-    this.drawFinished = new EventEmitter<boolean>();
-  }
 
   ngOnInit() {
     this.victory.src = '../../assets/sounds/victory.mp3';
@@ -52,6 +48,7 @@ export class DrawComponent implements OnInit {
     return this.generateParticipantList(previousWinners);
   }
 
+  // TODO fix eslint error in this method if we are keeping this component
   private generateParticipantList(previousWinners: any[]) {
     const drawList = [];
     this.lottery.participants.forEach(participant => {
@@ -60,10 +57,11 @@ export class DrawComponent implements OnInit {
       const numberOfWinsBefore = previousWinners.filter(name => name === participant.name).length;
       if (numberOfWinsBefore > -1) {
         numberOfTickets -= numberOfWinsBefore;
+        // eslint-disable-next-line no-param-reassign
         previousWinners = previousWinners.filter(name => name !== participant.name);
       }
 
-      for (let i = 0; i < numberOfTickets; i++) {
+      for (let i = 0; i < numberOfTickets; i += 1) {
         drawList.push(participant.name);
       }
     });

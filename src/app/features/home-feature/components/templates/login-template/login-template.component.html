@@ -4,17 +4,17 @@
     <sk-input-email
       class="email"
       [placeholder]="'E-post'"
-      (onChange)="onEmailChanged($event)"
+      (valueChange)="onEmailChanged($event)"
     ></sk-input-email>
     <sk-input-password
       class="password"
       [placeholder]="'Passord'"
-      (onChange)="onPasswordChanged($event)"
+      (valueChange)="onPasswordChanged($event)"
     ></sk-input-password>
     <sk-button
       class="login-button"
       [variant]="'primary'"
-      (onClick)="onLogin()">
+      (clicked)="onLogin()">
       Logg inn
     </sk-button>
     <div class="register-info-container">
