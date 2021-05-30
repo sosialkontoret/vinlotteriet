@@ -46,6 +46,19 @@ export class LotteryService {
   }
 
   /**
+   * Check if a lottery exists
+   *
+   * @param id
+   */
+  public lotteryExists(id: string): Observable<boolean> {
+    return this.afs
+      .collection<Lottery>(this.collectionName)
+      .doc(id)
+      .get()
+      .pipe(map(doc => doc.exists));
+  }
+
+  /**
    * Update a lottery
    *
    * @param lottery
