@@ -16,4 +16,5 @@ jobs:
         with:
           args: deploy
         env:
+          PROJECT_ID: wine-lottery-dev
           GCP_SA_KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_WINE_LOTTERY_DEV }}
