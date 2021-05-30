@@ -1,6 +1,6 @@
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { Lottery } from '@models/lottery.model';
-import { LotteryUtils } from '@utils';
+import { LotteryUtils } from '@utils/lottery';
 
 @Component({
   selector: 'sk-lottery-list-item',
