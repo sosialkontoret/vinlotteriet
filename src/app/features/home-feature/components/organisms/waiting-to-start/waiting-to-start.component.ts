@@ -12,8 +12,6 @@ export class WaitingToStartComponent implements OnChanges {
   countdownFinished: boolean;
   tickets: number;
 
-  constructor() {}
-
   ngOnChanges() {
     this.tickets = 0;
     if (this.lottery.participants) {

@@ -2,8 +2,7 @@ import { Component, Input, OnInit, EventEmitter, Output, OnChanges } from '@angu
 import { Lottery } from '@models/lottery.model';
 import { State } from '@models/enums/state.enum';
 import { Participant } from '@models/participant.model';
-import { ArrayUtils } from '@utils/array';
-import {LotteryUtils} from '@utils/lottery/lottery.utils';
+import { LotteryUtils } from '@utils/lottery';
 
 @Component({
   selector: 'sk-edit-lottery-template',

@@ -8,9 +8,8 @@ describe('RegisterTemplateComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RegisterTemplateComponent ]
-    })
-    .compileComponents();
+      declarations: [RegisterTemplateComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

@@ -9,10 +9,10 @@ export default {
 } as Meta;
 
 const Template = (args: any): StoryFnAngularReturnType => ({
-  template: '<sk-button (onClick)="onClick()"><div [outerHTML]="child"></div></sk-button>',
+  template: '<sk-button (clicked)="clicked()"><div [outerHTML]="child"></div></sk-button>',
   props: {
     ...args,
-    onClick: action('onClick'),
+    clicked: action('clicked'),
   },
 });
 

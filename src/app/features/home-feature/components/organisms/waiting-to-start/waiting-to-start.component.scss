@@ -1,4 +1,4 @@
-@import "../../../../../../styles/main";
+@import "main";
 
 .floating-participants {
   position: absolute;
@@ -38,13 +38,13 @@
       margin-top: 15px;
     }
   }
+
   .counter {
     border-radius: 5px;
     font-size: 22px;
-
   }
 
-  .winners{
+  .winners {
     margin: auto;
     margin-top: 15px;
     max-width: 400px;
@@ -52,5 +52,3 @@
     padding: 15px 10px 15px 10px;
   }
 }
-
-

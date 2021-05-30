@@ -11,7 +11,7 @@ export class InputEmailComponent implements OnInit {
   @Input() label: string;
   @Input() showLabel: boolean;
 
-  @Output() onChange = new EventEmitter<string>();
+  @Output() valueChange = new EventEmitter<string>();
 
   @Input() set value(value: string) {
     this.mValue = value ?? '';
@@ -27,12 +27,10 @@ export class InputEmailComponent implements OnInit {
     return new ClassNames('label-text').setNoDefault('visually-hidden', !this.showLabel);
   }
 
-  constructor() {}
-
   ngOnInit(): void {}
 
   change(event: Event): void {
     const value = (event.target as any)?.value;
-    this.onChange.emit(value);
+    this.valueChange.emit(value);
   }
 }

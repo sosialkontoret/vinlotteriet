@@ -27,7 +27,7 @@ export class CountdownComponent implements OnInit, OnDestroy {
     this.isLoading = true;
     this.interval = interval(1000)
       .pipe(
-        map(x => {
+        map(() => {
           this.diff = Math.floor((this.eventDate.getTime() - new Date().getTime()) / 1000);
           if (this.diff < 0) {
             this.days = 0;
@@ -38,7 +38,7 @@ export class CountdownComponent implements OnInit, OnDestroy {
           }
         }),
       )
-      .subscribe(x => {
+      .subscribe(() => {
         this.days = this.getDays(this.diff);
         this.hours = this.getHours(this.diff);
         this.minutes = this.getMinutes(this.diff);
@@ -47,49 +47,31 @@ export class CountdownComponent implements OnInit, OnDestroy {
       });
   }
 
-  getDays(t) {
-    let days;
-    days = Math.floor(t / 86400);
-
-    return days;
+  getDays(time: number): number {
+    return Math.floor(time / 86400);
   }
 
-  getHours(t) {
-    let days;
-    let hours;
-    days = Math.floor(t / 86400);
-    t -= days * 86400;
-    hours = Math.floor(t / 3600) % 24;
-
-    return hours;
+  getHours(time: number): number {
+    const days = Math.floor(time / 86400);
+    const remainder = time - days * 86400;
+    return Math.floor(remainder / 3600) % 24;
   }
 
-  getMinutes(t) {
-    let days;
-    let hours;
-    let minutes;
-    days = Math.floor(t / 86400);
-    t -= days * 86400;
-    hours = Math.floor(t / 3600) % 24;
-    t -= hours * 3600;
-    minutes = Math.floor(t / 60) % 60;
-
-    return minutes;
+  getMinutes(time: number): number {
+    const days = Math.floor(time / 86400);
+    let remainder = time - days * 86400;
+    const hours = Math.floor(remainder / 3600) % 24;
+    remainder -= hours * 86400;
+    return Math.floor(remainder / 60) % 60;
   }
 
-  getSeconds(t) {
-    let days;
-    let hours;
-    let minutes;
-    let seconds;
-    days = Math.floor(t / 86400);
-    t -= days * 86400;
-    hours = Math.floor(t / 3600) % 24;
-    t -= hours * 3600;
-    minutes = Math.floor(t / 60) % 60;
-    t -= minutes * 60;
-    seconds = t % 60;
-
-    return seconds;
+  getSeconds(time: number): number {
+    const days = Math.floor(time / 86400);
+    let remainder = time - days * 86400;
+    const hours = Math.floor(remainder / 3600) % 24;
+    remainder -= hours * 86400;
+    const minutes = Math.floor(remainder / 60) % 60;
+    remainder -= minutes * 60;
+    return remainder % 60;
   }
 }

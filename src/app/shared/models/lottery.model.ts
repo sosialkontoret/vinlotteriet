@@ -1,5 +1,5 @@
-import { Participant } from './participant.model';
 import { DrawModel } from '@models/draw.model';
+import { Participant } from './participant.model';
 
 export type Lottery = {
   id?: string;

@@ -8,7 +8,7 @@
     "test": "ng test",
     "citest": "ng test --watch=false",
     "lint": "ng lint && npm run stylelint",
-    "lint:fix": "ng lint --fix && npm run stylelint",
+    "lint:fix": "ng lint --fix && npm run stylelint:fix",
     "stylelint": "stylelint **/*.scss",
     "stylelint:fix": "npm run stylelint -- --fix",
     "docs:json": "compodoc -t -p ./tsconfig.base.json -e json -d .",

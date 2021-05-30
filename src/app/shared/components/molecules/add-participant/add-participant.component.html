@@ -1,10 +1,10 @@
 <div class="add-lottery-ticket-container">
-  <sk-input-text [label]="'Navn på lodd'" [showLabel]="true" [value]="name" (onChange)="nameUpdated($event)"></sk-input-text>
+  <sk-input-text [label]="'Navn på lodd'" [showLabel]="true" [value]="name" (valueChange)="nameUpdated($event)"></sk-input-text>
   <sk-input-increment
     [label]="'Lodd'"
     [showLabel]="true"
     [value]="numberOfTickets"
-    (onChange)="numberOfTicketsUpdated($event)"
+    (valueChange)="numberOfTicketsUpdated($event)"
   ></sk-input-increment>
-  <sk-button class="add-btn" (onClick)="add()">Legg til</sk-button>
+  <sk-button class="add-btn" (clicked)="add()">Legg til</sk-button>
 </div>

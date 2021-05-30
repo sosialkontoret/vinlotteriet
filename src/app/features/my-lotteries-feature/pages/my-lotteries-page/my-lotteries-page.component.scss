@@ -1,24 +1,29 @@
 @import "main";
 
-.my-lotteries{
-  .new-lottery{
+.my-lotteries {
+  .new-lottery {
     margin-top: 35px;
   }
 
-  .history-lotteries{
+  .history-lotteries {
     margin-top: 35px;
-    .row{
+
+    .row {
       margin-top: 10px;
       padding: 5px 5px 5px 5px;
       border-bottom: 1px solid $main-gray-deprecated;
+
       @include standard-transition-deprecated();
-      &:hover{
+
+      &:hover {
         @include standard-transition-deprecated();
+
         cursor: pointer;
         color: $main-pink-deprecated;
       }
     }
-    .row-header{
+
+    .row-header {
       font-weight: 600;
     }
   }

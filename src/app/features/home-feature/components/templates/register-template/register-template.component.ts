@@ -1,19 +1,17 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {State} from '@models/enums/state.enum';
-import {RegisterForm} from '@models/forms/register.form';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { State } from '@models/enums/state.enum';
+import { RegisterForm } from '@models/forms/register.form';
 
 @Component({
   selector: 'sk-register-template',
   templateUrl: './register-template.component.html',
-  styleUrls: ['./register-template.component.scss']
+  styleUrls: ['./register-template.component.scss'],
 })
 export class RegisterTemplateComponent implements OnInit {
-  private registerForm: RegisterForm = {};
-
   @Input() state: State;
   @Output() register = new EventEmitter<RegisterForm>();
 
-  constructor() {}
+  private registerForm: RegisterForm = {};
 
   ngOnInit() {}
 

@@ -8,36 +8,28 @@ import { LotteryService } from '@services/lottery/lottery.service';
   styleUrls: ['./home-page.component.scss'],
 })
 export class HomePageComponent implements OnInit {
-  pin: string;
   showError: boolean;
   isLoading: boolean;
 
   constructor(private router: Router, private lotteryService: LotteryService) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
-  onJoinLottery($event: string) {
+  onJoinLottery(lotteryCode: string): void {
     this.showError = false;
-    if (this.pin) {
-      this.isLoading = true;
-      this.lotteryService.getLottery(this.pin).subscribe(
-        lottery => {
-          if (lottery) {
-            this.router.navigate(['lottery', this.pin]);
-            this.isLoading = false;
-          } else {
-            this.showError = true;
-            this.isLoading = false;
-          }
-        },
-        () => {
-          console.error('something went wrong grabbing lottery by id');
-        },
-      );
-    } else {
-      this.showError = true;
-    }
-
+    this.isLoading = true;
+    this.lotteryService.lotteryExists(lotteryCode).subscribe(
+      exists => {
+        if (exists) {
+          this.router.navigate(['lottery', lotteryCode]);
+        } else {
+          this.showError = true;
+        }
+        this.isLoading = false;
+      },
+      () => {
+        console.error('something went wrong grabbing lottery by id');
+      },
+    );
   }
 }

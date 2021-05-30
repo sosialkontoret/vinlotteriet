@@ -9,7 +9,7 @@ import { ClassNames } from '@models/class-names';
 export class ButtonComponent implements OnInit {
   @Input() variant: 'primary' | 'secondary' = 'primary';
 
-  @Output() onClick = new EventEmitter<void>();
+  @Output() clicked = new EventEmitter<void>();
 
   get buttonContainerClassNames(): ClassNames {
     return new ClassNames('button-container').set(this.variant);
@@ -22,6 +22,6 @@ export class ButtonComponent implements OnInit {
   ngOnInit(): void {}
 
   click(): void {
-    this.onClick.emit();
+    this.clicked.emit();
   }
 }

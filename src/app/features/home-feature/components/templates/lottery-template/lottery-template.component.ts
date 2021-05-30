@@ -9,7 +9,7 @@ import { DrawModel } from '@models/draw.model';
 })
 export class LotteryTemplateComponent implements OnInit {
   @Input() lottery: Lottery;
-  currentDrawIndex: number = 0;
+  currentDrawIndex = 0;
   winners: string[] = [];
 
   get numberOfDraws(): number {

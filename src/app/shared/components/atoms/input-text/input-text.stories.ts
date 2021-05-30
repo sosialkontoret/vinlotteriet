@@ -9,10 +9,10 @@ export default {
 } as Meta;
 
 const Template = (args: any): StoryFnAngularReturnType => ({
-  template: '<sk-input-text [value]="value" [placeholder]="placeholder" (onChange)="onChange()"></sk-input-text>',
+  template: '<sk-input-text [value]="value" [placeholder]="placeholder" (valueChange)="valueChange()"></sk-input-text>',
   props: {
     ...args,
-    onChange: action('onChange'),
+    valueChange: action('valueChange'),
   },
 });
 

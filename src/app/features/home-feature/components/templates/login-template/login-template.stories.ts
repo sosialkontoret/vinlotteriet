@@ -1,8 +1,8 @@
 import { Meta } from '@storybook/angular';
 import { StoryFnAngularReturnType } from '@storybook/angular/dist/client/preview/types';
 import { action } from '@storybook/addon-actions';
+import { State } from '@models/enums/state.enum';
 import { LoginTemplateComponent } from './login-template.component';
-import { State } from '../../../../../shared/models/enums/state.enum';
 
 export default {
   title: 'Templates/Login',
@@ -11,7 +11,9 @@ export default {
 
 const Template = (args: any): StoryFnAngularReturnType => ({
   template:
-    '<sk-theme-template style="height: 100vh; width: 100%; display: inline-block"><sk-login-template [state]="state" (login)="onLogin($event)"></sk-login-template></sk-theme-template>',
+    '<sk-theme-template style="height: 100vh; width: 100%; display: inline-block">' +
+    '<sk-login-template [state]="state" (login)="onLogin($event)"></sk-login-template>' +
+    '</sk-theme-template>',
   props: {
     onLogin: action('onLogin'),
     ...args,

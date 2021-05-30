@@ -26,7 +26,9 @@ export class MyLotteriesPageComponent implements OnInit {
     this.state = State.IsLoading;
     this.lotteries$ = this.authService.getUser().pipe(
       switchMap(user => this.lotteryService.getUserLotteries(user.uid)),
-      tap(() => (this.state = State.GotData)),
+      tap(() => {
+        this.state = State.GotData;
+      }),
     );
   }
 }

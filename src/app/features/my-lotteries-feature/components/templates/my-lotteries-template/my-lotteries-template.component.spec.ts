@@ -8,9 +8,8 @@ describe('MyLotteriesTemplateComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MyLotteriesTemplateComponent ]
-    })
-    .compileComponents();
+      declarations: [MyLotteriesTemplateComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

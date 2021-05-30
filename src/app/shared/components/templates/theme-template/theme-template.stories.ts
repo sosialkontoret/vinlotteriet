@@ -1,6 +1,6 @@
 import { Meta } from '@storybook/angular';
 import { StoryFnAngularReturnType } from '@storybook/angular/dist/client/preview/types';
-import { State } from '../../../models/enums/state.enum';
+import { State } from '@models/enums/state.enum';
 import { ThemeTemplateComponent } from './theme-template.component';
 
 export default {

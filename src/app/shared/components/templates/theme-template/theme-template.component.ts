@@ -6,7 +6,5 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./theme-template.component.scss'],
 })
 export class ThemeTemplateComponent implements OnInit {
-  constructor() {}
-
   ngOnInit(): void {}
 }

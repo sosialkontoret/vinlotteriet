@@ -13,7 +13,7 @@
       </div>
     </div>
     <div class="participants-section">
-      <sk-add-participant class="add-participant" (onAdd)="onAddParticipant($event)"></sk-add-participant>
+      <sk-add-participant class="add-participant" (participantAdded)="onAddParticipant($event)"></sk-add-participant>
       <sk-participant-list class="participant-list" [state]="state" [participants]="lottery?.participants"></sk-participant-list>
     </div>
   </sk-card>
