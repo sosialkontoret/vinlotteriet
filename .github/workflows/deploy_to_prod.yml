@@ -4,10 +4,21 @@ on:
   workflow_dispatch:
 
 jobs:
-  deploy:
+  deploy_firebase:
+    name: Deploy To Firebase
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Deploy to Firebase
+        uses: w9jds/firebase-action@master
+        with:
+          args: deploy
+        env:
+          PROJECT_ID: wine-lottery-cb86f
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+  deploy_netlify:
     name: 'Deploy'
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v1
       - uses: jsmrcaga/action-netlify-deploy@master
