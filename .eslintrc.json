@@ -10,13 +10,14 @@
       ],
       "parserOptions": {
         "project": [
-          "tsconfig.json"
+          "tsconfig.app.json",
+          "tsconfig.spec.json"
         ],
         "createDefaultProgram": true
       },
       "extends": [
-        "plugin:@angular-eslint/ng-cli-compat",
-        "plugin:@angular-eslint/ng-cli-compat--formatting-add-on",
+        "plugin:@angular-eslint/recommended",
+        // This is required if you use inline templates in Components
         "plugin:@angular-eslint/template/process-inline-templates",
         "airbnb-typescript/base",
         "prettier/@typescript-eslint",
@@ -94,6 +95,26 @@
         "plugin:@angular-eslint/template/recommended"
       ],
       "rules": {}
+    },
+    {
+      "files": [
+        "*.html"
+      ],
+      "excludedFiles": [
+        "*inline-template-*.component.html"
+      ],
+      "extends": [
+        "plugin:prettier/recommended"
+      ],
+      "rules": {
+        // NOTE: WE ARE OVERRIDING THE DEFAULT CONFIG TO ALWAYS SET THE PARSER TO ANGULAR (SEE BELOW)
+        "prettier/prettier": [
+          "error",
+          {
+            "parser": "angular"
+          }
+        ]
+      }
     }
   ]
 }

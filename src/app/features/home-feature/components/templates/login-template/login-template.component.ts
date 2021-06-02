@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { LoginForm } from '@models/forms/login.form';
 import { State } from '@models/enums/state.enum';
 
@@ -7,13 +7,11 @@ import { State } from '@models/enums/state.enum';
   templateUrl: './login-template.component.html',
   styleUrls: ['./login-template.component.scss'],
 })
-export class LoginTemplateComponent implements OnInit {
+export class LoginTemplateComponent {
   @Input() state: State;
   @Output() login = new EventEmitter<LoginForm>();
 
   private loginForm: LoginForm = {};
-
-  ngOnInit() {}
 
   onEmailChanged(email: string): void {
     this.loginForm.email = email;

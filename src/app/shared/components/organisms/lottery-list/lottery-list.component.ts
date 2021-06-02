@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Lottery } from '@models/lottery.model';
 
 @Component({
@@ -6,10 +6,8 @@ import { Lottery } from '@models/lottery.model';
   templateUrl: './lottery-list.component.html',
   styleUrls: ['./lottery-list.component.scss'],
 })
-export class LotteryListComponent implements OnInit {
+export class LotteryListComponent {
   @Input() lotteries: Lottery[];
-
-  ngOnInit(): void {}
 
   trackLottery(index: number, lottery: Lottery): string {
     return lottery.id;

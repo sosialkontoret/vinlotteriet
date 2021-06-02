@@ -1,37 +1,37 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "src",
+    "baseUrl": "./",
     "paths": {
       "@env": [
-        "environments/environment"
+        "src/environments/environment"
       ],
       "@shared/*": [
-        "app/shared/*"
+        "src/app/shared/*"
       ],
       "@enums": [
-        "app/shared/enums/*"
+        "src/app/shared/enums/*"
       ],
       "@models/*": [
-        "app/shared/models/*"
+        "src/app/shared/models/*"
       ],
       "@services/*": [
-        "app/core/services/*"
+        "src/app/core/services/*"
       ],
       "@guards": [
-        "app/core/guards/index.ts"
+        "src/app/core/guards/index.ts"
       ],
       "@utils/*": [
-        "app/core/utils/*"
+        "src/app/core/utils/*"
       ],
       "@pages": [
-        "app/pages/index.ts"
+        "src/app/pages/index.ts"
       ],
       "@core/*": [
-        "app/core/*"
+        "src/app/core/*"
       ],
       "*": [
-        "app/*"
+        "src/app/*"
       ]
     },
     "outDir": "./dist/out-tsc",

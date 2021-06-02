@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, Input, EventEmitter, Output } from '@angular/core';
 import { ClassNames } from '@models/class-names';
 
 @Component({
@@ -6,7 +6,7 @@ import { ClassNames } from '@models/class-names';
   templateUrl: './input-password.component.html',
   styleUrls: ['./input-password.component.scss'],
 })
-export class InputPasswordComponent implements OnInit {
+export class InputPasswordComponent {
   @Input() placeholder: string;
   @Input() label: string;
   @Input() showLabel: boolean;
@@ -26,8 +26,6 @@ export class InputPasswordComponent implements OnInit {
   get labelTextClassNames(): ClassNames {
     return new ClassNames('label-text').setNoDefault('visually-hidden', !this.showLabel);
   }
-
-  ngOnInit(): void {}
 
   change(event: Event): void {
     const value = (event.target as any)?.value;

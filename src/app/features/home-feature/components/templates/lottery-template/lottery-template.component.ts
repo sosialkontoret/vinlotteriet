@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Lottery } from '@models/lottery.model';
 import { DrawModel } from '@models/draw.model';
 
@@ -7,7 +7,7 @@ import { DrawModel } from '@models/draw.model';
   templateUrl: './lottery-template.component.html',
   styleUrls: ['./lottery-template.component.scss'],
 })
-export class LotteryTemplateComponent implements OnInit {
+export class LotteryTemplateComponent {
   @Input() lottery: Lottery;
   currentDrawIndex = 0;
   winners: string[] = [];
@@ -29,8 +29,6 @@ export class LotteryTemplateComponent implements OnInit {
   get isOngoing(): boolean {
     return !!this.currentDraw?.winner;
   }
-
-  ngOnInit() {}
 
   drawFinished() {
     this.winners.push(this.currentDraw.winner);

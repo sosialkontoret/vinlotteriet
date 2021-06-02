@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Participant } from '@models/participant.model';
 
 @Component({
@@ -6,10 +6,8 @@ import { Participant } from '@models/participant.model';
   templateUrl: './participant-list-item.component.html',
   styleUrls: ['./participant-list-item.component.scss'],
 })
-export class ParticipantListItemComponent implements OnInit {
+export class ParticipantListItemComponent {
   @Input() participant: Participant;
-
-  ngOnInit(): void {}
 
   get probabilityOfWin(): number {
     return -1; // TODO

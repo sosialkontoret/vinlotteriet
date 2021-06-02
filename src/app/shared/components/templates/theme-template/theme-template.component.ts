@@ -1,10 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'sk-theme-template',
   templateUrl: './theme-template.component.html',
   styleUrls: ['./theme-template.component.scss'],
 })
-export class ThemeTemplateComponent implements OnInit {
-  ngOnInit(): void {}
-}
+export class ThemeTemplateComponent {}

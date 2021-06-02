@@ -1,10 +1,10 @@
 <div class="edit-lottery-container">
   <sk-card class="card">
     <div class="header-section">
-      <h1>{{lottery?.title}}</h1>
+      <h1>{{ lottery?.title }}</h1>
       <div class="lottery-summary-section">
         <div class="number-of-tickets">
-          <span class="number-of-tickets--counter">{{numberOfTickets}}</span>
+          <span class="number-of-tickets--counter">{{ numberOfTickets }}</span>
           <span>Antall lodd</span>
         </div>
         <div class="start-lottery-section">
@@ -17,4 +17,5 @@
       <sk-participant-list class="participant-list" [state]="state" [participants]="lottery?.participants"></sk-participant-list>
     </div>
   </sk-card>
-</div>;
+</div>
+;

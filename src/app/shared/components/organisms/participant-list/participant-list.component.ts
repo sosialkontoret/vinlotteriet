@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Participant } from '@models/participant.model';
 import { State } from '@models/enums/state.enum';
 
@@ -7,15 +7,13 @@ import { State } from '@models/enums/state.enum';
   templateUrl: './participant-list.component.html',
   styleUrls: ['./participant-list.component.scss'],
 })
-export class ParticipantListComponent implements OnInit {
+export class ParticipantListComponent {
   @Input() state: State;
   @Input() participants: Participant[];
 
   get noParticipants(): boolean {
     return !this.participants?.length;
   }
-
-  ngOnInit(): void {}
 
   trackParticipant(index: number, participant: Participant): string {
     return participant.name;

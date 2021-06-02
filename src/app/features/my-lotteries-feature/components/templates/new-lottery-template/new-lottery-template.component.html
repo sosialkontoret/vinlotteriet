@@ -1,12 +1,7 @@
 <div class="new-lottery-container">
   <sk-card class="new-lottery-card">
     <h1 class="title">Nytt lotteri</h1>
-    <sk-input-text
-      class="text-input-field"
-      [label]="'Tittel'"
-      [showLabel]="true"
-      (valueChange)="titleUpdated($event)"
-    ></sk-input-text>
+    <sk-input-text class="text-input-field" [label]="'Tittel'" [showLabel]="true" (valueChange)="titleUpdated($event)"></sk-input-text>
     <sk-input-date
       class="text-input-field"
       [label]="'Tidspunkt for trekning'"
