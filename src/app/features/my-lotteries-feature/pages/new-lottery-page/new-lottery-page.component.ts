@@ -36,7 +36,7 @@ export class NewLotteryPageComponent implements OnInit {
         this.router.navigate(['/', 'my-lotteries', id]);
       },
       error => {
-        console.log(error);
+        console.error('Failed to create lottery', error);
         this.state = State.IsError;
       },
     );

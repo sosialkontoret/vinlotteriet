@@ -21,7 +21,7 @@ export class UserPageComponent implements OnInit {
         this.userId = result.uid;
       },
       error => {
-        console.log(error);
+        console.error('Failed to login user', error);
       },
     );
   }
