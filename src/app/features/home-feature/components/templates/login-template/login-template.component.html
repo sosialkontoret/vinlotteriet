@@ -1,22 +1,9 @@
 <div class="login-template-container">
   <sk-card class="card">
     <h1 class="title">Logg inn</h1>
-    <sk-input-email
-      class="email"
-      [placeholder]="'E-post'"
-      (valueChange)="onEmailChanged($event)"
-    ></sk-input-email>
-    <sk-input-password
-      class="password"
-      [placeholder]="'Passord'"
-      (valueChange)="onPasswordChanged($event)"
-    ></sk-input-password>
-    <sk-button
-      class="login-button"
-      [variant]="'primary'"
-      (clicked)="onLogin()">
-      Logg inn
-    </sk-button>
+    <sk-input-email class="email" [placeholder]="'E-post'" (valueChange)="onEmailChanged($event)"></sk-input-email>
+    <sk-input-password class="password" [placeholder]="'Passord'" (valueChange)="onPasswordChanged($event)"></sk-input-password>
+    <sk-button class="login-button" [variant]="'primary'" (clicked)="onLogin()"> Logg inn </sk-button>
     <div class="register-info-container">
       <span class="register-text">Har du ikke bruker?</span>
       <a class="register-link" [routerLink]="['/register']">Registrer deg her</a>

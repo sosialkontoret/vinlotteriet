@@ -2,25 +2,16 @@
   <div class="inner-container">
     <h1 class="title">Vinlotteriet</h1>
     <div class="join-lottery-container">
-      <sk-input-text
-        class="lottery-code-input"
-        [placeholder]="'Lotteri Kode'"
-        (valueChange)="onLotteryCodeChanged($event)"
-      ></sk-input-text>
-      <sk-button
-        class="join-lottery-button"
-        [variant]="'secondary'"
-        (clicked)="onJoinLotteryClicked()">
-        Bli med
-      </sk-button>
+      <sk-input-text class="lottery-code-input" [placeholder]="'Lotteri Kode'" (valueChange)="onLotteryCodeChanged($event)"></sk-input-text>
+      <sk-button class="join-lottery-button" [variant]="'secondary'" (clicked)="onJoinLotteryClicked()"> Bli med </sk-button>
     </div>
     <div class="arrange-information-container">
       <span class="information-text bold">Vil du arrangere et lotteri?</span>
       <span>
-      <a class="link" [routerLink]="['login']">Logg inn</a>
-      <span class="bold"> eller </span>
-      <a class="link" [routerLink]="['register']">Registrer deg her</a>
-    </span>
+        <a class="link" [routerLink]="['login']">Logg inn</a>
+        <span class="bold"> eller </span>
+        <a class="link" [routerLink]="['register']">Registrer deg her</a>
+      </span>
     </div>
   </div>
 </div>

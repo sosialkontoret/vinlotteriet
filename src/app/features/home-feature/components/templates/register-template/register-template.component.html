@@ -1,22 +1,9 @@
 <div class="register-template-container">
   <sk-card class="card">
     <h1 class="title">Registrer</h1>
-    <sk-input-email
-      class="email"
-      [placeholder]="'E-post'"
-      (valueChange)="onEmailChanged($event)"
-    ></sk-input-email>
-    <sk-input-password
-      class="password"
-      [placeholder]="'Passord'"
-      (valueChange)="onPasswordChanged($event)"
-    ></sk-input-password>
-    <sk-button
-      class="register-button"
-      [variant]="'primary'"
-      (clicked)="onRegister()">
-      Opprett bruker
-    </sk-button>
+    <sk-input-email class="email" [placeholder]="'E-post'" (valueChange)="onEmailChanged($event)"></sk-input-email>
+    <sk-input-password class="password" [placeholder]="'Passord'" (valueChange)="onPasswordChanged($event)"></sk-input-password>
+    <sk-button class="register-button" [variant]="'primary'" (clicked)="onRegister()"> Opprett bruker </sk-button>
     <div class="login-info-container">
       <span class="login-text">Har du bruker?</span>
       <a class="login-link" [routerLink]="['/login']">Logg inn her</a>

@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { Participant } from '@models/participant.model';
 
 @Component({
@@ -6,12 +6,10 @@ import { Participant } from '@models/participant.model';
   templateUrl: './add-participant.component.html',
   styleUrls: ['./add-participant.component.scss'],
 })
-export class AddParticipantComponent implements OnInit {
+export class AddParticipantComponent {
   @Output() participantAdded = new EventEmitter<Participant>();
   name = '';
   numberOfTickets = 1;
-
-  ngOnInit(): void {}
 
   nameUpdated(name: string): void {
     this.name = name;

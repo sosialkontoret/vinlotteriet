@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { LotteryService } from '@services/lottery/lottery.service';
 
@@ -7,13 +7,11 @@ import { LotteryService } from '@services/lottery/lottery.service';
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.scss'],
 })
-export class HomePageComponent implements OnInit {
+export class HomePageComponent {
   showError: boolean;
   isLoading: boolean;
 
   constructor(private router: Router, private lotteryService: LotteryService) {}
-
-  ngOnInit() {}
 
   onJoinLottery(lotteryCode: string): void {
     this.showError = false;

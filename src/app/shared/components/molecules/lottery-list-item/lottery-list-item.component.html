@@ -1,12 +1,12 @@
 <td class="table-cell">
-  <a [routerLink]="routerLink" class="name">{{lottery?.title}}</a>
+  <a [routerLink]="routerLink" class="name">{{ lottery?.title }}</a>
 </td>
 <td class="table-cell">
-  <span>{{numberOfTickets}}</span>
+  <span>{{ numberOfTickets }}</span>
 </td>
 <td class="table-cell">
-  <span>{{lottery?.numberOfDraws}}</span>
+  <span>{{ lottery?.numberOfDraws }}</span>
 </td>
 <td class="table-cell">
-  {{lottery?.startDate | date: 'dd.mm.yy - HH:mm' }}
+  {{ lottery?.startDate | date: 'dd.mm.yy - HH:mm' }}
 </td>

@@ -1,24 +1,22 @@
 <table class="lottery-list">
   <thead>
-  <tr>
-    <th class="table-header-cell name">Navn</th>
-    <th class="table-header-cell tickets">Antall Lodd</th>
-    <th class="table-header-cell win-probability">Vinnersannsynlighet</th>
-  </tr>
+    <tr>
+      <th class="table-header-cell name">Navn</th>
+      <th class="table-header-cell tickets">Antall Lodd</th>
+      <th class="table-header-cell win-probability">Vinnersannsynlighet</th>
+    </tr>
   </thead>
   <tbody class="table-body">
-  <sk-participant-list-item
-    *ngFor="let participant of participants; trackBy: trackParticipant"
-    class="list-item"
-    role="row"
-    [participant]="participant"
-  ></sk-participant-list-item>
-  <tr
-    *ngIf="noParticipants"
-    class="list-item">
-    <td class="no-participants-warning">Ingen deltakere...</td>
-    <td></td>
-    <td></td>
-  </tr>
+    <sk-participant-list-item
+      *ngFor="let participant of participants; trackBy: trackParticipant"
+      class="list-item"
+      role="row"
+      [participant]="participant"
+    ></sk-participant-list-item>
+    <tr *ngIf="noParticipants" class="list-item">
+      <td class="no-participants-warning">Ingen deltakere...</td>
+      <td></td>
+      <td></td>
+    </tr>
   </tbody>
 </table>

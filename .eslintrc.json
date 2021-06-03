@@ -10,19 +10,30 @@
       ],
       "parserOptions": {
         "project": [
-          "tsconfig.json"
+          "tsconfig.app.json",
+          "tsconfig.spec.json"
         ],
         "createDefaultProgram": true
       },
       "extends": [
-        "plugin:@angular-eslint/ng-cli-compat",
-        "plugin:@angular-eslint/ng-cli-compat--formatting-add-on",
+        "plugin:@angular-eslint/recommended",
+        // This is required if you use inline templates in Components
         "plugin:@angular-eslint/template/process-inline-templates",
         "airbnb-typescript/base",
         "prettier/@typescript-eslint",
         "plugin:prettier/recommended"
       ],
       "rules": {
+        "no-console": [
+          "error",
+          {
+            "allow": [
+              "warn",
+              "error",
+              "info"
+            ]
+          }
+        ],
         "import/prefer-default-export": "off",
         "class-methods-use-this": "off",
         "@typescript-eslint/lines-between-class-members": "off",
@@ -94,6 +105,25 @@
         "plugin:@angular-eslint/template/recommended"
       ],
       "rules": {}
+    },
+    {
+      "files": [
+        "*.html"
+      ],
+      "excludedFiles": [
+        "*inline-template-*.component.html"
+      ],
+      "extends": [
+        "plugin:prettier/recommended"
+      ],
+      "rules": {
+        "prettier/prettier": [
+          "error",
+          {
+            "parser": "angular"
+          }
+        ]
+      }
     }
   ]
 }

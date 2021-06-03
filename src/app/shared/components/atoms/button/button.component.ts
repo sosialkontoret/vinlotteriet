@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { ClassNames } from '@models/class-names';
 
 @Component({
@@ -6,7 +6,7 @@ import { ClassNames } from '@models/class-names';
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.scss'],
 })
-export class ButtonComponent implements OnInit {
+export class ButtonComponent {
   @Input() variant: 'primary' | 'secondary' = 'primary';
 
   @Output() clicked = new EventEmitter<void>();
@@ -18,8 +18,6 @@ export class ButtonComponent implements OnInit {
   get buttonClassNames(): ClassNames {
     return new ClassNames('button').set(this.variant);
   }
-
-  ngOnInit(): void {}
 
   click(): void {
     this.clicked.emit();

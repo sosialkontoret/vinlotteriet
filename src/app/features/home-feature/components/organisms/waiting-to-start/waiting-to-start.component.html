@@ -1,22 +1,25 @@
 <div class="floating-participants" *ngFor="let participant of lottery?.participants">
-  {{participant.name}}
+  {{ participant.name }}
 </div>
 
 <div class="waiting-for-start">
   <div class="wrapper">
     <h3>Lotteriet begynner om:</h3>
-    <sk-countdown class="counter" *ngIf="lottery.startDate && !countdownFinished" (countDownFinished)="setCountDownFinished($event)" [eventDate]="lottery.startDate"></sk-countdown>
+    <sk-countdown
+      class="counter"
+      *ngIf="lottery.startDate && !countdownFinished"
+      (countDownFinished)="setCountDownFinished($event)"
+      [eventDate]="lottery.startDate"
+    ></sk-countdown>
     <span *ngIf="countdownFinished">Venter på admin</span>
-    <p class="description">{{lottery.description}}</p>
-    <p class="description">Antall lodd: {{tickets}}</p>
+    <p class="description">{{ lottery.description }}</p>
+    <p class="description">Antall lodd: {{ tickets }}</p>
   </div>
 
   <div *ngIf="winners?.length > 0" class="winners">
-
     <h3>🏆 Winners 🏆</h3>
     <div *ngFor="let winner of winners">
-      <p>{{winner}}</p>
+      <p>{{ winner }}</p>
     </div>
   </div>
-
 </div>
