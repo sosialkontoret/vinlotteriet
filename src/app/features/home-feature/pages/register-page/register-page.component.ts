@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '@services/authentication/authentication.service';
 import { RegisterForm } from '@models/forms/register.form';
+import { State } from '@models/enums/state.enum';
 
 @Component({
   selector: 'sk-register',
@@ -9,6 +10,8 @@ import { RegisterForm } from '@models/forms/register.form';
   styleUrls: ['./register-page.component.scss'],
 })
 export class RegisterPageComponent {
+  state: State;
+
   constructor(private router: Router, private auth: AuthenticationService) {}
 
   onRegister(registerForm: RegisterForm) {
@@ -16,8 +19,8 @@ export class RegisterPageComponent {
       () => {
         this.router.navigate(['my-lotteries']);
       },
-      error => {
-        console.error('Failed to register', error);
+      () => {
+        this.state = State.IsError;
       },
     );
   }

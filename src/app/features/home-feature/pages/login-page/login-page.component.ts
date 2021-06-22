@@ -39,8 +39,8 @@ export class LoginPageComponent implements OnInit {
       () => {
         this.router.navigate(['my-lotteries']);
       },
-      error => {
-        console.error('Failed to login', error);
+      () => {
+        this.state = State.IsError;
       },
     );
   }

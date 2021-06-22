@@ -1,12 +1,15 @@
-<div class="register-template-container">
+<form class="register-template-container" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
   <sk-card class="card">
     <h1 class="title">Registrer</h1>
-    <sk-input-email class="email" [placeholder]="'E-post'" (valueChange)="onEmailChanged($event)"></sk-input-email>
-    <sk-input-password class="password" [placeholder]="'Passord'" (valueChange)="onPasswordChanged($event)"></sk-input-password>
-    <sk-button class="register-button" [variant]="'primary'" (clicked)="onRegister()"> Opprett bruker </sk-button>
+    <sk-input-text class="email" [type]="'email'" [placeholder]="'E-post'" formControlName="email"></sk-input-text>
+    <sk-input-text class="password" [type]="'password'" [placeholder]="'Passord'" formControlName="password"></sk-input-text>
+    <div class="errors" *ngIf="stateError || (attemptedSubmit && registerForm.invalid && (registerForm.dirty || registerForm.touched))">
+      <span class="error-message">Kunne ikke opprette bruker</span>
+    </div>
+    <sk-button class="register-button" [variant]="'primary'" [type]="'submit'">Opprett bruker</sk-button>
     <div class="login-info-container">
       <span class="login-text">Har du bruker?</span>
       <a class="login-link" [routerLink]="['/login']">Logg inn her</a>
     </div>
   </sk-card>
-</div>
+</form>
