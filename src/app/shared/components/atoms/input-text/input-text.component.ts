@@ -15,7 +15,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
   ],
 })
 export class InputTextComponent implements OnInit, ControlValueAccessor {
-  @Input() value: string;
+  @Input() value: string = '';
   @Input() placeholder = '';
   @Input() label = '';
   @Input() type: 'text' | 'email' | 'password' = 'text';
