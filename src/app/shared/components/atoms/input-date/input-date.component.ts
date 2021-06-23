@@ -48,11 +48,11 @@ export class InputDateComponent implements OnInit, ControlValueAccessor {
     this.value = value;
   }
 
-  registerOnChange(fn: any): void {
+  registerOnChange(fn: (value: Date) => void): void {
     this.onChange = fn;
   }
 
-  registerOnTouched(fn: any): void {
+  registerOnTouched(fn: () => {}): void {
     this.onTouched = fn;
   }
 

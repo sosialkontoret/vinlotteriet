@@ -66,11 +66,11 @@ export class InputIncrementComponent implements OnInit, ControlValueAccessor, Va
     this.value = value;
   }
 
-  registerOnChange(fn: any): void {
+  registerOnChange(fn: (value: number) => {}): void {
     this.onChange = fn;
   }
 
-  registerOnTouched(fn: any): void {
+  registerOnTouched(fn: () => {}): void {
     this.onTouched = fn;
   }
 
