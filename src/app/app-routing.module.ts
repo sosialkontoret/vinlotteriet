@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AuthenticationGuard } from 'core/guards/authentication/authentication.guard';
+import { AngularFireAuthGuard, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
+
+const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
 
 const routes: Routes = [
   {
@@ -10,12 +12,14 @@ const routes: Routes = [
   {
     path: 'user',
     loadChildren: () => import('./features/user-feature/user.module').then(m => m.UserModule),
-    canActivate: [AuthenticationGuard],
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: redirectUnauthorizedToLogin },
   },
   {
     path: 'my-lotteries',
     loadChildren: () => import('./features/my-lotteries-feature/my-lotteries.module').then(m => m.MyLotteriesModule),
-    canActivate: [AuthenticationGuard],
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: redirectUnauthorizedToLogin },
   },
 ];
 
