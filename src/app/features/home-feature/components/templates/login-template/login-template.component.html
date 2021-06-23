@@ -3,11 +3,11 @@
     <h1 class="title">Logg inn</h1>
     <sk-input-text class="email" [type]="'email'" [placeholder]="'E-post'" formControlName="email"></sk-input-text>
     <sk-input-text class="password" [type]="'password'" [placeholder]="'Passord'" formControlName="password"></sk-input-text>
-    <div class="no-errors" *ngIf="!stateError && !(attemptedSubmit && loginForm.invalid && (loginForm.dirty || loginForm.touched))">
+    <div class="no-errors" *ngIf="!hasError && !(attemptedSubmit && loginForm.invalid && (loginForm.dirty || loginForm.touched))">
       <br />
       <br />
     </div>
-    <div class="errors" *ngIf="stateError || (attemptedSubmit && loginForm.invalid && (loginForm.dirty || loginForm.touched))">
+    <div class="errors" *ngIf="hasError || (attemptedSubmit && loginForm.invalid && (loginForm.dirty || loginForm.touched))">
       <span class="error-message">Ugyldig brukernavn eller passord</span>
     </div>
     <sk-button class="login-button" [variant]="'primary'" [type]="'submit'">Logg inn</sk-button>

@@ -13,7 +13,7 @@ export class LoginTemplateComponent implements OnChanges {
   @Output() login = new EventEmitter<LoginForm>();
 
   attemptedSubmit = false;
-  stateError = false;
+  hasError = false;
 
   loginForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -30,7 +30,7 @@ export class LoginTemplateComponent implements OnChanges {
 
   ngOnChanges(): void {
     this.attemptedSubmit = false;
-    this.stateError = this.state === State.IsError;
+    this.hasError = this.state === State.IsError;
   }
 
   onSubmit(): void {

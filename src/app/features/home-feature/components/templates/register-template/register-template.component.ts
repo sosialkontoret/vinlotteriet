@@ -13,7 +13,7 @@ export class RegisterTemplateComponent implements OnChanges {
   @Output() register = new EventEmitter<RegisterForm>();
 
   attemptedSubmit = false;
-  stateError = false;
+  hasError = false;
 
   registerForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -30,7 +30,7 @@ export class RegisterTemplateComponent implements OnChanges {
 
   ngOnChanges(): void {
     this.attemptedSubmit = false;
-    this.stateError = this.state === State.IsError;
+    this.hasError = this.state === State.IsError;
   }
 
   onSubmit(): void {
