@@ -3,6 +3,10 @@
     <h1 class="title">Registrer</h1>
     <sk-input-text class="email" [type]="'email'" [placeholder]="'E-post'" formControlName="email"></sk-input-text>
     <sk-input-text class="password" [type]="'password'" [placeholder]="'Passord'" formControlName="password"></sk-input-text>
+    <div class="no-errors" *ngIf="!stateError && !(attemptedSubmit && registerForm.invalid && (registerForm.dirty || registerForm.touched))">
+      <br />
+      <br />
+    </div>
     <div class="errors" *ngIf="stateError || (attemptedSubmit && registerForm.invalid && (registerForm.dirty || registerForm.touched))">
       <span class="error-message">Kunne ikke opprette bruker</span>
     </div>
