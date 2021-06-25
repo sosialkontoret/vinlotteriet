@@ -32,7 +32,7 @@ jobs:
         eslint: true
         eslint_extensions: 'ts,html'
     - name: Build
-      run: npm run build-with-stats
+      run: npm run build -- --stats-json
       env:
         CI: true
     - name: Upload stats.json
@@ -58,7 +58,7 @@ jobs:
     - name: Install dependencies
       run: npm ci
     - name: Build
-      run: npm run build-with-stats
+      run: npm run build -- --stats-json
       env:
         CI: true
     - name: Upload stats.json

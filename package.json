@@ -5,7 +5,6 @@
     "ng": "ng",
     "start": "ng serve --hmr",
     "build": "ng build --configuration production --progress=false",
-    "build-with-stats": "ng build --configuration production --progress=false --stats-json",
     "build-dev": "ng build --configuration development --progress=false",
     "test": "ng test",
     "citest": "ng test --watch=false",
