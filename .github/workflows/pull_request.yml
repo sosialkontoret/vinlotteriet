@@ -39,7 +39,7 @@ jobs:
       uses: actions/upload-artifact@v1
       with:
         name: head-stats
-        path: ./dist/stats.json
+        path: ./dist/web/stats.json
   build-base:
     name: 'Build Base'
     runs-on: ubuntu-latest
