@@ -65,7 +65,7 @@ jobs:
       uses: actions/upload-artifact@v1
       with:
         name: base-stats
-        path: ./dist/stats.json
+        path: ./dist/web/stats.json
   compare:
     name: 'Compare base & head bundle sizes'
     runs-on: ubuntu-latest
