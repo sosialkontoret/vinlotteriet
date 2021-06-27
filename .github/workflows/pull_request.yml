@@ -31,8 +31,8 @@ jobs:
         stylelint_extensions: 'scss'
         eslint: true
         eslint_extensions: 'ts,html'
-    - name: Build
-      run: npm run build
+    - name: Build & Compare sizes
+      uses: preactjs/compressed-size-action@v2
       env:
         CI: true
 #  storybook:
