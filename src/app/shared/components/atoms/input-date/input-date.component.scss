@@ -1,18 +1,19 @@
-@import 'main';
+@use "utilities/_colors";
+@use "utilities/_mixins";
 
 .visually-hidden {
-  @include visually-hidden();
+  @include mixins.visually-hidden();
 }
 
 .label {
   width: 100%;
-  color: $primary-color;
+  color: colors.$primary-color;
 }
 
 .input {
-  border: 1px solid $primary-color;
+  border: 1px solid colors.$primary-color;
   border-radius: 0;
-  color: $primary-color;
+  color: colors.$primary-color;
   padding: 0.25em;
   text-align: center;
   width: 100%;

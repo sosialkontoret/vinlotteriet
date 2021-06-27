@@ -6,6 +6,8 @@ module.exports = {
     'at-rule-no-unknown': [true, {
       'ignoreAtRules': [
         'extend',
+        'use',
+        'forward',
         'include',
         'mixin',
         'each',

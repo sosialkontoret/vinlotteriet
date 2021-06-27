@@ -1,4 +1,4 @@
-@import "main";
+@use "utilities/_colors";
 
 .home-template-container {
   display: flex;
@@ -14,7 +14,7 @@
 
 .title {
   font-size: 4em;
-  color: $quaternary-color;
+  color: colors.$quaternary-color;
 }
 
 .join-lottery-container {
@@ -33,7 +33,7 @@
   margin-top: 2em;
   display: flex;
   flex-direction: column;
-  color: $tertiary-color;
+  color: colors.$tertiary-color;
 }
 
 .bold {
@@ -41,6 +41,6 @@
 }
 
 .link {
-  color: $tertiary-color;
+  color: colors.$tertiary-color;
   text-decoration: underline;
 }
