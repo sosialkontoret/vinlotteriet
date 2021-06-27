@@ -33,7 +33,7 @@ jobs:
       with:
         build-script: "build-ci"
         pattern: "./dist/web/*.{js,css,html}"
-        strip-hash: "\\b\\w{5}\\."
+        strip-hash: "\\b\\w{20}\\."
       env:
         CI: true
 #  storybook:

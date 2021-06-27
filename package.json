@@ -17,7 +17,7 @@
     "storybook": "npm run docs:json && start-storybook -p 6006",
     "build-storybook": "npm run docs:json && build-storybook",
     "ngcc": "ngcc --tsconfig ./tsconfig.app.json",
-    "bundle-report": "npm run build -- --stats-json && npx -y webpack-bundle-analyzer dist/web/stats.json"
+    "bundle-report": "npm run build-ci -- --stats-json && npx -y webpack-bundle-analyzer dist/web/stats.json"
   },
   "private": true,
   "dependencies": {
