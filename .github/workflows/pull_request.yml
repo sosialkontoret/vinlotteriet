@@ -34,7 +34,7 @@ jobs:
     - name: Build & Compare sizes
       uses: preactjs/compressed-size-action@v2
       with:
-       build-script: "build-ci"
+       build-script: "npm run build-ci"
       env:
         CI: true
 #  storybook:
