@@ -1,11 +1,11 @@
 @use "utilities/_colors";
 
 .title {
-  color: colors.$primary-color;
+  color: colors.$primary;
 }
 
 .description {
-  color: colors.$primary-color;
+  color: colors.$primary;
   margin-top: 1em;
   text-align: center;
 }

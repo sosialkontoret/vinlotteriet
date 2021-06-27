@@ -1,7 +1,7 @@
 @use "utilities/_colors";
 
 .card {
-  background-color: colors.$quaternary-color;
+  background-color: colors.$quaternary;
   height: 100%;
   padding: 1em;
   width: 100%;
@@ -13,6 +13,6 @@
   height: 100%;
   justify-content: center;
   align-items: center;
-  border: 1px solid colors.$primary-color;
+  border: 1px solid colors.$primary;
   padding: 2em 4em;
 }

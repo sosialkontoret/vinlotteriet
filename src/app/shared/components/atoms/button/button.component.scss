@@ -18,22 +18,22 @@
 // Variants
 // Primary
 .button-container--primary {
-  background-color: colors.$primary-color;
+  background-color: colors.$primary;
 }
 
 .button--primary {
   background: none;
-  border: 1px solid colors.$quaternary-color;
-  color: colors.$quaternary-color;
+  border: 1px solid colors.$quaternary;
+  color: colors.$quaternary;
 }
 
 // Secondary
 .button-container--secondary {
-  background-color: colors.$quaternary-color;
+  background-color: colors.$quaternary;
 }
 
 .button--secondary {
   background: none;
-  border: 1px solid colors.$primary-color;
-  color: colors.$primary-color;
+  border: 1px solid colors.$primary;
+  color: colors.$primary;
 }

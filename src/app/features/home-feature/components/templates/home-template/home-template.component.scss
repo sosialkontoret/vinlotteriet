@@ -14,7 +14,7 @@
 
 .title {
   font-size: 4em;
-  color: colors.$quaternary-color;
+  color: colors.$quaternary;
 }
 
 .join-lottery-container {
@@ -33,7 +33,7 @@
   margin-top: 2em;
   display: flex;
   flex-direction: column;
-  color: colors.$tertiary-color;
+  color: colors.$tertiary;
 }
 
 .bold {
@@ -41,6 +41,6 @@
 }
 
 .link {
-  color: colors.$tertiary-color;
+  color: colors.$tertiary;
   text-decoration: underline;
 }

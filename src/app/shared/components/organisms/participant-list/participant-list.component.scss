@@ -1,5 +1,5 @@
 @use "utilities/_colors";
-@use "utilities/_fonts";
+@use "../../../../../styles/utilities/font-weights";
 
 .lottery-list {
   width: 100%;
@@ -13,8 +13,8 @@
 }
 
 .table-header-cell {
-  color: colors.$primary-color;
-  font-weight: fonts.$font-weight-bold;
+  color: colors.$primary;
+  font-weight: font-weights.$bold;
   text-align: left;
   position: -webkit-sticky;
   position: sticky;
