@@ -31,7 +31,9 @@ jobs:
     - name: Build & Compare sizes
       uses: preactjs/compressed-size-action@v2
       with:
-       build-script: "build-ci"
+        build-script: "build-ci"
+        pattern: "./dist/web/*.{js,css,html}"
+        strip-hash: "\\b\\w{5}\\."
       env:
         CI: true
 #  storybook:
