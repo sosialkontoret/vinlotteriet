@@ -11,7 +11,6 @@ import { State } from '@models/enums/state.enum';
 @Component({
   selector: 'sk-new-lottery',
   templateUrl: './new-lottery-page.component.html',
-  styleUrls: ['./new-lottery-page.component.scss'],
 })
 export class NewLotteryPageComponent implements OnInit {
   state: State;

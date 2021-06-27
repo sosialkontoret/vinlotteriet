@@ -8,7 +8,6 @@ import { tap } from 'rxjs/operators';
 @Component({
   selector: 'sk-lottery',
   templateUrl: './lottery-page.component.html',
-  styleUrls: ['./lottery-page.component.scss'],
 })
 export class LotteryPageComponent implements OnInit {
   lottery$: Observable<Lottery>;

@@ -6,7 +6,6 @@ import { RegisterForm } from '@models/forms/register.form';
 @Component({
   selector: 'sk-register',
   templateUrl: './register-page.component.html',
-  styleUrls: ['./register-page.component.scss'],
 })
 export class RegisterPageComponent {
   constructor(private router: Router, private auth: AuthenticationService) {}

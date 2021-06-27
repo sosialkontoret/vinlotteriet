@@ -9,7 +9,6 @@ import { tap } from 'rxjs/operators';
 @Component({
   selector: 'sk-login',
   templateUrl: './login-page.component.html',
-  styleUrls: ['./login-page.component.scss'],
 })
 export class LoginPageComponent implements OnInit {
   state: State;
