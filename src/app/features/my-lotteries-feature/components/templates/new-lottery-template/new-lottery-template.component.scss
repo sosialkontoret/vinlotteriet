@@ -1,4 +1,4 @@
-@import "main";
+@use "utilities/_colors";
 
 .new-lottery-container {
   display: flex;
@@ -15,7 +15,7 @@
 }
 
 .title {
-  color: $primary-color;
+  color: colors.$primary;
 }
 
 .text-input-field {

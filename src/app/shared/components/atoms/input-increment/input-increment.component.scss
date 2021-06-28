@@ -1,14 +1,15 @@
-@import 'main';
+@use "utilities/_colors";
+@use "utilities/_mixins";
 
 .visually-hidden {
-  @include visually-hidden();
+  @include mixins.visually-hidden();
 }
 
 .label {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  color: $primary-color;
+  color: colors.$primary;
 }
 
 .label-text {
@@ -28,9 +29,9 @@ input[type=number] {
 }
 
 .input {
-  border: 1px solid $primary-color;
+  border: 1px solid colors.$primary;
   border-radius: 0;
-  color: $primary-color;
+  color: colors.$primary;
   padding: 0.25em;
   text-align: center;
   width: 2.25em;

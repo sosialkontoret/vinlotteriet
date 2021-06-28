@@ -7,7 +7,6 @@ import { State } from '@models/enums/state.enum';
 @Component({
   selector: 'sk-register',
   templateUrl: './register-page.component.html',
-  styleUrls: ['./register-page.component.scss'],
 })
 export class RegisterPageComponent {
   state: State;

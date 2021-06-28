@@ -4,9 +4,6 @@ on:
   pull_request:
     branches:
       - main
-  push:
-    branches:
-      - main
 
 jobs:
   build:
@@ -34,7 +31,11 @@ jobs:
     - name: Build & Compare sizes
       uses: preactjs/compressed-size-action@v2
       with:
-       build-script: "build-ci"
+        build-script: "build-ci"
+        pattern: "./dist/web/*.{js,css,html}"
+        strip-hash: "\\b\\w{20}\\."
+        compression: 'brotli'
+        minimum-change-threshold: 10
       env:
         CI: true
 #  storybook:

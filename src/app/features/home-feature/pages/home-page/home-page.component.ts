@@ -5,7 +5,6 @@ import { LotteryService } from '@services/lottery/lottery.service';
 @Component({
   selector: 'sk-home',
   templateUrl: './home-page.component.html',
-  styleUrls: ['./home-page.component.scss'],
 })
 export class HomePageComponent {
   showError: boolean;

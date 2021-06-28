@@ -2,14 +2,11 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { DrawModel } from '@models/draw.model';
 import { of, Subject, timer } from 'rxjs';
 import { catchError, takeUntil } from 'rxjs/operators';
-import { slide } from 'shared/animations/slide.animations';
-import { fadeInOut } from 'shared/animations/fade-in-out.animation';
 import { Lottery } from '@models/lottery.model';
 
 @Component({
   selector: 'sk-draw',
   templateUrl: './draw.component.html',
-  animations: [fadeInOut, slide],
   styleUrls: ['./draw.component.scss'],
 })
 export class DrawComponent implements OnInit {

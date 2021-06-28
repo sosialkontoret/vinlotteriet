@@ -10,7 +10,6 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'sk-my-lotteries',
   templateUrl: './my-lotteries-page.component.html',
-  styleUrls: ['./my-lotteries-page.component.scss'],
 })
 export class MyLotteriesPageComponent implements OnInit {
   state: State = State.Before;
