@@ -4,7 +4,6 @@ import { AuthenticationService } from '@services/authentication/authentication.s
 @Component({
   selector: 'sk-user',
   templateUrl: './user-page.component.html',
-  styleUrls: ['./user-page.component.scss'],
 })
 export class UserPageComponent implements OnInit {
   userId: string;

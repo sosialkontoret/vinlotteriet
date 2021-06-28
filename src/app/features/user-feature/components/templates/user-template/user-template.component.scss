@@ -1,4 +1,4 @@
-@import "main";
+@use "utilities/_colors";
 
 .user-template {
   height: 100%;
@@ -9,5 +9,5 @@
 }
 
 .title {
-  color: $primary-color;
+  color: colors.$primary;
 }
