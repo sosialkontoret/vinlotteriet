@@ -74,8 +74,6 @@ export class LotteryService {
    * @param userId
    */
   public getUserLotteries(userId: string): Observable<Lottery[]> {
-    return this.afs
-      .collection<Lottery>('lotteries', ref => ref.where('userId', '==', userId))
-      .valueChanges();
+    return this.afs.collection<Lottery>('lotteries', ref => ref.where('userId', '==', userId)).valueChanges();
   }
 }
