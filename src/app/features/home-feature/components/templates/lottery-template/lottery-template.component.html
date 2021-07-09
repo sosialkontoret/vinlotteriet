@@ -1,12 +1,3 @@
 <div class="standard-background-deprecated">
-  <div class="lottery">
-    <sk-waiting-to-start *ngIf="lottery && !isOngoing" [winners]="winners" [lottery]="lottery"></sk-waiting-to-start>
-    <sk-draw
-      (drawFinished)="drawFinished()"
-      *ngIf="lottery && isOngoing"
-      [currentDrawIndex]="currentDrawIndex"
-      [lottery]="lottery"
-      [draw]="currentDraw"
-    ></sk-draw>
-  </div>
+  <div class="lottery"></div>
 </div>

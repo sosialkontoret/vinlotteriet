@@ -8,11 +8,16 @@ import {TemplatesModule} from "../src/app/shared/components/templates/templates.
 
 setCompodocJson(docJson);
 
-
 export const parameters = {
-  actions: {argTypesRegex: "^on[A-Z].*"},
+  actions: { argTypesRegex: "^on[A-Z].*" },
+  controls: {
+    matchers: {
+      color: /(background|color)$/i,
+      date: /Date$/,
+    },
+  },
+  docs: { inlineStories: true },
 }
-
 
 export const decorators = [
   (storyFunc) => {

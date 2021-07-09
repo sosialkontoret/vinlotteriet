@@ -5,10 +5,6 @@
       "node"
     ]
   },
-  "files": [
-    "src/main.ts",
-    "src/polyfills.ts"
-  ],
   "include": [
     "src/**/*.d.ts",
     "src/**/*.stories.ts"
@@ -16,5 +12,8 @@
   "exclude": [
     "src/test.ts",
     "src/**/*.spec.ts"
+  ],
+  "files": [
+    "./.storybook/typings.d.ts"
   ]
 }
