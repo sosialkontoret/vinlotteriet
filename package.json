@@ -13,7 +13,7 @@
     "lint:fix": "ng lint --fix && npm run stylelint:fix",
     "stylelint": "stylelint **/*.scss",
     "stylelint:fix": "npm run stylelint -- --fix",
-    "docs:json": "compodoc -t -p ./tsconfig.base.json -e json -d .",
+    "docs:json": "compodoc -t -p ./tsconfig.json -e json -d .",
     "storybook": "npm run docs:json && start-storybook -p 6006",
     "build-storybook": "npm run docs:json && build-storybook",
     "ngcc": "ngcc --tsconfig ./tsconfig.app.json",
