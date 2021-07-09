@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Observable } from 'rxjs';
 import { fromPromise } from 'rxjs/internal-compatibility';
-import firebase from 'firebase';
 import { map } from 'rxjs/operators';
+import firebase from 'firebase/app';
 import User = firebase.User;
 import UserCredential = firebase.auth.UserCredential;
 
@@ -17,7 +17,7 @@ export class AuthenticationService {
     this.user = fb.authState;
   }
 
-  getUser(): Observable<firebase.User> {
+  getUser(): Observable<User> {
     return this.fb.authState;
   }
 

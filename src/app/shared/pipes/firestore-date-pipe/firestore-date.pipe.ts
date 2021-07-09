@@ -1,6 +1,6 @@
 import { Inject, LOCALE_ID, Pipe, PipeTransform } from '@angular/core';
 import { formatDate } from '@angular/common';
-import firebase from 'firebase';
+import firebase from 'firebase/app';
 import Timestamp = firebase.firestore.Timestamp;
 
 @Pipe({
