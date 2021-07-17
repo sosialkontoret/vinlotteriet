@@ -40,8 +40,4 @@ export class AuthenticationService {
   resetPassword(email: string): Observable<void> {
     return fromPromise(this.fb.sendPasswordResetEmail(email));
   }
-
-  isLoggedIn(): Observable<User | null> {
-    return this.user$;
-  }
 }

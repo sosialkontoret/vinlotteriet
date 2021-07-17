@@ -15,7 +15,7 @@ export class UserPageComponent {
   constructor(private auth: AuthenticationService) {}
 
   private getUser(): Observable<string> {
-    return this.auth.isLoggedIn().pipe(
+    return this.auth.getUser().pipe(
       filter(user => user?.uid !== undefined),
       map(user => user?.uid as string),
     );
