@@ -7,7 +7,7 @@ import { Participant } from '@models/participant.model';
   styleUrls: ['./participant-list-item.component.scss'],
 })
 export class ParticipantListItemComponent {
-  @Input() participant: Participant;
+  @Input() participant: Participant | undefined;
 
   get probabilityOfWin(): number {
     return -1; // TODO

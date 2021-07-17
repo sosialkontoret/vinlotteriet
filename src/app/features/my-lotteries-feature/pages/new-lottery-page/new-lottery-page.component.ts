@@ -13,8 +13,8 @@ import { State } from '@models/enums/state.enum';
   templateUrl: './new-lottery-page.component.html',
 })
 export class NewLotteryPageComponent implements OnInit {
-  state: State;
-  userId$: Observable<string>;
+  state: State = State.Before;
+  userId$: Observable<string | undefined> | undefined;
 
   constructor(
     private fb: FormBuilder,
@@ -42,6 +42,6 @@ export class NewLotteryPageComponent implements OnInit {
   }
 
   private getUser() {
-    this.userId$ = this.auth.isLoggedIn().pipe(map(user => user.uid));
+    this.userId$ = this.auth.isLoggedIn().pipe(map(user => user?.uid));
   }
 }

@@ -11,13 +11,13 @@ import UserCredential = firebase.auth.UserCredential;
   providedIn: 'root',
 })
 export class AuthenticationService {
-  private user: Observable<User>;
+  private readonly user$: Observable<User | null>;
 
   constructor(private fb: AngularFireAuth) {
-    this.user = fb.authState;
+    this.user$ = fb.authState;
   }
 
-  getUser(): Observable<User> {
+  getUser(): Observable<User | null> {
     return this.fb.authState;
   }
 
@@ -25,7 +25,7 @@ export class AuthenticationService {
     return this.getUser().pipe(map(user => user?.uid !== undefined ?? false));
   }
 
-  login(email: string, password: string): Observable<UserCredential> {
+  login(email: string = '', password: string = ''): Observable<UserCredential> {
     return fromPromise(this.fb.signInWithEmailAndPassword(email, password));
   }
 
@@ -41,19 +41,7 @@ export class AuthenticationService {
     return fromPromise(this.fb.sendPasswordResetEmail(email));
   }
 
-  isLoggedIn(): Observable<firebase.User> {
-    return this.user;
-  }
-
-  isAuthenticatedDeprecated(): Promise<boolean> {
-    return new Promise(resolve => {
-      this.fb.authState.subscribe(result => {
-        if (result && result.uid) {
-          resolve(true);
-        } else {
-          resolve(false);
-        }
-      });
-    });
+  isLoggedIn(): Observable<User | null> {
+    return this.user$;
   }
 }

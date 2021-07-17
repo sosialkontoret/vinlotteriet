@@ -8,10 +8,13 @@ import { RegisterForm } from '@models/forms/register.form';
   styleUrls: ['./register-template.component.scss'],
 })
 export class RegisterTemplateComponent {
-  @Input() state: State;
+  @Input() state: State = State.Before;
   @Output() register = new EventEmitter<RegisterForm>();
 
-  private registerForm: RegisterForm = {};
+  private registerForm: RegisterForm = {
+    email: '',
+    password: '',
+  };
 
   onEmailChanged(email: string): void {
     this.registerForm.email = email;

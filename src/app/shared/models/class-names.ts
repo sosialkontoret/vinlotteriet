@@ -5,7 +5,9 @@ export class ClassNames {
     Object.defineProperty(this, '__defaultName__', { enumerable: false, writable: true });
     // eslint-disable-next-line no-underscore-dangle
     this.__defaultName__ = defaultName;
-    this[defaultName] = enabled || enabled === undefined;
+    if (defaultName !== undefined) {
+      this[defaultName] = enabled || enabled === undefined;
+    }
   }
 
   set(key: string, enabled?: boolean): ClassNames {

@@ -1,5 +1,5 @@
-export class Participant {
+export type Participant = {
   id?: string;
   name: string;
   numberOfTickets: number;
-}
+};

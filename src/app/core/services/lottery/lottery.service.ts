@@ -20,36 +20,24 @@ export class LotteryService {
    * @return id of the lottery object.
    */
   public createLottery(lottery: Lottery): Observable<string> {
+    const id = this.afs.createId();
     const insert: Lottery = {
       ...lottery,
-      id: this.afs.createId(),
+      id,
       createdDate: new Date(),
     };
-    const promise = this.afs.collection<Lottery>(this.collectionName).doc(insert.id).set(insert);
-    return fromPromise(promise).pipe(map(() => insert.id));
+    const promise = this.afs.collection<Lottery>(this.collectionName).doc(id).set(insert);
+    return fromPromise(promise).pipe(map(() => id));
   }
 
-  public setWinnerAndStart(lottery: Lottery, winner: string, drawIndex: number): Observable<void> {
-    const draw = lottery.draws[drawIndex];
-    draw.winner = winner;
-    const promise = this.afs.collection<Lottery>(this.collectionName).doc(lottery.id).update(lottery);
-    return fromPromise(promise);
+  public getLottery(id: string): Observable<Lottery | null> {
+    return this.afs
+      .collection<Lottery>(this.collectionName)
+      .doc(id)
+      .valueChanges()
+      .pipe(map(val => (val === undefined ? null : val)));
   }
 
-  /**
-   * Get a specific lottery based on its id
-   *
-   * @param id
-   */
-  public getLottery(id: string): Observable<Lottery> {
-    return this.afs.collection<Lottery>(this.collectionName).doc(id).valueChanges();
-  }
-
-  /**
-   * Check if a lottery exists
-   *
-   * @param id
-   */
   public lotteryExists(id: string): Observable<boolean> {
     return this.afs
       .collection<Lottery>(this.collectionName)
@@ -58,22 +46,12 @@ export class LotteryService {
       .pipe(map(doc => doc.exists));
   }
 
-  /**
-   * Update a lottery
-   *
-   * @param lottery
-   */
   public updateLottery(lottery: Lottery): Observable<void> {
     const promise = this.afs.collection<Lottery>(this.collectionName).doc(lottery.id).update(lottery);
     return fromPromise(promise);
   }
 
-  /**
-   * Get all ids by user ID.
-   *
-   * @param userId
-   */
-  public getUserLotteries(userId: string): Observable<Lottery[]> {
+  public getUserLotteries(userId: string = ''): Observable<Lottery[]> {
     return this.afs.collection<Lottery>('lotteries', ref => ref.where('userId', '==', userId)).valueChanges();
   }
 }

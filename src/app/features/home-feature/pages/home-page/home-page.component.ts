@@ -7,8 +7,8 @@ import { LotteryService } from '@services/lottery/lottery.service';
   templateUrl: './home-page.component.html',
 })
 export class HomePageComponent {
-  showError: boolean;
-  isLoading: boolean;
+  showError: boolean = false;
+  isLoading: boolean = true;
 
   constructor(private router: Router, private lotteryService: LotteryService) {}
 

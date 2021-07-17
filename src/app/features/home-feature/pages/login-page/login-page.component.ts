@@ -11,8 +11,8 @@ import { tap } from 'rxjs/operators';
   templateUrl: './login-page.component.html',
 })
 export class LoginPageComponent implements OnInit {
-  state: State;
-  isAuthenticated$: Observable<boolean>;
+  state: State = State.Before;
+  isAuthenticated$: Observable<boolean> | undefined;
 
   constructor(private router: Router, private auth: AuthenticationService) {}
 

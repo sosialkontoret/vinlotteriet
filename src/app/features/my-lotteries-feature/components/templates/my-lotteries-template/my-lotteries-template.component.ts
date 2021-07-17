@@ -9,8 +9,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./my-lotteries-template.component.scss'],
 })
 export class MyLotteriesTemplateComponent {
-  @Input() state: State;
-  @Input() lotteries: Lottery[];
+  @Input() state: State = State.Before;
+  @Input() lotteries: Lottery[] = [];
 
   constructor(private router: Router) {}
 

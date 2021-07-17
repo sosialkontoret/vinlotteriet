@@ -13,8 +13,7 @@ import { map, switchMap } from 'rxjs/operators';
 })
 export class EditLotteryPageComponent implements OnInit {
   state: State = State.Before;
-  lottery$: Observable<Lottery>;
-  isLoading: boolean;
+  lottery$: Observable<Lottery | null> | null = null;
 
   constructor(private activatedRoute: ActivatedRoute, private lotteryService: LotteryService) {}
 

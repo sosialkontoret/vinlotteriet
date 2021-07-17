@@ -8,13 +8,13 @@ import { ClassNames } from '@models/class-names';
 })
 export class InputDateComponent implements OnInit {
   @Input() value: Date = new Date();
-  @Input() placeholder = '';
-  @Input() label = '';
+  @Input() placeholder: string | undefined;
+  @Input() label: string | undefined;
   @Input() showLabel = false;
 
   @Output() valueChange = new EventEmitter<Date>();
 
-  labelClassNames: ClassNames;
+  labelClassNames: ClassNames | undefined;
 
   private static labelClassNames(showLabel: boolean): ClassNames {
     return new ClassNames('label-text').setNoDefault('visually-hidden', !showLabel);

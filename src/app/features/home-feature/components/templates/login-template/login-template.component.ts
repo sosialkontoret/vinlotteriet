@@ -8,7 +8,7 @@ import { State } from '@models/enums/state.enum';
   styleUrls: ['./login-template.component.scss'],
 })
 export class LoginTemplateComponent {
-  @Input() state: State;
+  @Input() state: State = State.Before;
   @Output() login = new EventEmitter<LoginForm>();
 
   private loginForm: LoginForm = {};

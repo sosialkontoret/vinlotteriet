@@ -8,8 +8,8 @@ import { State } from '@models/enums/state.enum';
   styleUrls: ['./participant-list.component.scss'],
 })
 export class ParticipantListComponent {
-  @Input() state: State;
-  @Input() participants: Participant[];
+  @Input() state: State = State.Before;
+  @Input() participants: Participant[] = [];
 
   get noParticipants(): boolean {
     return !this.participants?.length;

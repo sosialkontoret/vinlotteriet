@@ -10,7 +10,7 @@ import { tap } from 'rxjs/operators';
   templateUrl: './lottery-page.component.html',
 })
 export class LotteryPageComponent implements OnInit {
-  lottery$: Observable<Lottery>;
+  lottery$: Observable<Lottery | null> | null = null;
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute, private lotteryService: LotteryService) {}
 
@@ -19,10 +19,14 @@ export class LotteryPageComponent implements OnInit {
     this.initLottery(lotteryId);
   }
 
-  private initLottery(lotteryId: string) {
+  private initLottery(lotteryId: string | null): void {
+    if (lotteryId === null) {
+      this.router.navigate(['home']);
+      return;
+    }
     this.lottery$ = this.lotteryService.getLottery(lotteryId).pipe(
       tap(lottery => {
-        if (!lottery) {
+        if (lottery === null) {
           this.router.navigate(['home']);
         }
       }),

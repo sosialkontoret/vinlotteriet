@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 })
 export class MyLotteriesPageComponent implements OnInit {
   state: State = State.Before;
-  lotteries$: Observable<Lottery[]>;
+  lotteries$: Observable<Lottery[]> | undefined;
 
   constructor(private router: Router, private authService: AuthenticationService, private lotteryService: LotteryService) {}
 
@@ -24,7 +24,7 @@ export class MyLotteriesPageComponent implements OnInit {
   private initLotteries() {
     this.state = State.IsLoading;
     this.lotteries$ = this.authService.getUser().pipe(
-      switchMap(user => this.lotteryService.getUserLotteries(user.uid)),
+      switchMap(user => this.lotteryService.getUserLotteries(user?.uid)),
       tap(() => {
         this.state = State.GotData;
       }),

@@ -6,7 +6,7 @@ import { AuthenticationService } from '@services/authentication/authentication.s
   templateUrl: './user-page.component.html',
 })
 export class UserPageComponent implements OnInit {
-  userId: string;
+  userId: string | undefined;
 
   constructor(private auth: AuthenticationService) {}
 
@@ -17,7 +17,7 @@ export class UserPageComponent implements OnInit {
   private getUser() {
     this.auth.isLoggedIn().subscribe(
       result => {
-        this.userId = result.uid;
+        this.userId = result?.uid;
       },
       error => {
         console.error('Failed to login user', error);
