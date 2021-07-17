@@ -22,7 +22,7 @@ export class AuthenticationService {
   }
 
   isAuthenticated(): Observable<boolean> {
-    return this.getUser().pipe(map(user => user?.uid !== undefined ?? false));
+    return this.getUser().pipe(map(user => user?.uid !== undefined));
   }
 
   login(email: string = '', password: string = ''): Observable<UserCredential> {
