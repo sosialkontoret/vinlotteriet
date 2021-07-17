@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/angular';
+import { Meta, Story } from '@storybook/angular';
 import { action } from '@storybook/addon-actions';
 import { Lottery } from '@models/lottery.model';
 import { ArrayUtils } from '@utils/array';
@@ -37,7 +37,7 @@ const createLottery = (itemNr: number): Lottery => ({
 
 const createLotteries = (items: number): Lottery[] => ArrayUtils.mapN(items, createLottery);
 
-const Template = (args: any) => ({
+const Template: Story = (args: any) => ({
   template:
     '<sk-card style="width: 100%; display: inline-block;" *ngIf="background">' +
     '<sk-lottery-list style="width: 100%;" [lotteries]="lotteries"></sk-lottery-list>' +

@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/angular';
+import { Meta, Story } from '@storybook/angular';
 import { action } from '@storybook/addon-actions';
 import { InputEmailComponent } from './input-email.component';
 
@@ -7,7 +7,7 @@ export default {
   component: InputEmailComponent,
 } as Meta;
 
-const Template = (args: any) => ({
+const Template: Story = (args: any) => ({
   template: '<sk-input-email [value]="value" [placeholder]="placeholder" (valueChange)="valueChange()"></sk-input-email>',
   props: {
     ...args,

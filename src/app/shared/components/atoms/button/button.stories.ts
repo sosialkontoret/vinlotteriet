@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/angular';
+import { Meta, Story } from '@storybook/angular';
 import { action } from '@storybook/addon-actions';
 import { ButtonComponent } from './button.component';
 
@@ -7,7 +7,7 @@ export default {
   component: ButtonComponent,
 } as Meta;
 
-const Template = (args: any) => ({
+const Template: Story = (args: any) => ({
   template: '<sk-button (clicked)="clicked()"><div [outerHTML]="child"></div></sk-button>',
   props: {
     ...args,

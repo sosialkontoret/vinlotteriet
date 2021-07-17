@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/angular';
+import { Meta, Story } from '@storybook/angular';
 import { action } from '@storybook/addon-actions';
 import { InputTextComponent } from './input-text.component';
 
@@ -7,7 +7,7 @@ export default {
   component: InputTextComponent,
 } as Meta;
 
-const Template = (args: any) => ({
+const Template: Story = (args: any) => ({
   template: '<sk-input-text [value]="value" [placeholder]="placeholder" (valueChange)="valueChange()"></sk-input-text>',
   props: {
     ...args,

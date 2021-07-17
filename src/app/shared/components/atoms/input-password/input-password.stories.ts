@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/angular';
+import { Meta, Story } from '@storybook/angular';
 import { action } from '@storybook/addon-actions';
 import { InputPasswordComponent } from './input-password.component';
 
@@ -7,7 +7,7 @@ export default {
   component: InputPasswordComponent,
 } as Meta;
 
-const Template = (args: any) => ({
+const Template: Story = (args: any) => ({
   template: '<sk-input-password [value]="value" [placeholder]="placeholder" (valueChange)="valueChange()"></sk-input-password>',
   props: {
     ...args,
