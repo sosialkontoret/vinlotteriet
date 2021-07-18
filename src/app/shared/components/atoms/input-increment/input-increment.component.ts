@@ -28,8 +28,8 @@ export class InputIncrementComponent implements OnInit, ControlValueAccessor, Va
 
   labelClassNames: ClassNames | undefined;
 
-  disabled: boolean;
-  touched: boolean;
+  disabled: boolean = false;
+  touched: boolean = false;
   onChange: (value: number) => void = () => {};
   onTouched = () => {};
 

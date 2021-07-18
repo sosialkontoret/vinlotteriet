@@ -13,8 +13,8 @@ export class ButtonComponent implements OnInit, OnChanges {
 
   @Output() clicked = new EventEmitter<void>();
 
-  buttonContainerClassNames: ClassNames;
-  buttonClassNames: ClassNames;
+  buttonContainerClassNames: ClassNames = ButtonComponent.buttonContainerClassNames(this.variant);
+  buttonClassNames: ClassNames = ButtonComponent.buttonClassNames(this.variant);
 
   private static buttonContainerClassNames(variant: string): ClassNames {
     return new ClassNames('button-container').set(variant);

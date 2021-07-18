@@ -24,8 +24,8 @@ export class InputDateComponent implements OnInit, ControlValueAccessor {
 
   labelClassNames: ClassNames | undefined;
 
-  disabled: boolean;
-  touched: boolean;
+  disabled: boolean = false;
+  touched: boolean = false;
   onChange: (value: Date) => void = () => {};
   onTouched = () => {};
 

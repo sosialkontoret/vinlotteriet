@@ -24,8 +24,8 @@ export class InputTextComponent implements OnInit, ControlValueAccessor {
   @Output() valueChange = new EventEmitter<string>();
   labelClassNames: ClassNames = InputTextComponent.labelClassNames(this.showLabel);
 
-  disabled: boolean;
-  touched: boolean;
+  disabled: boolean = false;
+  touched: boolean = false;
   onChange: (value: string) => void = () => {};
   onTouched = () => {};
 

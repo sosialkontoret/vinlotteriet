@@ -9,7 +9,7 @@ import { State } from '@models/enums/state.enum';
   templateUrl: './register-page.component.html',
 })
 export class RegisterPageComponent {
-  state: State;
+  state: State = State.Before;
 
   constructor(private router: Router, private auth: AuthenticationService) {}
 
