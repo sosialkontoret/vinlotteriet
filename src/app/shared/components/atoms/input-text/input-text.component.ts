@@ -14,7 +14,7 @@ export class InputTextComponent implements OnInit {
 
   @Output() valueChange = new EventEmitter<string>();
 
-  labelClassNames: ClassNames;
+  labelClassNames: ClassNames | undefined;
 
   private static labelClassNames(showLabel: boolean): ClassNames {
     return new ClassNames('label-text').setNoDefault('visually-hidden', !showLabel);

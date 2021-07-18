@@ -7,9 +7,9 @@ import { ClassNames } from '@models/class-names';
   styleUrls: ['./input-password.component.scss'],
 })
 export class InputPasswordComponent {
-  @Input() placeholder: string;
-  @Input() label: string;
-  @Input() showLabel: boolean;
+  @Input() placeholder: string | undefined;
+  @Input() label: string | undefined;
+  @Input() showLabel = false;
 
   @Output() valueChange = new EventEmitter<string>();
 
@@ -21,7 +21,7 @@ export class InputPasswordComponent {
     return this.mValue ?? '';
   }
 
-  private mValue: string;
+  private mValue: string = '';
 
   get labelTextClassNames(): ClassNames {
     return new ClassNames('label-text').setNoDefault('visually-hidden', !this.showLabel);

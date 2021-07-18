@@ -21,7 +21,7 @@ export class ArrayUtils {
     return this.indexedArray(count).map(mapFunc);
   }
 
-  public static sumSelect<T>(array: T[], select: (T) => number): number {
+  public static sumSelect<T>(array: T[], select: (obj: T) => number): number {
     return array?.reduce((sum, val) => sum + select(val), 0) ?? 0;
   }
 

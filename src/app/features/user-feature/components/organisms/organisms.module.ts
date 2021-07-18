@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { MoleculeModule } from '../molecules/molecules.module';
 
-const components = [];
+const components: any[] = [];
 
 @NgModule({
   declarations: [...components],

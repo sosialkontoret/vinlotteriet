@@ -10,12 +10,12 @@ import { LotteryUtils } from '@utils/lottery';
   styleUrls: ['./edit-lottery-template.component.scss'],
 })
 export class EditLotteryTemplateComponent implements OnInit, OnChanges {
-  @Input() state: State;
-  @Input() lottery: Lottery;
+  @Input() state: State = State.Before;
+  @Input() lottery: Lottery | undefined;
   @Output() updated = new EventEmitter<Lottery>();
 
-  numberOfTickets: number;
-  isLoading: boolean;
+  numberOfTickets: number | null = null;
+  isLoading = true;
 
   ngOnInit() {
     this.isLoading = this.state === State.IsLoading;
@@ -28,7 +28,12 @@ export class EditLotteryTemplateComponent implements OnInit, OnChanges {
   }
 
   onAddParticipant(participant: Participant): void {
-    if (this.lottery.participants === undefined) {
+    if (this.lottery === undefined) {
+      this.lottery = {
+        participants: [],
+      };
+    }
+    if (this.lottery?.participants === undefined) {
       this.lottery.participants = [];
     }
     this.lottery.participants.push(participant);

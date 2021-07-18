@@ -8,18 +8,18 @@ import { LotteryUtils } from '@utils/lottery';
   styleUrls: ['./lottery-list-item.component.scss'],
 })
 export class LotteryListItemComponent implements OnInit, OnChanges {
-  @Input() lottery: Lottery;
+  @Input() lottery: Lottery | undefined;
 
-  routerLink: string[];
-  numberOfTickets: number;
+  routerLink: string[] = [];
+  numberOfTickets: number = 0;
 
   ngOnInit(): void {
     this.numberOfTickets = LotteryUtils.countNumberOfTickets(this.lottery);
-    this.routerLink = ['/', 'my-lotteries', this.lottery?.id];
+    this.routerLink = ['/', 'my-lotteries', this.lottery?.id ?? ''];
   }
 
   ngOnChanges(): void {
     this.numberOfTickets = LotteryUtils.countNumberOfTickets(this.lottery);
-    this.routerLink = ['/', 'my-lotteries', this.lottery?.id];
+    this.routerLink = ['/', 'my-lotteries', this.lottery?.id ?? ''];
   }
 }

@@ -1,27 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthenticationService } from '@services/authentication/authentication.service';
+import { State } from '@models/enums/state.enum';
+import { Observable } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
 
 @Component({
   selector: 'sk-user',
   templateUrl: './user-page.component.html',
 })
-export class UserPageComponent implements OnInit {
-  userId: string;
+export class UserPageComponent {
+  state: State = State.Before;
+  userId$: Observable<string> = this.getUser();
 
   constructor(private auth: AuthenticationService) {}
 
-  ngOnInit() {
-    this.getUser();
-  }
-
-  private getUser() {
-    this.auth.isLoggedIn().subscribe(
-      result => {
-        this.userId = result.uid;
-      },
-      error => {
-        console.error('Failed to login user', error);
-      },
+  private getUser(): Observable<string> {
+    return this.auth.getUser().pipe(
+      filter(user => user?.uid !== undefined),
+      map(user => user?.uid as string),
     );
   }
 }

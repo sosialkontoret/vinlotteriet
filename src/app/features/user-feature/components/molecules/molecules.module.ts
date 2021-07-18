@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { SharedModule } from '@shared/shared.module';
 
-const components = [];
+const components: any[] = [];
 
 @NgModule({
   declarations: [...components],

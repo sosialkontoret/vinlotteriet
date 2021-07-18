@@ -8,8 +8,8 @@ import { State } from '@models/enums/state.enum';
   styleUrls: ['./new-lottery-template.component.scss'],
 })
 export class NewLotteryTemplateComponent implements OnInit {
-  @Input() state: State;
-  @Input() userId: string;
+  @Input() state: State = State.Before;
+  @Input() userId: string | undefined;
   @Output() createLottery = new EventEmitter<Lottery>();
 
   private title = '';

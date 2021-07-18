@@ -7,9 +7,9 @@ import { Lottery } from '@models/lottery.model';
   styleUrls: ['./lottery-list.component.scss'],
 })
 export class LotteryListComponent {
-  @Input() lotteries: Lottery[];
+  @Input() lotteries: Lottery[] = [];
 
-  trackLottery(index: number, lottery: Lottery): string {
+  trackLottery(index: number, lottery: Lottery): string | undefined {
     return lottery.id;
   }
 }
