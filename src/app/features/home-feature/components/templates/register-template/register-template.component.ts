@@ -1,30 +1,43 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
 import { State } from '@models/enums/state.enum';
 import { RegisterForm } from '@models/forms/register.form';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'sk-register-template',
   templateUrl: './register-template.component.html',
   styleUrls: ['./register-template.component.scss'],
 })
-export class RegisterTemplateComponent {
+export class RegisterTemplateComponent implements OnChanges {
   @Input() state: State = State.Before;
   @Output() register = new EventEmitter<RegisterForm>();
 
-  private registerForm: RegisterForm = {
-    email: '',
-    password: '',
-  };
+  attemptedSubmit = false;
+  hasError = false;
 
-  onEmailChanged(email: string): void {
-    this.registerForm.email = email;
+  registerForm = new FormGroup({
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [Validators.required]),
+  });
+
+  get email() {
+    return this.registerForm.get('email');
   }
 
-  onPasswordChanged(password: string): void {
-    this.registerForm.password = password;
+  get password() {
+    return this.registerForm.get('password');
   }
 
-  onRegister() {
-    this.register.emit(this.registerForm);
+  ngOnChanges(): void {
+    this.attemptedSubmit = false;
+    this.hasError = this.state === State.IsError;
+  }
+
+  onSubmit(): void {
+    this.attemptedSubmit = true;
+    if (this.registerForm.invalid) {
+      return;
+    }
+    this.register.emit(this.registerForm.value);
   }
 }

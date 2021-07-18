@@ -1,4 +1,4 @@
-@use "utilities/_colors";
+@use "utilities/colors";
 
 .register-template-container {
   height: 100%;
@@ -40,4 +40,9 @@
 
 .login-link {
   text-decoration: underline;
+}
+
+.errors {
+  color: colors.$error;
+  text-align: center;
 }

@@ -1,8 +1,8 @@
 <label class="label">
   <span [ngClass]="labelClassNames">{{ label }}</span>
   <span class="input-controls">
-    <button class="btn" role="button" (click)="decrement()">-</button>
-    <input name="incrementor" type="number" class="input" [min]="0" [max]="max" [value]="value" (input)="change($event)" />
-    <button class="btn" role="button" (click)="increment()">+</button>
+    <button class="btn" role="button" [disabled]="disabled" (click)="decrement()">-</button>
+    <input type="number" class="input" [value]="value" [disabled]="disabled" (input)="change($event)" />
+    <button class="btn" role="button" [disabled]="disabled" (click)="increment()">+</button>
   </span>
 </label>

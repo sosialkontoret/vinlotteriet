@@ -34,8 +34,8 @@ export class LoginPageComponent {
       () => {
         this.router.navigate(['my-lotteries']);
       },
-      error => {
-        console.error('Failed to login', error);
+      () => {
+        this.state = State.IsError;
       },
     );
   }

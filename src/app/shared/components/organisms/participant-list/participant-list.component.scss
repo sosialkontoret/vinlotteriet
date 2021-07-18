@@ -1,5 +1,5 @@
-@use "utilities/_colors";
-@use "../../../../../styles/utilities/font-weights";
+@use "utilities/colors";
+@use "utilities/font-weights";
 
 .lottery-list {
   width: 100%;
@@ -40,7 +40,7 @@
 .list-item {
   position: relative;
   transform: translate3d(0, 0, 0); // {1}
-  border: 1px solid colors.$grey-200;
+  border: 1px solid colors.$grey-300;
   background-color: #fff;
   box-shadow: 0 0.25em 0.25em rgba(0, 0, 0, 0.25);
   height: 3em;

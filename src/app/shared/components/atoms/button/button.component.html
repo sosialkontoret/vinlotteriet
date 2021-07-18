@@ -1,5 +1,5 @@
 <div [ngClass]="buttonContainerClassNames">
-  <button [ngClass]="buttonClassNames" (click)="click()">
+  <button [ngClass]="buttonClassNames" [type]="type" (click)="click()">
     <ng-content></ng-content>
   </button>
 </div>
