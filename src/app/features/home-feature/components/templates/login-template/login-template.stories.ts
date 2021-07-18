@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/angular';
+import { Meta, Story } from '@storybook/angular';
 import { action } from '@storybook/addon-actions';
 import { State } from '@models/enums/state.enum';
 import { LoginTemplateComponent } from './login-template.component';
@@ -8,7 +8,7 @@ export default {
   component: LoginTemplateComponent,
 } as Meta;
 
-const Template = (args: any): any => ({
+const Template: Story = (args: any) => ({
   template:
     '<sk-theme-template style="height: 100vh; width: 100%; display: inline-block">' +
     '<sk-login-template [state]="state" (login)="onLogin($event)"></sk-login-template>' +
@@ -29,7 +29,7 @@ loading.args = {
   state: State.IsLoading,
 };
 
-export const withoutTheme = (args: any): any => ({
+export const withoutTheme = (args: any) => ({
   template: '<sk-login-template [state]="state" (login)="onLogin($event)"></sk-login-template>',
   props: {
     state: State.NoData,

@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/angular';
+import { Meta, Story } from '@storybook/angular';
 import { action } from '@storybook/addon-actions';
 import { ArrayUtils } from '@utils/array';
 import { Participant } from '@models/participant.model';
@@ -24,7 +24,7 @@ const createParticipant = (itemNr: number): Participant => ({
 
 const createParticipants = (items: number): Participant[] => ArrayUtils.mapN(items, createParticipant);
 
-const Template = (args: any) => ({
+const Template: Story = (args: any) => ({
   template:
     '<sk-card style="width: 100%; display: inline-block;" *ngIf="background">' +
     '<sk-participant-list style="width: 100%;" [participants]="participants"></sk-participant-list>' +

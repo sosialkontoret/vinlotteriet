@@ -22,7 +22,7 @@ export class InputTextComponent implements OnInit, ControlValueAccessor {
   @Input() showLabel = false;
 
   @Output() valueChange = new EventEmitter<string>();
-  labelClassNames: ClassNames;
+  labelClassNames: ClassNames = InputTextComponent.labelClassNames(this.showLabel);
 
   disabled: boolean;
   touched: boolean;

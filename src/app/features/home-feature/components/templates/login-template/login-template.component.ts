@@ -9,7 +9,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./login-template.component.scss'],
 })
 export class LoginTemplateComponent implements OnChanges {
-  @Input() state: State;
+  @Input() state: State = State.Before;
   @Output() login = new EventEmitter<LoginForm>();
 
   attemptedSubmit = false;

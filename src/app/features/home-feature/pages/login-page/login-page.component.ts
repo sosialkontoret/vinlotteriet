@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthenticationService } from '@services/authentication/authentication.service';
 import { Router } from '@angular/router';
 import { LoginForm } from '@models/forms/login.form';
@@ -10,19 +10,15 @@ import { tap } from 'rxjs/operators';
   selector: 'sk-login',
   templateUrl: './login-page.component.html',
 })
-export class LoginPageComponent implements OnInit {
-  state: State;
-  isAuthenticated$: Observable<boolean>;
+export class LoginPageComponent {
+  state: State = State.Before;
+  isAuthenticated$: Observable<boolean> = this.initIsLoggedIn();
 
   constructor(private router: Router, private auth: AuthenticationService) {}
 
-  ngOnInit() {
-    this.initIsLoggedIn();
-  }
-
-  initIsLoggedIn(): void {
+  initIsLoggedIn(): Observable<boolean> {
     this.state = State.IsLoading;
-    this.isAuthenticated$ = this.auth.isAuthenticated().pipe(
+    return this.auth.isAuthenticated().pipe(
       tap(isAuthenticated => {
         if (isAuthenticated) {
           this.router.navigate(['my-lotteries']);

@@ -9,7 +9,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./register-template.component.scss'],
 })
 export class RegisterTemplateComponent implements OnChanges {
-  @Input() state: State;
+  @Input() state: State = State.Before;
   @Output() register = new EventEmitter<RegisterForm>();
 
   attemptedSubmit = false;

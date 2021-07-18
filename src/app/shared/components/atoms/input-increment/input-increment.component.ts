@@ -26,7 +26,7 @@ export class InputIncrementComponent implements OnInit, ControlValueAccessor, Va
 
   @Output() valueChange = new EventEmitter<number>();
 
-  labelClassNames: ClassNames;
+  labelClassNames: ClassNames | undefined;
 
   disabled: boolean;
   touched: boolean;

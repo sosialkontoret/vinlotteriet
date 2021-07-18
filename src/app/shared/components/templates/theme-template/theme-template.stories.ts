@@ -1,5 +1,4 @@
-import { Meta } from '@storybook/angular';
-import { StoryFnAngularReturnType } from '@storybook/angular/dist/client/preview/types';
+import { Meta, Story } from '@storybook/angular';
 import { State } from '@models/enums/state.enum';
 import { ThemeTemplateComponent } from './theme-template.component';
 
@@ -11,7 +10,7 @@ export default {
   },
 } as Meta;
 
-const Template = (args: any): StoryFnAngularReturnType => ({
+const Template: Story = (args: any) => ({
   template: '<sk-theme-template style="height: 100vh; width: 100%; display: inline-block;"></sk-theme-template>',
   props: {
     ...args,

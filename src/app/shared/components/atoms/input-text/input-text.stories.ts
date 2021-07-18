@@ -1,5 +1,4 @@
-import { Meta } from '@storybook/angular';
-import { StoryFnAngularReturnType } from '@storybook/angular/dist/client/preview/types';
+import { Meta, Story } from '@storybook/angular';
 import { action } from '@storybook/addon-actions';
 import { InputTextComponent } from './input-text.component';
 
@@ -8,7 +7,7 @@ export default {
   component: InputTextComponent,
 } as Meta;
 
-const Template = (args: any): StoryFnAngularReturnType => ({
+const Template: Story = (args: any) => ({
   template: '<sk-input-text [value]="value" [placeholder]="placeholder" (valueChange)="valueChange()"></sk-input-text>',
   props: {
     ...args,

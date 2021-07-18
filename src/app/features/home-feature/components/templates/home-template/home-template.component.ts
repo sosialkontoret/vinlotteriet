@@ -8,13 +8,15 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class HomeTemplateComponent {
   @Output() joinLottery = new EventEmitter<string>();
 
-  private lotteryCode: string;
+  private lotteryCode: string | null = null;
 
   onLotteryCodeChanged(lotteryCode: string): void {
     this.lotteryCode = lotteryCode;
   }
 
   onJoinLotteryClicked(): void {
-    this.joinLottery.emit(this.lotteryCode);
+    if (this.lotteryCode !== null) {
+      this.joinLottery.emit(this.lotteryCode);
+    }
   }
 }

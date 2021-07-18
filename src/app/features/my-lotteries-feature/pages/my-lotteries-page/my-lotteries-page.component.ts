@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { LotteryService } from '@services/lottery/lottery.service';
 import { Observable } from 'rxjs';
 import { Lottery } from '@models/lottery.model';
@@ -11,20 +11,16 @@ import { Router } from '@angular/router';
   selector: 'sk-my-lotteries',
   templateUrl: './my-lotteries-page.component.html',
 })
-export class MyLotteriesPageComponent implements OnInit {
+export class MyLotteriesPageComponent {
   state: State = State.Before;
-  lotteries$: Observable<Lottery[]>;
+  lotteries$: Observable<Lottery[]> = this.initLotteries();
 
   constructor(private router: Router, private authService: AuthenticationService, private lotteryService: LotteryService) {}
 
-  ngOnInit() {
-    this.initLotteries();
-  }
-
-  private initLotteries() {
+  private initLotteries(): Observable<Lottery[]> {
     this.state = State.IsLoading;
-    this.lotteries$ = this.authService.getUser().pipe(
-      switchMap(user => this.lotteryService.getUserLotteries(user.uid)),
+    return this.authService.getUser().pipe(
+      switchMap(user => this.lotteryService.getUserLotteries(user?.uid)),
       tap(() => {
         this.state = State.GotData;
       }),

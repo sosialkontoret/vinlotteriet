@@ -16,13 +16,13 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 })
 export class InputDateComponent implements OnInit, ControlValueAccessor {
   @Input() value: Date = new Date();
-  @Input() placeholder = '';
-  @Input() label = '';
+  @Input() placeholder: string | undefined;
+  @Input() label: string | undefined;
   @Input() showLabel = false;
 
   @Output() valueChange = new EventEmitter<Date>();
 
-  labelClassNames: ClassNames;
+  labelClassNames: ClassNames | undefined;
 
   disabled: boolean;
   touched: boolean;
