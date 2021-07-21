@@ -10,9 +10,11 @@ import { filter, map } from 'rxjs/operators';
 })
 export class UserPageComponent {
   state: State = State.Before;
-  userId$: Observable<string> = this.getUser();
+  userId$: Observable<string>;
 
-  constructor(private auth: AuthenticationService) {}
+  constructor(private auth: AuthenticationService) {
+    this.userId$ = this.getUser();
+  }
 
   private getUser(): Observable<string> {
     return this.auth.getUser().pipe(

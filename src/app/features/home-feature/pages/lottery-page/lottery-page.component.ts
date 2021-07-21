@@ -10,9 +10,11 @@ import { filter, map, switchMap, tap } from 'rxjs/operators';
   templateUrl: './lottery-page.component.html',
 })
 export class LotteryPageComponent {
-  lottery$: Observable<Lottery> = this.initLottery();
+  lottery$: Observable<Lottery>;
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute, private lotteryService: LotteryService) {}
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, private lotteryService: LotteryService) {
+    this.lottery$ = this.initLottery();
+  }
 
   private initLottery(): Observable<Lottery> {
     return this.activatedRoute.paramMap.pipe(
