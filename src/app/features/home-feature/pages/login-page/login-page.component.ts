@@ -12,9 +12,11 @@ import { tap } from 'rxjs/operators';
 })
 export class LoginPageComponent {
   state: State = State.Before;
-  isAuthenticated$: Observable<boolean> = this.initIsLoggedIn();
+  isAuthenticated$: Observable<boolean>;
 
-  constructor(private router: Router, private auth: AuthenticationService) {}
+  constructor(private router: Router, private auth: AuthenticationService) {
+    this.isAuthenticated$ = this.initIsLoggedIn();
+  }
 
   initIsLoggedIn(): Observable<boolean> {
     this.state = State.IsLoading;

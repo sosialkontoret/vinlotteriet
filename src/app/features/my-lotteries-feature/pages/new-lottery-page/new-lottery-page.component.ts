@@ -14,14 +14,16 @@ import { State } from '@models/enums/state.enum';
 })
 export class NewLotteryPageComponent {
   state: State = State.Before;
-  userId$: Observable<string> = this.getUser();
+  userId$: Observable<string>;
 
   constructor(
     private fb: FormBuilder,
     private router: Router,
     private lotteryService: LotteryService,
     private auth: AuthenticationService,
-  ) {}
+  ) {
+    this.userId$ = this.getUser();
+  }
 
   onCreateLottery(lottery: Lottery) {
     this.state = State.IsLoading;

@@ -13,9 +13,11 @@ import { filter, map, switchMap, tap } from 'rxjs/operators';
 })
 export class EditLotteryPageComponent {
   state: State = State.Before;
-  lottery$: Observable<Lottery> = this.initLottery();
+  lottery$: Observable<Lottery>;
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute, private lotteryService: LotteryService) {}
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, private lotteryService: LotteryService) {
+    this.lottery$ = this.initLottery();
+  }
 
   onUpdated(lottery: Lottery): void {
     this.lotteryService.updateLottery(lottery);

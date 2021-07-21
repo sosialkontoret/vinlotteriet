@@ -4,7 +4,6 @@ module.exports = {
     "../src/**/*.stories.ts"
   ],
   "addons": [
-    "@storybook/addon-links",
     "@storybook/addon-essentials"
   ],
   "core": {
