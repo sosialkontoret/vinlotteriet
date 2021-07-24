@@ -13,9 +13,11 @@ import { Router } from '@angular/router';
 })
 export class MyLotteriesPageComponent {
   state: State = State.Before;
-  lotteries$: Observable<Lottery[]> = this.initLotteries();
+  lotteries$: Observable<Lottery[]>;
 
-  constructor(private router: Router, private authService: AuthenticationService, private lotteryService: LotteryService) {}
+  constructor(private router: Router, private authService: AuthenticationService, private lotteryService: LotteryService) {
+    this.lotteries$ = this.initLotteries();
+  }
 
   private initLotteries(): Observable<Lottery[]> {
     this.state = State.IsLoading;
