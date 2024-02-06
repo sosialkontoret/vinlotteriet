@@ -1,14 +1,16 @@
 .lottery-login {
-  width: 350px;
-  margin: auto;
-  margin-top: 10vh;
-  text-align: center;
-
-  h2{
-    margin-bottom: 15px;
-  }
-
-  .buttons{
-    margin-top: 5px;
-  }
-}
+  display: flex;
+  flex-direction: column;
+  max-width: 512px;
+    .buttons{
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+  
+    .form{
+      margin-top: 5px;
+    }
+    }
+  
+  

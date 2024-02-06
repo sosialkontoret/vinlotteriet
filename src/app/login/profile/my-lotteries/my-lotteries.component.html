@@ -1,23 +1,29 @@
-<div class="my-lotteries container">
-  <div class="new-lottery">
-    <div class="row">
-      <div class="offset-8 col-4">
-        <button (click)="newLottery()" class="large-button green-background">Nytt lotteri</button>
+  <div class="my-lotteries wine-container">
+    <div class="button-container">
+      <h2>Mine lotterier</h2>
+        <button (click)="newLottery()">
+          Nytt lotteri
+        </button>
+      </div>
+    <div class="lotteries-table">
+      <div *ngIf="(lotteries$ | async)?.length > 0" class="row row-header">
+        <div class="row-item">Navn</div>
+        <div class="row-item">Trekningsdato</div>
+        <div class="row-item">Opprettet</div>
+      </div>
+      <div
+
+        (click)="selectLottery(lottery.id)"
+        class="row"
+        *ngFor="let lottery of lotteries$ | async"
+      >
+        <div class="row-item">{{ lottery.name }}</div>
+        <div class="row-item">
+          {{ lottery?.dateTime.toDate() | date : "dd-MM-yyyy HH:mm" }}
+        </div>
+        <div class="row-item">
+          {{ lottery?.createdDate.toDate() | date : "dd-MM-yyyy HH:mm" }}
+        </div>
       </div>
     </div>
   </div>
-  <div class="history-lotteries">
-    <div *ngIf="(lotteries$ | async)?.length > 0"  class="row">
-      <div class="col-md-4 row-header">Navn</div>
-      <div class="col-md-4 row-header">Trekningsdato</div>
-      <div class="col-md-4 row-header">Opprettet</div>
-    </div>
-    <div (click)="selectLottery(lottery.id)" class="row" *ngFor="let lottery of lotteries$ | async">
-      <div class="col-4">{{lottery.name}}</div>
-      <div class="col-4">{{lottery?.dateTime.toDate() | date: 'dd-MM-yyyy HH:mm'}}</div>
-      <div class="col-4">{{lottery?.createdDate.toDate() | date: 'dd-MM-yyyy HH:mm'}}</div>
-    </div>
-  </div>
-
-
-</div>

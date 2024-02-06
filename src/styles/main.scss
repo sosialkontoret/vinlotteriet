@@ -2,8 +2,108 @@
 @import "~ng-pick-datetime/assets/style/picker.min.css";
 @import "external/animate";
 
-body{
-  font-family: 'Comfortaa', cursive;
+:root {
+  --primary-light: #643f56;
+  --primary: #412938;
+  --primary-dark: #2b1b25;
+  --secondary-light: #fef7f7;
+  --secondary: #faeeee;
+  --secondary-dark: #b4a8b1;
+}
+
+body {
+  font-family: "DM Serif Display", serif;
+  background-color: var(--primary);
+  color: var(--primary);
+}
+main {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin: 1rem;
+  gap: 2rem;
+}
+
+.wine-container {
+  background-color: var(--secondary);
+  padding: 2rem;
+  position: relative;
+  transition: all 200ms ease;
+  max-width: 768px;
+  margin: auto;
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    width: calc(100% - 2rem);
+    height: calc(100% - 2rem);
+    border: 2px solid var(--primary);
+    pointer-events: none;
+  }
+}
+
+input {
+  border: 2px solid var(--primary);
+  transition: background-color 150ms ease;
+  &:hover {
+    background-color: var(--secondary-light);
+  }
+}
+button,
+.button {
+  font-family: "Montserrat", serif;
+  background-color: var(--primary);
+  color: var(--secondary);
+  padding: 0.5rem 2rem;
+  position: relative;
+  transition: background-color 150ms ease;
+  border: none;
+
+  &:active {
+    background-color: var(--primary-dark);
+
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+  &:after {
+
+    content: "";
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    right: 4px;
+    bottom: 4px;
+    border: 2px solid var(--secondary);
+    pointer-events: none;
+    transition: top 100ms ease-in-out, left 100ms ease-in-out,
+      right 100ms ease-in-out, bottom 100ms ease-in-out;
+  }
+
+  &:hover {
+    &:after {
+      top: 6px;
+      left: 6px;
+      right: 6px;
+      bottom: 6px;
+    }
+  }
+}
+
+.secondary {
+  background-color: var(--secondary);
+  color: var(--primary);
+  transition: background-color 150ms ease;
+  &:active {
+    background-color: var(--secondary-dark);
+    
+  }
+  &:after {
+    border: 2px solid var(--primary);
+  }
 }
 
 // Variables

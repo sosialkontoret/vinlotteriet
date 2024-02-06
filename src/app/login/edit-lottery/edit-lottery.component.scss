@@ -1,92 +1,110 @@
 @import "../../../styles/main";
 
-.edit-lottery{
+.edit-lottery {
   margin-top: 45px;
 
-
-  h3{
+  h3 {
     margin-top: 35px;
     font-size: 20px;
   }
 
-  h4{
+  h4 {
     font-size: 18px;
     font-weight: 600;
     margin-bottom: 5px;
   }
 
-  .form-element{
-    label{
-      display: block;
-    }
-    input{
+  form {
+    display: flex;
+    gap:1rem;
+    flex-wrap: wrap;
+  }
+  .form-element {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    * {
       width: 100%;
+      min-width: 96px;
     }
-    .small-button{
-      margin-top: 10px;
-    }
-
   }
 
-  .participants{
-    h3{
+  .participants {
+    h3 {
       margin-bottom: 15px;
     }
-    .row{
+    .row {
       padding-top: 10px;
-      padding-bottom: 5px,;
+      padding-bottom: 5px;
       border-bottom: 1px solid $main-gray;
     }
-    .header{
+    .header {
       font-weight: 600;
     }
-    .delete{
+    .delete {
       @include no-button-styling();
       font-size: 22px;
     }
-    .additonal-padding{
+    .additonal-padding {
       padding-top: 3px;
     }
   }
 
-  .participant-list{
-    max-height: 500px;
-    overflow-y: scroll;
-  }
+  .participant-list-table {
+    display: flex;
+    flex-direction: column;
 
-  .opacity-0{
-    opacity: 0;
-  }
+    .row {
+      display: flex;
+      gap: 1rem;
+      padding: 0.5rem 1rem;
+      border-bottom: 1px solid var(--secondary-dark);
 
-  .start-lottery{
-    width: 100%;
-    margin: auto;
-    margin-top: 35px;
-    margin-bottom: 35px;
-    text-align: center;
-    p{
-      margin-top: 35px;
-    }
-    .start-lottery-button{
-      width: 250px;
-      height: 250px;
-      background-color: $green-opacity;
-      border-color: $green;
-      -webkit-border-radius: 50%;
-      -moz-border-radius: 50%;
-      border-radius: 50%;
-      @include standard-transition();
-      &:hover{
-        transform: scale(1.4);
-        background-color: $pink-opacity;
-        border-color: $main-pink;
-        @include standard-transition();
+      .row-item {
+        display: flex;
+        flex: 1;
+        min-width: 192px;
       }
     }
-    .start-lottery-button.disabled{
-      background-color: gray;
-      color: white;
-      border-color: gray;
+  }
+
+  .table {
+    display: flex;
+    flex-direction: column-reverse;
+    .row {
+      display: flex;
+      gap: 1rem;
+      padding: 0.5rem 1rem;
+      border-bottom: 1px solid var(--secondary-dark);
+      transition: background-color 150ms ease;
+
+      .row-item {
+        display: flex;
+        flex: 1;
+        min-width: 192px;
+        button {
+          margin-left: auto;
+        }
+      }
     }
+  }
+}
+
+.opacity-0 {
+  opacity: 0;
+}
+
+.start-lottery {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  flex-direction: column;
+  border: 2px solid var(--primary);
+  padding: 1rem;
+  p {
+    margin: 0;
   }
 }

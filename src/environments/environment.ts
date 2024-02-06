@@ -4,14 +4,15 @@
 
 export const environment = {
   production: false,
-  version: '0.2',
+  version: '0.3',
   firebase: {
-    apiKey: '<your-key>',
-    authDomain: '<your-project-authdomain>',
-    databaseURL: '<your-database-URL>',
-    projectId: '<your-project-id>',
-    storageBucket: '<your-storage-bucket>',
-    messagingSenderId: '<your-messaging-sender-id>'
+    apiKey: "AIzaSyDcFWA4yGr1yotwO0uwkbiWNpWCujWK8d8",
+    authDomain: "evry-wine-lottery.firebaseapp.com",
+    databaseURL: "https://evry-wine-lottery.firebaseio.com",
+    projectId: "evry-wine-lottery",
+    storageBucket: "evry-wine-lottery.appspot.com",
+    messagingSenderId: "1079635311599",
+    appId: "1:1079635311599:web:2ac9e4bc8f01a485"
   }
 };
 

@@ -1,10 +1,9 @@
-<div class="standard-background">
+<main>
   <app-header [showLogout]="true"></app-header>
-  <div class="lottery-profile container" *ngIf="userId">
 
-    <app-my-lotteries [userId]="userId"></app-my-lotteries>
 
-  </div>
+    <app-my-lotteries  *ngIf="userId" [userId]="userId"></app-my-lotteries>
 
-</div>
+
+</main>
 

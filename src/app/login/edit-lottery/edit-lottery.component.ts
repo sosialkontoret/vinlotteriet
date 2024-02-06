@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {LotteryService} from '../../shared/services/lottery.service';
 import {ActivatedRoute} from '@angular/router';
 import {LotteryModel} from '../../shared/models/lottery.model';
@@ -11,8 +11,11 @@ import {ParticipantModel} from '../../shared/models/participant.model';
   templateUrl: './edit-lottery.component.html',
   styleUrls: ['./edit-lottery.component.scss']
 })
-export class EditLotteryComponent implements OnInit {
 
+
+
+export class EditLotteryComponent implements OnInit {
+  
   lotteryOngoing: boolean;
   lotteryId: string;
   lottery: LotteryModel;
@@ -21,31 +24,51 @@ export class EditLotteryComponent implements OnInit {
   addParticipantError: string;
   isLoading: boolean;
   countdownFinished: boolean;
-
+  
+  @ViewChild('name') nameRef: ElementRef;
+  
   constructor(
     private fb: FormBuilder,
     private validationService: ValidationService,
     private lotteryService: LotteryService,
     private ar: ActivatedRoute
-  ) {
-    this.numberOfDrawsDone = 0;
-  }
+    ) {
+      this.numberOfDrawsDone = 0;
+    }
+    
+    ngOnInit() {
+      this.lotteryId = this.ar.snapshot.paramMap.get('id');
+      this.getLottery(this.lotteryId);
+      this.setupForm();
 
-  ngOnInit() {
-    this.lotteryId = this.ar.snapshot.paramMap.get('id');
-    this.getLottery(this.lotteryId);
-    this.setupForm();
-  }
+    }
 
+    ngAfterViewInit() {
+      // this returns null
+    }
+    
   addParticipant(participant: ParticipantModel, valid: boolean) {
     this.addParticipantError = null;
+    
     if (valid) {
       this.updateForm(participant);
     } else {
       this.addParticipantError = 'Skjema har mangler';
     }
   }
-
+  copyMessage(){
+    const selBox = document.createElement('textarea');
+    selBox.style.position = 'fixed';
+    selBox.style.left = '0';
+    selBox.style.top = '0';
+    selBox.style.opacity = '0';
+    selBox.value = this.lotteryId;
+    document.body.appendChild(selBox);
+    selBox.focus();
+    selBox.select();
+    document.execCommand('copy');
+    document.body.removeChild(selBox);
+  }
   startLottery() {
     const previousWinners = [];
     for (let i = 0; i < this.lottery.draws.length; i++) {
@@ -77,6 +100,8 @@ export class EditLotteryComponent implements OnInit {
 
   private generateParticipantList(previousWinners: any[]) {
     const drawList = [];
+    console.log("ssss");
+    
     this.lottery.participants.forEach(participant => {
       let numberOfTickets = participant.numberOfTickets;
       // remove a ticket if already won.
@@ -114,6 +139,10 @@ export class EditLotteryComponent implements OnInit {
     this.lottery.participants.push(participant);
     this.updateLotteryModel(this.lottery);
     this.resetForm();
+    this.nameRef.nativeElement.focus()
+
+
+    
     this.isLoading = false;
   }
 

@@ -1,22 +1,24 @@
-<div class="lottery-home">
-  <div class="container">
-    <div class="lottery-pin">
-      <img class="logo-home" src="./assets/images/logo-text.svg">
-
-      <div class="lottery-input-large">
+<main>
+    <div class="lottery-home wine-container">
+      <div class="logo-container">
+      <h1>Vinlotteriet.no</h1>
+      <img class="logo-home" src="./assets/images/winebottle.png">
+    </div>
+      <!-- <div class="lottery-input-large">
         <label for="pin">Finn ditt lotteri</label>
         <input autocomplete="off" class="animated" [ngClass]="{'shake': showError}" id="pin" placeholder="Lotteri pin" [(ngModel)]="pin">
         <span *ngIf="showError" class="error">Fant ikke lotteri</span>
       </div>
 
-      <button [disabled]="isLoading" (click)="goToLottery()" class="large-button positive">
+      <button [disabled]="isLoading" (click)="goToLottery()" class="lsarge-button psositive">
         <span *ngIf="!isLoading">BLI MED</span>
         <span *ngIf="isLoading"><i class="fa fa-cog fa-spin"></i></span>
-      </button>
+      </button> -->
+      <div class="lottery-register">
+         <a class="button" [href]="'login'">Logg inn</a>
+         <a class="button secondary" [href]="'register'">Registrer</a>
+      </div>
     </div>
-  </div>
-  <div class="lottery-register">
-    <p>Lag ditt eget lotteri <a [href]="'login'">her</a></p>
-  </div>
-</div>
+
+</main>
 

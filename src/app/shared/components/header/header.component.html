@@ -1,5 +1,4 @@
-<div class="container">
-  <img (click)="home()" class="header-logo" src="./assets/images/logo-text.svg">
+<header>
+  <a class="header-title" href="/">Vinlotteriet.no</a>
   <button *ngIf="showLogout" (click)="logout()" class="logout-button">Logg ut</button>
-  <h2 class="header-title" *ngIf="title">{{title}}</h2>
-</div>
+</header>

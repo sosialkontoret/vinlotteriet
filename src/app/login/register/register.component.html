@@ -1,6 +1,6 @@
-<div class="standard-background">
+<main >
   <app-header></app-header>
-  <div class="lottery-login">
+  <div class="lottery-login wine-container" >
     <h2>Registrer bruker</h2>
     <form (ngSubmit)="register(registerForm.value)" [formGroup]="registerForm" novalidate>
       <div class="lottery-input-large">
@@ -14,11 +14,11 @@
         <div class="error"><span *ngIf="password.invalid && (password.dirty || password.touched)" translate>Password required</span></div>
       </div>
       <div class="buttons">
-        <button class="lottery-side-by-side green-background" type="submit">Registrer</button>
-        <button class="lottery-side-by-side blue-background" type="button" (click)="cancel()">Avbryt</button>
+        <button type="submit">Registrer</button>
+        <button type="button" (click)="cancel()" class="secondary">Avbryt</button>
       </div>
       <p *ngIf="errorMessage" class="error margin-top-15">{{errorMessage}}</p>
     </form>
 
   </div>
-</div>
+</main>

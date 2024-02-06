@@ -1,0 +1,1137 @@
+{
+    "name": "projects/evry-wine-lottery/databases/(default)/documents/lotteries/H89ChYMWRkS2sh6x1ymn",
+    "fields": {
+        "draws": {
+            "arrayValue": {
+                "values": [
+                    {
+                        "mapValue": {
+                            "fields": {
+                                "started": {
+                                    "booleanValue": false
+                                },
+                                "winner": {
+                                    "stringValue": ""
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        "userId": {
+            "stringValue": "pRm07Fw9a2OaAHe4ELVtvbIjd662"
+        },
+        "name": {
+            "stringValue": "Tor Aimar er en luring"
+        },
+        "id": {
+            "stringValue": "H89ChYMWRkS2sh6x1ymn"
+        },
+        "dateTime": {
+            "timestampValue": "2020-01-12T19:07:01.092104Z"
+        },
+        "participants": {
+            "arrayValue": {
+                "values": [
+                    [
+                        {
+                          "mapValue": {
+                            "fields": {
+                              "cssTop": {
+                                "integerValue": "0"
+                              },
+                              "name": {
+                                "stringValue": "Juletre"
+                              },
+                              "cssLeft": {
+                                "integerValue": "0"
+                              },
+                              "numberOfTickets": {
+                                "integerValue": "1"
+                              }
+                            }
+                          }
+                        },
+                        {
+                          "mapValue": {
+                            "fields": {
+                              "cssTop": {
+                                "integerValue": "0"
+                              },
+                              "name": {
+                                "stringValue": "Gavepapir"
+                              },
+                              "cssLeft": {
+                                "integerValue": "0"
+                              },
+                              "numberOfTickets": {
+                                "integerValue": "1"
+                              }
+                            }
+                          }
+                        },
+                        {
+                          "mapValue": {
+                            "fields": {
+                              "cssTop": {
+                                "integerValue": "0"
+                              },
+                              "name": {
+                                "stringValue": "Nisse"
+                              },
+                              "cssLeft": {
+                                "integerValue": "0"
+                              },
+                              "numberOfTickets": {
+                                "integerValue": "1"
+                              }
+                            }
+                          }
+                        },
+                        {
+                          "mapValue": {
+                            "fields": {
+                              "cssTop": {
+                                "integerValue": "0"
+                              },
+                              "name": {
+                                "stringValue": "Gløgg"
+                              },
+                              "cssLeft": {
+                                "integerValue": "0"
+                              },
+                              "numberOfTickets": {
+                                "integerValue": "1"
+                              }
+                            }
+                          }
+                        },
+  {
+    "mapValue": {
+      "fields": {
+        "cssTop": {
+          "integerValue": "0"
+        },
+        "name": {
+          "stringValue": "Julekuler"
+        },
+        "cssLeft": {
+          "integerValue": "0"
+        },
+        "numberOfTickets": {
+          "integerValue": "1"
+        }
+      }
+    }
+  },
+  {
+    "mapValue": {
+      "fields": {
+        "cssTop": {
+          "integerValue": "0"
+        },
+        "name": {
+          "stringValue": "Snøfnugg"
+        },
+        "cssLeft": {
+          "integerValue": "0"
+        },
+        "numberOfTickets": {
+          "integerValue": "1"
+        }
+      }
+    }
+  },
+  {
+    "mapValue": {
+      "fields": {
+        "cssTop": {
+          "integerValue": "0"
+        },
+        "name": {
+          "stringValue": "Pepperkaker"
+        },
+        "cssLeft": {
+          "integerValue": "0"
+        },
+        "numberOfTickets": {
+          "integerValue": "1"
+        }
+      }
+    }
+  },
+  {
+    "mapValue": {
+      "fields": {
+        "cssTop": {
+          "integerValue": "0"
+        },
+        "name": {
+          "stringValue": "Julekort"
+        },
+        "cssLeft": {
+          "integerValue": "0"
+        },
+        "numberOfTickets": {
+          "integerValue": "1"
+        }
+      }
+    }
+  },
+  {
+    "mapValue": {
+      "fields": {
+        "cssTop": {
+          "integerValue": "0"
+        },
+        "name": {
+          "stringValue": "Engler"
+        },
+        "cssLeft": {
+          "integerValue": "0"
+        },
+        "numberOfTickets": {
+          "integerValue": "1"
+        }
+      }
+    }
+  },
+  {
+    "mapValue": {
+      "fields": {
+        "cssTop": {
+          "integerValue": "0"
+        },
+        "name": {
+          "stringValue": "Julesokk"
+        },
+        "cssLeft": {
+          "integerValue": "0"
+        },
+        "numberOfTickets": {
+          "integerValue": "1"
+        }
+      }
+    }
+  },
+  {
+    "mapValue": {
+      "fields": {
+        "cssTop": {
+          "integerValue": "0"
+        },
+        "name": {
+          "stringValue": "Klementiner"
+        },
+        "cssLeft": {
+          "integerValue": "0"
+        },
+        "numberOfTickets": {
+          "integerValue": "1"
+        }
+      }
+    }
+  },
+  {
+    "mapValue": {
+      "fields": {
+        "cssTop": {
+          "integerValue": "0"
+        },
+        "name": {
+          "stringValue": "Julelys"
+        },
+        "cssLeft": {
+          "integerValue": "0"
+        },
+        "numberOfTickets": {
+          "integerValue": "1"
+        }
+      }
+    }
+  },
+  {
+    "mapValue": {
+      "fields": {
+        "cssTop": {
+          "integerValue": "0"
+        },
+        "name": {
+          "stringValue": "Ribbe"
+        },
+        "cssLeft": {
+          "integerValue": "0"
+        },
+        "numberOfTickets": {
+          "integerValue": "1"
+        }
+      }
+    }
+  },
+  {
+    "mapValue": {
+      "fields": {
+        "cssTop": {
+          "integerValue": "0"
+        },
+        "name": {
+          "stringValue": "Pinnekjøtt"
+        },
+        "cssLeft": {
+          "integerValue": "0"
+        },
+        "numberOfTickets": {
+          "integerValue": "1"
+        }
+      }
+    }
+  },
+  {
+    "mapValue": {
+      "fields": {
+        "cssTop": {
+          "integerValue": "0"
+        },
+        "name": {
+          "stringValue": "Julestrømpe"
+        },
+        "cssLeft": {
+          "integerValue": "0"
+        },
+        "numberOfTickets": {
+          "integerValue": "1"
+        }
+      }
+    }
+  },
+  {
+    "mapValue": {
+      "fields": {
+        "cssTop": {
+          "integerValue": "0"
+        },
+        "name": {
+          "stringValue": "Julesanger"
+        },
+        "cssLeft": {
+          "integerValue": "0"
+        },
+        "numberOfTickets": {
+          "integerValue": "1"
+        }
+      }
+    }
+  },
+  {
+    "mapValue": {
+      "fields": {
+        "cssTop": {
+          "integerValue": "0"
+        },
+        "name": {
+          "stringValue": "Kransekake"
+        },
+        "cssLeft": {
+          "integerValue": "0"
+        },
+        "numberOfTickets": {
+          "integerValue": "1"
+        }
+      }
+    }
+  },
+  {
+    "mapValue": {
+      "fields": {
+        "cssTop": {
+          "integerValue": "0"
+        },
+        "name": {
+          "stringValue": "Julestjerne"
+        },
+        "cssLeft": {
+          "integerValue": "0"
+        },
+        "numberOfTickets": {
+          "integerValue": "1"
+        }
+      }
+    }
+  },
+  {
+    "mapValue": {
+      "fields": {
+        "cssTop": {
+          "integerValue": "0"
+        },
+        "name": {
+          "stringValue": "Julekalender"
+        },
+        "cssLeft": {
+          "integerValue": "0"
+        },
+        "numberOfTickets": {
+          "integerValue": "1"
+        }
+      }
+    }
+  },
+  {
+    "mapValue": {
+      "fields": {
+        "cssTop": {
+          "integerValue": "0"
+        },
+        "name": {
+          "stringValue": "Gløttepinne"
+        },
+        "cssLeft": {
+          "integerValue": "0"
+        },
+        "numberOfTickets": {
+          "integerValue": "1"
+        }
+      }
+    }
+  },
+  {
+    "mapValue": {
+      "fields": {
+        "cssTop": {
+          "integerValue": "0"
+        },
+        "name": {
+          "stringValue": "Krans"
+        },
+        "cssLeft": {
+          "integerValue": "0"
+        },
+        "numberOfTickets": {
+          "integerValue": "1"
+        }
+      }
+    }
+  },
+  {
+    "mapValue": {
+      "fields": {
+        "cssTop": {
+          "integerValue": "0"
+        },
+        "name": {
+          "stringValue": "Skøyter"
+        },
+        "cssLeft": {
+          "integerValue": "0"
+        },
+        "numberOfTickets": {
+          "integerValue": "1"
+        }
+      }
+    }
+  },
+  {
+    "mapValue": {
+      "fields": {
+        "cssTop": {
+          "integerValue": "0"
+        },
+        "name": {
+          "stringValue": "Julemiddag"
+        },
+        "cssLeft": {
+          "integerValue": "0"
+        },
+        "numberOfTickets": {
+          "integerValue": "1"
+        }
+      }
+    }
+  },
+  {
+    "mapValue": {
+      "fields": {
+        "cssTop": {
+          "integerValue": "0"
+        },
+        "name": {
+          "stringValue": "Julepynt"
+        },
+        "cssLeft": {
+          "integerValue": "0"
+        },
+        "numberOfTickets": {
+          "integerValue": "1"
+        }
+      }
+    }
+  },
+  {
+    "mapValue": {
+      "fields": {
+        "cssTop": {
+          "integerValue": "0"
+        },
+        "name": {
+          "stringValue": "Sledetur"
+        },
+        "cssLeft": {
+          "integerValue": "0"
+        },
+        "numberOfTickets": {
+          "integerValue": "1"
+        }
+      }
+    }
+  },
+  {
+    "mapValue": {
+      "fields": {
+        "cssTop": {
+          "integerValue": "0"
+        },
+        "name": {
+          "stringValue": "Kjærlighet"
+        },
+        "cssLeft": {
+          "integerValue": "0"
+        },
+        "numberOfTickets": {
+          "integerValue": "1"
+        }
+      }
+    }
+  },
+  {
+    "mapValue": {
+      "fields": {
+        "cssTop": {
+          "integerValue": "0"
+        },
+        "name": {
+          "stringValue": "Juleverksted"
+        },
+        "cssLeft": {
+          "integerValue": "0"
+        },
+        "numberOfTickets": {
+          "integerValue": "1"
+        }
+      }
+    }
+  },
+  {
+    "mapValue": {
+      "fields": {
+        "cssTop": {
+          "integerValue": "0"
+        },
+        "name": {
+          "stringValue": "Stjerne"
+        },
+        "cssLeft": {
+          "integerValue": "0"
+        },
+        "numberOfTickets": {
+          "integerValue": "1"
+        }
+      }
+    }
+  },
+  {
+    "mapValue": {
+      "fields": {
+        "cssTop": {
+          "integerValue": "0"
+        },
+        "name": {
+          "stringValue": "Julegaver"
+        },
+        "cssLeft": {
+          "integerValue": "0"
+        },
+        "numberOfTickets": {
+          "integerValue": "1"
+        }
+      }
+    }
+  },
+  {
+    "mapValue": {
+      "fields": {
+        "cssTop": {
+          "integerValue": "0"
+        },
+        "name": {
+          "stringValue": "Lyslenke"
+        },
+        "cssLeft": {
+          "integerValue": "0"
+        },
+        "numberOfTickets": {
+          "integerValue": "1"
+        }
+      }
+    }
+  },
+  {
+    "mapValue": {
+      "fields": {
+        "cssTop": {
+          "integerValue": "0"
+        },
+        "name": {
+          "stringValue": "Julenek"
+        },
+        "cssLeft": {
+          "integerValue": "0"
+        },
+        "numberOfTickets": {
+          "integerValue": "1"
+        }
+      }
+    }
+  },
+  {
+    "mapValue": {
+      "fields": {
+        "cssTop": {
+          "integerValue": "0"
+        },
+        "name": {
+          "stringValue": "Fakler"
+        },
+        "cssLeft": {
+          "integerValue": "0"
+        },
+        "numberOfTickets": {
+          "integerValue": "1"
+        }
+      }
+    }
+  },
+  {
+    "mapValue": {
+      "fields": {
+        "cssTop": {
+          "integerValue": "0"
+        },
+        "name": {
+          "stringValue": "Juleduk"
+        },
+        "cssLeft": {
+          "integerValue": "0"
+        },
+        "numberOfTickets": {
+          "integerValue": "1"
+        }
+      }
+    }
+  },
+  {
+    "mapValue": {
+      "fields": {
+        "cssTop": {
+          "integerValue": "0"
+        },
+        "name": {
+          "stringValue": "Juletallerken"
+        },
+        "cssLeft": {
+          "integerValue": "0"
+        },
+        "numberOfTickets": {
+          "integerValue": "1"
+        }
+      }
+    }
+  },
+  {
+    "mapValue": {
+      "fields": {
+        "cssTop": {
+          "integerValue": "0"
+        },
+        "name": {
+          "stringValue": "Julestrømpe"
+        },
+        "cssLeft": {
+          "integerValue": "0"
+        },
+        "numberOfTickets": {
+          "integerValue": "1"
+        }
+      }
+    }
+  },
+  {
+    "mapValue": {
+      "fields": {
+        "cssTop": {
+          "integerValue": "0"
+        },
+        "name": {
+          "stringValue": "Kakemann"
+        },
+        "cssLeft": {
+          "integerValue": "0"
+        },
+        "numberOfTickets": {
+          "integerValue": "1"
+        }
+      }
+    }
+  },
+  {
+    "mapValue": {
+      "fields": {
+        "cssTop": {
+          "integerValue": "0"
+        },
+        "name": {
+          "stringValue": "Julebrus"
+        },
+        "cssLeft": {
+          "integerValue": "0"
+        },
+        "numberOfTickets": {
+          "integerValue": "1"
+        }
+      }
+    }
+  },
+  {
+    "mapValue": {
+      "fields": {
+        "cssTop": {
+          "integerValue": "0"
+        },
+        "name": {
+          "stringValue": "Lusekofte"
+        },
+        "cssLeft": {
+          "integerValue": "0"
+        },
+        "numberOfTickets": {
+          "integerValue": "1"
+        }
+      }
+    }
+  },
+  {
+    "mapValue": {
+      "fields": {
+        "cssTop": {
+          "integerValue": "0"
+        },
+        "name": {
+          "stringValue": "Glitter"
+        },
+        "cssLeft": {
+          "integerValue": "0"
+        },
+        "numberOfTickets": {
+          "integerValue": "1"
+        }
+      }
+    }
+  },
+  {
+    "mapValue": {
+      "fields": {
+        "cssTop": {
+          "integerValue": "0"
+        },
+        "name": {
+          "stringValue": "Julesnø"
+        },
+        "cssLeft": {
+          "integerValue": "0"
+        },
+        "numberOfTickets": {
+          "integerValue": "1"
+        }
+      }
+    }
+  },
+  {
+    "mapValue": {
+      "fields": {
+        "cssTop": {
+          "integerValue": "0"
+        },
+        "name": {
+          "stringValue": "Kubbelys"
+        },
+        "cssLeft": {
+          "integerValue": "0"
+        },
+        "numberOfTickets": {
+          "integerValue": "1"
+        }
+      }
+    }
+  },
+  {
+    "mapValue": {
+      "fields": {
+        "cssTop": {
+          "integerValue": "0"
+        },
+        "name": {
+          "stringValue": "Nyttår"
+        },
+        "cssLeft": {
+          "integerValue": "0"
+        },
+        "numberOfTickets": {
+          "integerValue": "1"
+        }
+      }
+    }
+  },
+  {
+    "mapValue": {
+      "fields": {
+        "cssTop": {
+          "integerValue": "0"
+        },
+        "name": {
+          "stringValue": "Julehilsen"
+        },
+        "cssLeft": {
+          "integerValue": "0"
+        },
+        "numberOfTickets": {
+          "integerValue": "1"
+        }
+      }
+    }
+  },
+  {
+    "mapValue": {
+      "fields": {
+        "cssTop": {
+          "integerValue": "0"
+        },
+        "name": {
+          "stringValue": "Julefrokost"
+        },
+        "cssLeft": {
+          "integerValue": "0"
+        },
+        "numberOfTickets": {
+          "integerValue": "1"
+        }
+      }
+    }
+  },
+  {
+    "mapValue": {
+      "fields": {
+        "cssTop": {
+          "integerValue": "0"
+        },
+        "name": {
+          "stringValue": "Tøfler"
+        },
+        "cssLeft": {
+          "integerValue": "0"
+        },
+        "numberOfTickets": {
+          "integerValue": "1"
+        }
+      }
+    }
+  },
+  {
+    "mapValue": {
+      "fields": {
+        "cssTop": {
+          "integerValue": "0"
+        },
+        "name": {
+          "stringValue": "Gavebånd"
+        },
+        "cssLeft": {
+          "integerValue": "0"
+        },
+        "numberOfTickets": {
+          "integerValue": "1"
+        }
+      }
+    }
+  },
+  {
+    "mapValue": {
+      "fields": {
+        "cssTop": {
+          "integerValue": "0"
+        },
+        "name": {
+          "stringValue": "Julefrukt"
+        },
+        "cssLeft": {
+          "integerValue": "0"
+        },
+        "numberOfTickets": {
+          "integerValue": "1"
+        }
+      }
+    }
+  },
+  {
+    "mapValue": {
+      "fields": {
+        "cssTop": {
+          "integerValue": "0"
+        },
+        "name": {
+          "stringValue": "Julegleder"
+        },
+        "cssLeft": {
+          "integerValue": "0"
+        },
+        "numberOfTickets": {
+          "integerValue": "1"
+        }
+      }
+    }
+  },
+  {
+    "mapValue": {
+      "fields": {
+        "cssTop": {
+          "integerValue": "0"
+        },
+        "name": {
+          "stringValue": "Lyspære"
+        },
+        "cssLeft": {
+          "integerValue": "0"
+        },
+        "numberOfTickets": {
+          "integerValue": "1"
+        }
+      }
+    }
+  },
+  {
+    "mapValue": {
+      "fields": {
+        "cssTop": {
+          "integerValue": "0"
+        },
+        "name": {
+          "stringValue": "Julefilm"
+        },
+        "cssLeft": {
+          "integerValue": "0"
+        },
+        "numberOfTickets": {
+          "integerValue": "1"
+        }
+      }
+    }
+  },
+  {
+    "mapValue": {
+      "fields": {
+        "cssTop": {
+          "integerValue": "0"
+        },
+        "name": {
+          "stringValue": "Kjegle"
+        },
+        "cssLeft": {
+          "integerValue": "0"
+        },
+        "numberOfTickets": {
+          "integerValue": "1"
+        }
+      }
+    }
+  },
+  {
+    "mapValue": {
+      "fields": {
+        "cssTop": {
+          "integerValue": "0"
+        },
+        "name": {
+          "stringValue": "Kjærlighet"
+        },
+        "cssLeft": {
+          "integerValue": "0"
+        },
+        "numberOfTickets": {
+          "integerValue": "1"
+        }
+      }
+    }
+  },
+  {
+    "mapValue": {
+      "fields": {
+        "cssTop": {
+          "integerValue": "0"
+        },
+        "name": {
+          "stringValue": "Tradisjon"
+        },
+        "cssLeft": {
+          "integerValue": "0"
+        },
+        "numberOfTickets": {
+          "integerValue": "1"
+        }
+      }
+    }
+  },
+  {
+    "mapValue": {
+      "fields": {
+        "cssTop": {
+          "integerValue": "0"
+        },
+        "name": {
+          "stringValue": "Varm sjokolade"
+        },
+        "cssLeft": {
+          "integerValue": "0"
+        },
+        "numberOfTickets": {
+          "integerValue": "1"
+        }
+      }
+    }
+  },
+  {
+    "mapValue": {
+      "fields": {
+        "cssTop": {
+          "integerValue": "0"
+        },
+        "name": {
+          "stringValue": "Peis"
+        },
+        "cssLeft": {
+          "integerValue": "0"
+        },
+        "numberOfTickets": {
+          "integerValue": "1"
+        }
+      }
+    }
+  },
+  {
+    "mapValue": {
+      "fields": {
+        "cssTop": {
+          "integerValue": "0"
+        },
+        "name": {
+          "stringValue": "Sjokoladekalender"
+        },
+        "cssLeft": {
+          "integerValue": "0"
+        },
+        "numberOfTickets": {
+          "integerValue": "1"
+        }
+      }
+    }
+  },
+  {
+    "mapValue": {
+      "fields": {
+        "cssTop": {
+          "integerValue": "0"
+        },
+        "name": {
+          "stringValue": "Glitrende"
+        },
+        "cssLeft": {
+          "integerValue": "0"
+        },
+        "numberOfTickets": {
+          "integerValue": "1"
+        }
+      }
+    }
+  },
+  {
+    "mapValue": {
+      "fields": {
+        "cssTop": {
+          "integerValue": "0"
+        },
+        "name": {
+          "stringValue": "Julebelysning"
+        },
+        "cssLeft": {
+          "integerValue": "0"
+        },
+        "numberOfTickets": {
+          "integerValue": "1"
+        }
+      }
+    }
+  },
+  {
+    "mapValue": {
+      "fields": {
+        "cssTop": {
+          "integerValue": "0"
+        },
+        "name": {
+          "stringValue": "Julevindu"
+        },
+        "cssLeft": {
+          "integerValue": "0"
+        },
+        "numberOfTickets": {
+          "integerValue": "1"
+        }
+      }
+    }
+  },
+  {
+    "mapValue": {
+      "fields": {
+        "cssTop": {
+          "integerValue": "0"
+        },
+        "name": {
+          "stringValue": "Røkelse"
+        },
+        "cssLeft": {
+          "integerValue": "0"
+        },
+        "numberOfTickets": {
+          "integerValue": "1"
+        }
+      }
+    }
+  }
+
+
+]
+                      
+                ]
+            }
+        },
+        "numberOfDraws": {
+            "integerValue": 60
+        },
+        "createdDate": {
+            "timestampValue": "2020-01-12T19:07:01.092104Z"
+        },
+        "description": {
+            "stringValue": "test"
+        }
+    },
+    "createTime": "2020-01-06T07:48:50.278652Z",
+    "updateTime": "2020-01-12T19:07:01.092104Z"
+}

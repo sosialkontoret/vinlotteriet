@@ -49,28 +49,6 @@
   font-size: 18px;
 }
 
-.large-button {
-  @include no-button-styling();
-  width: 100%;
-  border: 1px solid black;
-  padding: 5px 5px 5px 5px;
-  font-size: 22px;
-  margin-top: 10px;
-  border-radius: 5px;
-  background-color: $white-opacity;
-}
-
-.lottery-side-by-side {
-  @include no-button-styling();
-  width: 45%;
-  margin-left: 2px;
-  margin-right: 2px;
-  border: 1px solid black;
-  padding: 5px 5px 5px 5px;
-  font-size: 22px;
-  margin-top: 10px;
-  border-radius: 5px;
-}
 
 .positive {
   background-color: $pink-opacity;

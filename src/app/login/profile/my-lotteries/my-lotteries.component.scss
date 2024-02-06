@@ -1,25 +1,44 @@
 @import "../../../../styles/main";
 
-.my-lotteries{
-  .new-lottery{
-    margin-top: 35px;
+.button-container {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  margin-bottom: 2rem;
+  button{
+    margin-left: auto;
   }
+  h2 {
+    margin: 0;
+  }
+}
 
-  .history-lotteries{
-    margin-top: 35px;
-    .row{
-      margin-top: 10px;
-      padding: 5px 5px 5px 5px;
-      border-bottom: 1px solid $main-gray;
-      @include standard-transition();
-      &:hover{
-        @include standard-transition();
-        cursor: pointer;
-        color: $main-pink;
-      }
+.lotteries-table {
+
+  
+  
+  .row {
+    display: flex;
+    gap: 1rem;
+    padding: .5rem;
+    border-bottom: 1px solid var(--secondary-dark);
+    transition: background-color 150ms ease;
+
+    &:hover {
+      cursor: pointer;
+      background-color: var(--secondary-dark);
     }
-    .row-header{
-      font-weight: 600;
+    
+    .row-item {
+       flex: 1;
+       min-width: 192px;
+    }
+    
+  }
+  .row-header {
+    &:hover {
+      cursor: default;
+      background-color: var(--secondary);
     }
   }
 }

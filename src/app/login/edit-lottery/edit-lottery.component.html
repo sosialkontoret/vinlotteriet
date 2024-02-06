@@ -1,87 +1,136 @@
-<div class="large-background">
+<main>
   <app-header [showLogout]="true"></app-header>
 
-
-  <div class="edit-lottery">
-    <div class="container">
-      <h1>{{lottery?.name}}</h1>
-      <p>{{lottery?.description}}</p>
-      <div class="row">
-        <div class="col-md-4">
-          <h4>Trekningen kan begynne:</h4>
-          <p>{{lottery?.dateTime.toDate() | date: 'dd-MM-yyyy HH:mm' }}</p>
-        </div>
-        <div class="col-md-4">
-          <h4>Lotteriet ble laget:</h4>
-          <p>{{lottery?.createdDate.toDate() | date: 'dd-MM-yyyy HH:mm' }}</p>
-        </div>
-        <div class="col-md-4">
-          <h4>Antall trekninger:</h4>
-          <p>{{lottery?.numberOfDraws}}</p>
-        </div>
+  <div class="edit-lottery wine-container">
+    <h1>{{ lottery?.name }}</h1>
+    <p>{{ lottery?.description }}</p>
+    <div class="row">
+      <div class="col-md-4">
+        <h4>Trekningen kan begynne:</h4>
+        <p>{{ lottery?.dateTime.toDate() | date : "dd-MM-yyyy HH:mm" }}</p>
       </div>
-      <div *ngIf="!countdownFinished" class="row">
-        <div class="col-md-4">
-          Trekningen begynner om:
-        </div>
-        <div class="col-md-8">
-          <app-count-down *ngIf="lottery?.dateTime" (countDownFinished)="setCountdownFinished($event)" [eventDate]="lottery?.dateTime.toDate()"></app-count-down>
-        </div>
+      <div class="col-md-4">
+        <h4>Lotteriet ble laget:</h4>
+        <p>{{ lottery?.createdDate.toDate() | date : "dd-MM-yyyy HH:mm" }}</p>
       </div>
-
-      <div *ngIf="countdownFinished && numberOfDrawsDone <= lottery?.numberOfDraws" class="start-lottery">
-        <button  *ngIf="!lotteryOngoing" (click)="startLottery()" class="animated lightSpeedIn start-lottery-button">Start Lotteri!</button>
-        <button disabled *ngIf="lotteryOngoing" (click)="startLottery()" class="start-lottery-button disabled">Trekning pågår!</button>
-        <p>Dersom det gjenstår flere trekninger kan flere detalkere legges til.</p>
+      <div class="col-md-4">
+        <h4>Antall trekninger:</h4>
+        <p>{{ lottery?.numberOfDraws }}</p>
       </div>
-
-      <div *ngIf="numberOfDrawsDone >= lottery?.numberOfDraws">
-        <div *ngFor="let draw of lottery.draws">
-          <h3>🏆 Winners 🏆</h3>
-          <p>{{draw.winner}}</p>
-        </div>
-      </div>
-
-      <h3>Legg til deltakgere:</h3>
-      <form class="row" (ngSubmit)="addParticipant(newParticipantForm.value, newParticipantForm.valid)" [formGroup]="newParticipantForm">
-        <div class="form-element col-md-4">
-          <label>Navn:</label>
-          <input type="text" placeholder="Navn" formControlName="name">
-          <div class="error"><span *ngIf="name.invalid && (name.dirty || name.touched)" translate>Navn påkrevd</span></div>
-        </div>
-        <div class="form-element col-md-4">
-          <label>Antall lodd:</label>
-          <input type="number" placeholder="Antall" formControlName="numberOfTickets">
-          <div class="error"><span *ngIf="numberOfTickets.invalid && (numberOfTickets.dirty || numberOfTickets.touched)" translate>Antall lodd må være mellom 0-100</span></div>
-        </div>
-        <div class="form-element col-md-4">
-          <button class="small-button green-background" type="submit">
-            <span *ngIf="isLoading"><i class="fa fa-cog fa-spin"></i></span>
-            <span *ngIf="!isLoading">Legg til</span>
-          </button>
-          <span class="error" *ngIf="addParticipantError">{{addParticipantError}}</span>
-        </div>
-      </form>
-
-      <div class="participants">
-        <h3>Deltakere</h3>
-        <div class="row">
-          <div class="col-8 header">Navn</div>
-          <div class="col-2 header">Antall lodd</div>
-          <div class="col-2 header"></div>
-        </div>
-        <div class="participant-list">
-          <div class="row" *ngFor="let participants of lottery?.participants; let i = index">
-            <div class="col additonal-padding col-8">{{participants.name}}</div>
-            <div class="col additonal-padding col-2">{{participants.numberOfTickets}}</div>
-            <div class="col col-2"><button class="delete" (click)="deleteParticipant(participants.name, i)"><i class="fa fa-trash-o"></i> </button></div>
-          </div>
-        </div>
-
-      </div>
+    </div>
+    <div class="start-lottery" *ngIf="!countdownFinished">
+      <div >Lotteriet laster</div>
+        <app-count-down
+          *ngIf="lottery?.dateTime"
+          (countDownFinished)="setCountdownFinished($event)"
+          [eventDate]="lottery?.dateTime.toDate()"
+        ></app-count-down>
     </div>
 
 
-  </div>
+    <div
+      *ngIf="countdownFinished && numberOfDrawsDone <= lottery?.numberOfDraws"
+      class="start-lottery"
+    >
+      <!--<button  *ngIf="!lotteryOngoing" (click)="startLottery()" class="animated lightSpeedIn start-lottery-button">Start Lotteri!</button>-->
 
-</div>
+        <p> Lotteri-id: {{ lottery?.id }}</p>
+        <button class="secondary "(click)="copyMessage()">Kopier</button>
+      <p>Kopier id-en og lim den inn i lotteritrekkeren.</p>
+      <a class="button" href="https://draw.vinlotteriet.no" target="_blank">Start lotteritrekkeren</a>
+      <button
+        disabled
+        *ngIf="lotteryOngoing"
+        (click)="startLottery()"
+        class="start-lottery-button disabled"
+      >
+        Trekning pågår!
+      </button>
+      <p>
+        Dersom det gjenstår flere trekninger kan flere deltakere legges til.
+      </p>
+    </div>
+
+    <div *ngIf="numberOfDrawsDone >= lottery?.numberOfDraws">
+      <div *ngFor="let draw of lottery.draws">
+        <h3>🏆 Winners 🏆</h3>
+        <p>{{ draw.winner }}</p>
+      </div>
+    </div>
+
+    <h3>Legg til deltagere:</h3>
+    <form
+      (ngSubmit)="
+        addParticipant(newParticipantForm.value, newParticipantForm.valid)
+      "
+      [formGroup]="newParticipantForm"
+    >
+      <div class="form-element">
+        <label>Navn:</label>
+        <input #name type="text" placeholder="Navn" id="name" name="name" formControlName="name" />
+        <div class="error">
+          <span *ngIf="name.invalid && (name.dirty || name.touched)" translate
+            >Navn påkrevd</span
+          >
+        </div>
+      </div>
+      <div class="form-element">
+        <label>Antall lodd:</label>
+        <input
+          type="number"
+          placeholder="Antall"
+          formControlName="numberOfTickets"
+        />
+        <div class="error">
+          <span
+            *ngIf="
+              numberOfTickets.invalid &&
+              (numberOfTickets.dirty || numberOfTickets.touched)
+            "
+            translate
+            >Antall lodd må være mellom 0-100</span
+          >
+        </div>
+      </div>
+      <div class="form-element">
+        <button type="submit">
+          <span *ngIf="isLoading"><i class="fa fa-cog fa-spin"></i></span>
+          <span *ngIf="!isLoading">Legg til</span>
+        </button>
+        <span class="error" *ngIf="addParticipantError">{{
+          addParticipantError
+        }}</span>
+      </div>
+    </form>
+
+    <div class="participant-list-table">
+      <h3>Deltakere</h3>
+
+      <div class="row row-header">
+        <div class="row-item">Navn</div>
+        <div class="row-item">Antall lodd</div>
+        <div class="row-item"></div>
+      </div>
+      <div class="table">
+        <div
+          class="row"
+          *ngFor="let participants of lottery?.participants; let i = index"
+        >
+          <div class="row-item">{{ participants.name }}</div>
+          <div class="row-item">
+            {{ participants.numberOfTickets }}
+          </div>
+          <div class="row-item">
+            <button
+              class="delete secondary"
+              (click)="deleteParticipant(participants.name, i)"
+            >
+              <i class="fa fa-trash-o"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
