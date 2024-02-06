@@ -12,9 +12,10 @@
     margin: 0;
   }
 }
-
+.my-lotteries {
+  margin-bottom: 1rem;
 .lotteries-table {
-
+  min-height: 50vh;
   
   
   .row {
@@ -41,4 +42,5 @@
       background-color: var(--secondary);
     }
   }
+}
 }

@@ -16,12 +16,35 @@ body {
   background-color: var(--primary);
   color: var(--primary);
 }
+h1,h2,h3,h4,h5,h6 {
+  font-family: "DM Serif Display", serif;
+
+}
+
 main {
   display: flex;
   flex-direction: column;
-  height: 100vh;
   margin: 1rem;
+  border: 2px solid var(--secondary);
+  height: calc(100vh - 2rem);
   gap: 2rem;
+}
+.background{
+  z-index: -1;
+  position: fixed;
+  top:0;
+  left:0;
+  bottom: 0;
+  right: 0;
+}
+
+.decorator-ball {
+  border-radius: 100%;
+  width: 250px;
+  height: 250px;
+  background: linear-gradient(180deg, rgba(196, 196, 196, 0.10) 0%, rgba(196, 196, 196, 0.00) 100%);
+
+  position: relative;
 }
 
 .wine-container {
@@ -30,7 +53,7 @@ main {
   position: relative;
   transition: all 200ms ease;
   max-width: 768px;
-  margin: auto;
+  margin: 0 auto;
 
   &:after {
     content: "";
@@ -103,6 +126,30 @@ button,
   }
   &:after {
     border: 2px solid var(--primary);
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+  }
+
+  &:hover {
+    &:after {
+      top: 2px;
+      left: 2px;
+      right: 2px;
+      bottom: 2px;
+    }
+  }
+}
+
+
+//animations
+@keyframes floatUpDown {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
   }
 }
 

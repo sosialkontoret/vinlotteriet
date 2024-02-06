@@ -1,27 +1,54 @@
 @import "../../styles/main";
 
-.lottery-home {
+.main-container {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  overflow: hidden;
+  padding: 1rem;
   justify-content: center;
-  align-items: center;
-
+  gap: 16px;
+  height: calc(100vh - 2rem);
   .logo-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .logo-home {
+      width: 100px;
+      height: auto;
+      transform-origin: center;
+      transform: scale(2.5);
+    }
+  }
+
+  .lottery-home-container {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    justify-content: center;
+    .lottery-home {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
-  .logo-home {
-    height: 450px;
-    width: auto;
-  }
-
-  .lottery-register {
-    display: flex;
-    flex-direction: column;
-    min-width: 100px;
+    margin: auto;
+    gap: 5rem;
+    padding: 4rem 2rem;
 
 
+    .logo-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .lottery-register-buttons {
+      display: flex;
+      flex-direction: column;
+      min-width: 100px;
+      gap: 1rem;
+    }
+    }
   }
 }
